@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="px-4 pt-8 pb-3 sm:ml-64">
-    <div class="  mt-12">
+    <div class="mt-12 mr-3">
         <h2 class="text-2xl text-gray-800 dark:text-gray-100">Dashboard</h2>
 
         <div class="w-full mt-4">
@@ -12,8 +12,8 @@
                     <div class="grid grid-rows-2 grid-flow-col gap-3 md:gap-0 md:flex">
                         <div class="md:w-1/4 h-24 rounded-lg border md:mr-2 p-4">
                             <div class="flex justify-between items-center">
-                                <p class="text-gray-600 dark:text-gray-100 underline">200 Buah</p>
-                                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-yellow-300 dark:text-gray-100">
+                                <p class="text-gray-600 dark:text-yellow-300 underline">200 Buah</p>
+                                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-yellow-300 dark:text-yellow-300">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"></path>
                                 </svg>
                             </div>
@@ -21,8 +21,8 @@
                         </div>
                         <div class="md:w-1/4 h-24 rounded-lg border p-4 md:mr-2">
                             <div class="flex justify-between items-center">
-                                <p class="text-gray-600 dark:text-gray-100 underline">300 Buah</p>
-                                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-green-500 dark:text-gray-100">
+                                <p class="text-gray-600 dark:text-green-500 underline">300 Buah</p>
+                                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-green-500 dark:text-green-500">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.125l2.25 2.25m0 0l2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"></path>
                                 </svg>
                             </div>
@@ -30,8 +30,8 @@
                         </div>
                         <div class="md:w-1/4 h-24 rounded-lg border p-4 md:mr-2">
                             <div class="flex justify-between items-center">
-                                <p class="text-gray-600 dark:text-gray-100 underline">300 Buah</p>
-                                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-cyan-800 dark:text-gray-100">
+                                <p class="text-gray-600 dark:text-cyan-600 underline">300 Buah</p>
+                                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-cyan-800 dark:text-cyan-600">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0l-3-3m3 3l3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"></path>
                                 </svg>
                             </div>
@@ -39,8 +39,8 @@
                         </div>
                         <div class="md:w-1/4 h-24 rounded-lg border p-4">
                             <div class="flex justify-between items-center">
-                                <p class="text-gray-600 dark:text-gray-100 underline">200 Buah</p>
-                                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-red-700 dark:text-gray-100">
+                                <p class="text-gray-600 dark:text-red-600 underline">200 Buah</p>
+                                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-red-800 dark:text-red-600">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"></path>
                                 </svg>
                             </div>
