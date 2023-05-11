@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -57,14 +58,14 @@ class PagesController extends Controller
     public function registerProcess(Request $request)
     {
         $rules = [
-            'name' => 'required|string',
+            'username' => 'required|string',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string',
         ];
 
         $message = [
-            'name.required' => 'Nama wajib diisi!',
-            'name.string' => 'Nama harus berupa string!',
+            'username.required' => 'Nama wajib diisi!',
+            'username.string' => 'Nama harus berupa string!',
             'email.required' => 'Email wajib diisi!',
             'email.email' => 'Email tidak valid!',
             'email.unique' => 'Email sudah terdaftar!',
@@ -73,6 +74,20 @@ class PagesController extends Controller
         ];
 
         $request->validate($rules, $message);
+
+        $user = new User();
+        $user->name = 'User';
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->gender = 'not-found';
+        $user->address = 'not-found';
+        $user->phone = 'not-found';
+        $user->role = '2';
+        $user->image = 'not-found';
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        return redirect('/login')->with('success', 'Anda berhasil register!');
     }
 
     public function profile()
