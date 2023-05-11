@@ -28,7 +28,7 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('dashboard', [PagesController::class, 'dashboard']);
+    Route::get('dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
     Route::get('profile', [PagesController::class, 'profile']);
     Route::get('profile/{id}/edit', [PagesController::class, 'editProfile']);
     Route::resource('users', UserController::class);
