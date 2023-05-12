@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('markets', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('address');
+            $table->string('phone');
+            $table->string('image');
             $table->timestamps();
         });
     }

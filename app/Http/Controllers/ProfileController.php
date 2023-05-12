@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
-class UserController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class UserController extends Controller
     public function index()
     {
         $data = [];
-        return view('admin.pages.users.index', $data);
+        return view('admin.pages.profile.index', $data);
     }
 
     /**
@@ -37,8 +38,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        $data = [];
-        return view('admin.pages.users.show', $data);
+        //
     }
 
     /**
@@ -46,15 +46,20 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        $data = [];
-        return view('admin.pages.users.edit', $data);
+        $user = User::findOrFail($id);
+        $data = [
+            'user' => $user,
+        ];
+        return view('admin.pages.profile.edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, string $id)
     {
+        $user = User::findOrFail($id);
+
         $rules = [
             'name' => 'required|string',
             'username' => 'required|string',
@@ -91,9 +96,19 @@ class UserController extends Controller
         $user->phone = $request->input('phone');
         $user->address = $request->input('address');
         $user->username = $request->input('username');
+
+        if ($request->hasFile('image_new')) {
+            if ($user->image != 'not_found') {
+                File::delete(public_path('users/' . $user->image));
+            }
+            $profile_image = "user_" . $user->id . "." . $request->file('image_new')->extension();
+            $request->file('image_new')->move(public_path('users/'), $profile_image);
+            $user->image = $profile_image;
+        }
+
         $user->save();
 
-        return redirect('/users')->with('success', 'User berhasil diupdate!');
+        return redirect('/profile')->with('success', 'Profil berhasil diupdate!');
     }
 
     /**
@@ -101,6 +116,10 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        File::delete(public_path('users/' . $user->image));
+        $user->image = 'not_found';
+        $user->save();
+        return redirect('/profile')->with('success', 'Foto profil berhasil dihapus!');
     }
 }

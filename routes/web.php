@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MarketController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
 
 /*
@@ -29,8 +30,7 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
-    Route::get('profile', [PagesController::class, 'profile']);
-    Route::get('profile/{id}/edit', [PagesController::class, 'editProfile']);
+    Route::resource('profile', ProfileController::class);
     Route::resource('users', UserController::class);
     Route::resource('markets', MarketController::class);
     Route::resource('products', ProductController::class);

@@ -90,20 +90,6 @@ class PagesController extends Controller
         return redirect('/login')->with('success', 'Anda berhasil register!');
     }
 
-    public function profile()
-    {
-        $data = [
-            'user' => auth()->user(),
-        ];
-        return view('admin.pages.profile.index', $data);
-    }
-
-    public function editProfile($id)
-    {
-        $data = [];
-        dd($id);
-        return view('admin.pages.profile.edit', $data);
-    }
 
     public function logout()
     {
