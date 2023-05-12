@@ -99,10 +99,10 @@ class ProfileController extends Controller
 
         if ($request->hasFile('image_new')) {
             if ($user->image != 'not_found') {
-                File::delete(public_path('users/' . $user->image));
+                File::delete(public_path('image_users/' . $user->image));
             }
             $profile_image = "user_" . $user->id . "." . $request->file('image_new')->extension();
-            $request->file('image_new')->move(public_path('users/'), $profile_image);
+            $request->file('image_new')->move(public_path('image_users/'), $profile_image);
             $user->image = $profile_image;
         }
 
@@ -117,7 +117,7 @@ class ProfileController extends Controller
     public function destroy(string $id)
     {
         $user = User::findOrFail($id);
-        File::delete(public_path('users/' . $user->image));
+        File::delete(public_path('image_users/' . $user->image));
         $user->image = 'not_found';
         $user->save();
         return redirect('/profile')->with('success', 'Foto profil berhasil dihapus!');

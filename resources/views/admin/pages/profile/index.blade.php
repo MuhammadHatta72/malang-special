@@ -62,7 +62,7 @@
                     <div class="p-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <h3 class="text-gray-600 dark:text-gray-200 mb-3">Gambar Pengguna</h3>
                         @if (auth()->user()->image !== 'not_found')
-                        <img class="w-full h-full rounded-full mt-3" src="{{ url('./users/'.auth()->user()->image) }}" alt="user photo">
+                        <img class="w-full h-full rounded-full mt-3" src="{{ url('./image_users/'.auth()->user()->image) }}" alt="user photo">
                         <form action="/profile/{{auth()->user()->id}}" method="post">
                             @csrf
                             @method('delete')

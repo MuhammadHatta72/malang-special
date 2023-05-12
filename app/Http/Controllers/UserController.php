@@ -12,7 +12,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data = [];
+        $this->authorize('superadmin_admin');
+        $data = [
+            'users' => User::all(),
+        ];
         return view('admin.pages.users.index', $data);
     }
 
@@ -37,7 +40,11 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        $data = [];
+        $this->authorize('superadmin_admin');
+        $user = User::findOrFail($id);
+        $data = [
+            'user' => $user,
+        ];
         return view('admin.pages.users.show', $data);
     }
 
@@ -46,7 +53,11 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        $data = [];
+        $this->authorize('superadmin');
+        $user = User::findOrFail($id);
+        $data = [
+            'user' => $user,
+        ];
         return view('admin.pages.users.edit', $data);
     }
 
@@ -58,11 +69,8 @@ class UserController extends Controller
         $rules = [
             'name' => 'required|string',
             'username' => 'required|string',
-            'email' => 'required|email|unique:users,email,' . $user->id,
-            'gender' => 'required',
             'phone' => 'required|string',
             'address' => 'required|string',
-            'image_new' => 'nullable|image|mimes:jpg,jpeg,png',
         ];
 
         $messages = [
@@ -70,27 +78,18 @@ class UserController extends Controller
             'name.string' => 'Nama harus berupa string!',
             'username.required' => 'Username wajib diisi!',
             'username.string' => 'Username harus berupa string!',
-            'email.required' => 'Email wajib diisi!',
-            'email.email' => 'Email tidak valid!',
-            'email.unique' => 'Email telah ditambahkan!',
-            'gender.required' => 'Jenis kelamin wajib diisi!',
             'phone.required' => 'Nomor telepon wajib diisi!',
             'phone.string' => 'Nomor telepon harus berupa string!',
             'address.required' => 'Alamat wajib diisi!',
             'address.string' => 'Alamat harus berupa string!',
-            'image_new.image' => 'Foto harus berupa gambar!',
-            'image_new.mimes' => 'Foto harus berekstensi jpg, jpeg, atau png!',
         ];
 
         $request->validate($rules, $messages);
 
         $user->name = $request->input('name');
         $user->username = $request->input('username');
-        $user->email = $request->input('email');
-        $user->gender = $request->input('gender');
         $user->phone = $request->input('phone');
         $user->address = $request->input('address');
-        $user->username = $request->input('username');
         $user->save();
 
         return redirect('/users')->with('success', 'User berhasil diupdate!');
@@ -101,6 +100,9 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $this->authorize('superadmin');
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect('/users')->with('error', 'User berhasil dihapus!');
     }
 }

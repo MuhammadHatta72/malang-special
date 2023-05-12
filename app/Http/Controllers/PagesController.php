@@ -82,7 +82,7 @@ class PagesController extends Controller
         $user->gender = 'not-found';
         $user->address = 'not-found';
         $user->phone = 'not-found';
-        $user->role = '2';
+        $user->role = '3';
         $user->image = 'not-found';
         $user->password = bcrypt($request->password);
         $user->save();
