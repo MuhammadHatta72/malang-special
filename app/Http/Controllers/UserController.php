@@ -14,7 +14,7 @@ class UserController extends Controller
     {
         $this->authorize('superadmin_admin');
         $data = [
-            'users' => User::all(),
+            'users' => User::paginate(10),
         ];
         return view('admin.pages.users.index', $data);
     }
