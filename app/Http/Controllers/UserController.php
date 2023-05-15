@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -64,28 +65,8 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        $rules = [
-            'name' => 'required|string',
-            'username' => 'required|string',
-            'phone' => 'required|string',
-            'address' => 'required|string',
-        ];
-
-        $messages = [
-            'name.required' => 'Nama wajib diisi!',
-            'name.string' => 'Nama harus berupa string!',
-            'username.required' => 'Username wajib diisi!',
-            'username.string' => 'Username harus berupa string!',
-            'phone.required' => 'Nomor telepon wajib diisi!',
-            'phone.string' => 'Nomor telepon harus berupa string!',
-            'address.required' => 'Alamat wajib diisi!',
-            'address.string' => 'Alamat harus berupa string!',
-        ];
-
-        $request->validate($rules, $messages);
-
         $user->name = $request->input('name');
         $user->username = $request->input('username');
         $user->phone = $request->input('phone');

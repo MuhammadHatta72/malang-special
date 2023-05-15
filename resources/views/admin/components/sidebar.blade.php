@@ -20,6 +20,7 @@
                 </a>
             </li>
             @endcan
+            @can('superadmin')
             <li>
                 <a href="{{url('/markets')}}" class="flex items-center p-2 text-gray-600 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('markets') ? 'text-gray-900 bg-gray-100 dark:bg-gray-700': '' }}">
                     <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-white">
@@ -28,6 +29,7 @@
                     <span class="ml-3">Markets</span>
                 </a>
             </li>
+            @endcan
             <li>
                 <a href="{{url('/products')}}" class="flex items-center p-2 text-gray-600 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('products') ? 'text-gray-900 bg-gray-100 dark:bg-gray-700': '' }}">
                     <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-white">
