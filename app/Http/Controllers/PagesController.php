@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
+    public function landing(){
+        return view('user.home');
+    }
     public function dashboard()
     {
         $data = [
