@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Register Malang Special ~ Oleh-oleh Khas Malang</title>
+    <title>Malang Special ~ Oleh-oleh Khas Malang</title>
     <link href="{{ url('./images/logo.png') }}" rel="shortcut icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
