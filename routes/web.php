@@ -20,7 +20,9 @@ use App\Http\Controllers\ReportController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('checkout', [PagesController::class, 'checkout']);
 Route::get('/', [PagesController::class, 'landing']);
+Route::get('shop', [PagesController::class, 'shop']);
 Route::middleware('guest')->group(function () {
     Route::get('login', [PagesController::class, 'login'])->name('login');
     Route::post('login', [PagesController::class, 'loginProcess']);
