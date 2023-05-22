@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
+    public function checkout()
+    {
+        return view('user.checkout');
+    }
+    public function shop()
+    {
+        return view('user.shop');
+    }
     public function landing()
     {
         return view('user.home');
