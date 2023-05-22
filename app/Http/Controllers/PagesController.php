@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -67,35 +68,17 @@ class PagesController extends Controller
         return view('admin.pages.auth.register', $data);
     }
 
-    public function registerProcess(Request $request)
+    public function registerProcess(StoreUserRequest $request)
     {
-        $rules = [
-            'username' => 'required|string',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|string',
-        ];
-
-        $message = [
-            'username.required' => 'Nama wajib diisi!',
-            'username.string' => 'Nama harus berupa string!',
-            'email.required' => 'Email wajib diisi!',
-            'email.email' => 'Email tidak valid!',
-            'email.unique' => 'Email sudah terdaftar!',
-            'password.required' => 'Password wajib diisi!',
-            'password.string' => 'Password harus berupa string!',
-        ];
-
-        $request->validate($rules, $message);
-
         $user = new User();
         $user->name = 'User';
         $user->username = $request->username;
         $user->email = $request->email;
-        $user->gender = 'not-found';
-        $user->address = 'not-found';
-        $user->phone = 'not-found';
+        $user->gender = 'not_found';
+        $user->address = 'not_found';
+        $user->phone = 'not_found';
         $user->role = '3';
-        $user->image = 'not-found';
+        $user->image = 'not_found';
         $user->password = bcrypt($request->password);
         $user->save();
 
