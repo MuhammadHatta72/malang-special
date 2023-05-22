@@ -9,7 +9,7 @@
     @vite('resources/css/app.css')
     <script>
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        if (localStorage.getItem('color-theme') === 'white' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         } else {
             document.documentElement.classList.remove('dark')
@@ -19,6 +19,8 @@
 
 <body class="dark:bg-gray-900">
 
+
+  
     
 <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -36,13 +38,13 @@
     <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
       <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
         <li>
-            <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">home</a>
+            <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Home</a>
         </li>
         <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+          <a href="/shop" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Shop</a>
         </li>
         <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
+          <a href="/checkout" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Cart</a>
         </li>
         <li>
           <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
@@ -52,7 +54,7 @@
     </div>
 </nav>
 
-<section class=" mt-19.5 bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply">
+<section class=" bg-cover bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply">
     <div class="px-2 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">We invest in the world’s potential</h1>
         <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
@@ -271,10 +273,40 @@
         
     </div>
 </section> --}}
+
+<section class="bg-grey py-12 text-gray-700 sm:py-16 lg:py-20 ">
+
+  <div class="w-10/12 grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto justify-center">
+    <div class="border border-primary rounded-sm px-3 py-6 flex justify-center items-center gap-5">
+        <img src="assets/images/icons/delivery-van.svg" alt="Delivery" class="w-12 h-12 object-contain">
+        <div>
+            <h4 class="font-medium capitalize text-lg">Free Shipping</h4>
+            <p class="text-gray-500 text-sm">Order over $200</p>
+        </div>
+    </div>
+    <div class="border border-primary rounded-sm px-3 py-6 flex justify-center items-center gap-5">
+        <img src="assets/images/icons/money-back.svg" alt="Delivery" class="w-12 h-12 object-contain">
+        <div>
+            <h4 class="font-medium capitalize text-lg">Money Returns</h4>
+            <p class="text-gray-500 text-sm">30 days money returs</p>
+        </div>
+    </div>
+    <div class="border border-primary rounded-sm px-3 py-6 flex justify-center items-center gap-5">
+        <img src="assets/images/icons/service-hours.svg" alt="Delivery" class="w-12 h-12 object-contain">
+        <div>
+            <h4 class="font-medium capitalize text-lg">24/7 Support</h4>
+            <p class="text-gray-500 text-sm">Customer support</p>
+        </div>
+    </div>
+</div>
+
+</section>
+
+
 <section class="bg-grey py-12 text-gray-700 sm:py-16 lg:py-20 ">
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-md text-center">
-        <h2 class="font-serif text-2xl font-bold sm:text-3xl text-gray-900 dark:text-white">Fresh Fruits & Vegetables</h2>
+        <h2 class="font-serif text-2xl font-bold sm:text-3xl text-gray-900 dark:text-white">Product Terlaris</h2>
       </div>
   
       <div class="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-4 lg:mt-16">
@@ -430,7 +462,107 @@
         </article>
       </div>
     </div>
+</section>
+
+<div class="container my-24 px-6 mx-auto">
+
+  <!-- Section: Design Block -->
+  <section class="mb-32 text-gray-800 text-center">
+
+    <h2 class="text-3xl font-bold mb-12 pb-4 text-center">Category Product</h2>
+
+    <div class="grid lg:grid-cols-3 gap-6 xl:gap-x-12">
+      <div class="mb-6 lg:mb-0">
+        <div class="relative block bg-white rounded-lg shadow-lg">
+          <div class="flex">
+            <div
+              class="relative overflow-hidden bg-no-repeat bg-cover bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
+              data-mdb-ripple="true" data-mdb-ripple-color="light">
+              <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/002.webp" class="w-full" />
+              <a href="#!">
+                <div
+                  class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
+                  style="background-color: rgba(251, 251, 251, 0.15)"></div>
+              </a>
+            </div>
+          </div>
+          <div class="p-6">
+            <h5 class="font-bold text-lg mb-3">White city</h5>
+            <p class="mb-4 pb-2">
+              Ut pretium ultricies dignissim. Sed sit amet mi eget urna
+              placerat vulputate. Ut vulputate est non quam dignissim
+              elementum. Donec a ullamcorper diam.
+            </p>
+            <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light"
+              class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Read
+              more</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-6 lg:mb-0">
+        <div class="relative block bg-white rounded-lg shadow-lg">
+          <div class="flex">
+            <div
+              class="relative overflow-hidden bg-no-repeat bg-cover bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
+              data-mdb-ripple="true" data-mdb-ripple-color="light">
+              <img src="https://mdbcdn.b-cdn.net/img/new/standard/people/066.webp" class="w-full" />
+              <a href="#!">
+                <div
+                  class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
+                  style="background-color: rgba(251, 251, 251, 0.15)"></div>
+              </a>
+            </div>
+          </div>
+          <div class="p-6">
+            <h5 class="font-bold text-lg mb-3">A lonely bench</h5>
+            <p class="mb-4 pb-2">
+              Suspendisse in volutpat massa. Nulla facilisi. Sed aliquet
+              diam orci, nec ornare metus semper sed. Integer volutpat
+              ornare erat sit amet rutrum.
+            </p>
+            <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light"
+              class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Read
+              more</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-0">
+        <div class="relative block bg-white rounded-lg shadow-lg">
+          <div class="flex">
+            <div
+              class="relative overflow-hidden bg-no-repeat bg-cover bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
+              data-mdb-ripple="true" data-mdb-ripple-color="light">
+              <img src="https://mdbcdn.b-cdn.net/img/new/standard/people/191.webp" class="w-full" />
+              <a href="#!">
+                <div
+                  class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
+                  style="background-color: rgba(251, 251, 251, 0.15)"></div>
+              </a>
+            </div>
+          </div>
+          <div class="p-6">
+            <h5 class="font-bold text-lg mb-3">Happy snow</h5>
+            <p class="mb-4 pb-2">
+              Curabitur tristique, mi a mollis sagittis, metus felis mattis
+              arcu, non vehicula nisl dui quis diam. Mauris ut risus eget
+              massa volutpat feugiat. Donec.
+            </p>
+            <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light"
+              class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Read
+              more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </section>
+  <!-- Section: Design Block -->
+
+</div>
+<!-- Container for demo purpose -->
+
   
 <footer class="bg-white dark:bg-gray-900">
     
