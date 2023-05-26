@@ -16,11 +16,10 @@ class ProductController extends Controller
 
     public function index()
     {
-        $this->authorize('superadmin', 'admin');
+        $this->authorize('admin_user');
         $data = [
             'products' => Product::paginate(10),
         ];
-
         return view('admin.pages.products.index', $data);
     }
 
@@ -29,7 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $this->authorize('superadmin', 'admin');
+        $this->authorize('admin_user');
         $data = [];
 
         return view('admin.pages.products.create', $data);
@@ -40,7 +39,7 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        $this->authorize('superadmin', 'admin');
+        $this->authorize('admin_user');
 
         $product = new Product();
         $product->name = $request->name;
@@ -66,7 +65,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $this->authorize('superadmin', 'admin');
+        $this->authorize('admin_user');
         $data = [
             'product' => $product,
         ];
@@ -79,7 +78,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $this->authorize('superadmin', 'admin');
+        $this->authorize('admin_user');
         $data = [
             'product' => $product,
         ];
@@ -92,7 +91,7 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        $this->authorize('superadmin', 'admin');
+        $this->authorize('admin_user');
 
         $product->name = $request->name;
         $product->price = $request->price;

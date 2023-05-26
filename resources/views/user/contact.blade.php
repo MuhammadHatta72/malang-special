@@ -3,22 +3,20 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Login Malang Special ~ Oleh-oleh Khas Malang</title>
+    <title>Malang Special ~ Oleh-oleh Khas Malang</title>
     <link href="{{ url('./images/logo.png') }}" rel="shortcut icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
     <script>
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-        if (localStorage.getItem('color-theme') === '' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        if (localStorage.getItem('color-theme') === 'white' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         } else {
             document.documentElement.classList.remove('dark')
         }
     </script>
 </head>
-
 <body class="dark:bg-gray-900">
-
 <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <a href="https://flowbite.com/" class="flex items-center">
@@ -50,139 +48,186 @@
     </div>
     </div>
 </nav>
-    <div class="container mx-auto py-9 md:py-12 lg:py-24">
-        <div class="flex flex-col w-full px-0 mx-auto md:flex-row">
-            <div class="flex flex-col md:w-full">
-                <h2 class="mb-4 font-bold md:text-xl text-heading ">Shipping Address
-                </h2>
-                <form class="justify-center w-full mx-auto" method="post" action>
-                    <div class="">
-                        <div class="space-x-0 lg:flex lg:space-x-4">
-                            <div class="w-full lg:w-1/2">
-                                <label for="firstName" class="block mb-3 text-sm font-semibold text-gray-500">First
-                                    Name</label>
-                                <input name="firstName" type="text" placeholder="First Name"
-                                    class="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600">
-                            </div>
-                            <div class="w-full lg:w-1/2 ">
-                                <label for="firstName" class="block mb-3 text-sm font-semibold text-gray-500">Last
-                                    Name</label>
-                                <input name="Last Name" type="text" placeholder="Last Name"
-                                    class="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600">
-                            </div>
-                        </div>
-                        <div class="mt-4">
-                            <div class="w-full">
-                                <label for="Email"
-                                    class="block mb-3 text-sm font-semibold text-gray-500">Email</label>
-                                <input name="Last Name" type="text" placeholder="Email"
-                                    class="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600">
-                            </div>
-                        </div>
-                        <div class="mt-4">
-                            <div class="w-full">
-                                <label for="Address"
-                                    class="block mb-3 text-sm font-semibold text-gray-500">Address</label>
-                                <textarea
-                                    class="w-full px-4 py-3 text-xs border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
-                                    name="Address" cols="20" rows="4" placeholder="Address"></textarea>
-                            </div>
-                        </div>
-                        <div class="space-x-0 lg:flex lg:space-x-4">
-                            <div class="w-full lg:w-1/2">
-                                <label for="city"
-                                    class="block mb-3 text-sm font-semibold text-gray-500">City</label>
-                                <input name="city" type="text" placeholder="City"
-                                    class="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600">
-                            </div>
-                            <div class="w-full lg:w-1/2 ">
-                                <label for="postcode" class="block mb-3 text-sm font-semibold text-gray-500">
-                                    Postcode</label>
-                                <input name="postcode" type="text" placeholder="Post Code"
-                                    class="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600">
-                            </div>
-                        </div>
-                        <div class="flex items-center mt-4">
-                            <label class="flex items-center text-sm group text-heading">
-                                <input type="checkbox"
-                                    class="w-5 h-5 border border-gray-300 rounded focus:outline-none focus:ring-1">
-                                <span class="ml-2">Save this information for next time</span></label>
-                        </div>
-                        <div class="relative pt-3 xl:pt-6"><label for="note"
-                                class="block mb-3 text-sm font-semibold text-gray-500"> Notes
-                                (Optional)</label><textarea name="note"
-                                class="flex items-center w-full px-4 py-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-600"
-                                rows="4" placeholder="Notes for delivery"></textarea>
-                        </div>
-                        <div class="mt-4">
-                            <button
-                                class="w-full px-6 py-2 text-blue-200 bg-blue-600 hover:bg-blue-900">Process</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="flex flex-col w-full ml-0 lg:ml-12 lg:w-2/5">
-                <div class="pt-12 md:pt-0 2xl:ps-4">
-                    <h2 class="text-xl font-bold">Order Summary
-                    </h2>
-                    <div class="mt-8">
-                        <div class="flex flex-col space-y-4">
-                            <div class="flex space-x-4">
-                                <div>
-                                    <img src="https://source.unsplash.com/user/erondu/1600x900" alt="image"
-                                        class="w-60">
-                                </div>
-                                <div>
-                                    <h2 class="text-xl font-bold">Title</h2>
-                                    <p class="text-sm">Lorem ipsum dolor sit amet, tet</p>
-                                    <span class="text-red-600">Price</span> $20
-                                </div>
-                                <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="flex space-x-4">
-                                <div>
-                                    <img src="https://source.unsplash.com/collection/190727/1600x900" alt="image"
-                                        class="w-60">
-                                </div>
-                                <div>
-                                    <h2 class="text-xl font-bold">Title</h2>
-                                    <p class="text-sm">Lorem ipsum dolor sit amet, tet</p>
-                                    <span class="text-red-600">Price</span> $20
-                                </div>
-                                <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex p-4 mt-4">
-                        <h2 class="text-xl font-bold">ITEMS 2</h2>
-                    </div>
-                    <div
-                        class="flex items-center w-full py-4 text-sm font-semibold border-b border-gray-300 lg:py-5 lg:px-3 text-heading last:border-b-0 last:text-base last:pb-0">
-                        Subtotal<span class="ml-2">$40.00</span></div>
-                    <div
-                        class="flex items-center w-full py-4 text-sm font-semibold border-b border-gray-300 lg:py-5 lg:px-3 text-heading last:border-b-0 last:text-base last:pb-0">
-                        Shipping Tax<span class="ml-2">$10</span></div>
-                    <div
-                        class="flex items-center w-full py-4 text-sm font-semibold border-b border-gray-300 lg:py-5 lg:px-3 text-heading last:border-b-0 last:text-base last:pb-0">
-                        Total<span class="ml-2">$50.00</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Container for demo purpose -->
+<div class="container my-24 px-6 mx-auto">
 
-    <!-- Footer container -->
+<!-- Section: Design Block -->
+<section class="mb-32 text-gray-800">
+  <div class="flex justify-center">
+    <div class="text-center lg:max-w-3xl md:max-w-xl">
+      <h2 class="text-3xl font-bold mb-12 px-6">Contact us</h2>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap">
+    <div class="grow-0 shrink-0 basis-auto mb-12 lg:mb-0 w-full lg:w-5/12 px-3 lg:px-6">
+      <form>
+        <div class="form-group mb-6">
+          <input type="text" class="form-control block
+          w-full
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-white bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput7"
+            placeholder="Name">
+        </div>
+        <div class="form-group mb-6">
+          <input type="email" class="form-control block
+          w-full
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-white bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput8"
+            placeholder="Email address">
+        </div>
+        <div class="form-group mb-6">
+          <textarea class="
+          form-control
+          block
+          w-full
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-white bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+        " id="exampleFormControlTextarea13" rows="3" placeholder="Message"></textarea>
+        </div>
+        <div class="form-group form-check text-center mb-6">
+          <input type="checkbox"
+            class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer"
+            id="exampleCheck87" checked>
+          <label class="form-check-label inline-block text-gray-800" for="exampleCheck87">Send me a copy of this
+            message</label>
+        </div>
+        <button type="submit" class="
+        w-full
+        px-6
+        py-2.5
+        bg-blue-600
+        text-white
+        font-medium
+        text-xs
+        leading-tight
+        uppercase
+        rounded
+        shadow-md
+        hover:bg-blue-700 hover:shadow-lg
+        focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+        active:bg-blue-800 active:shadow-lg
+        transition
+        duration-150
+        ease-in-out">Send</button>
+      </form>
+    </div>
+    <div class="grow-0 shrink-0 basis-auto w-full lg:w-7/12">
+      <div class="flex flex-wrap">
+        <div class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
+          <div class="flex items-start">
+            <div class="shrink-0">
+              <div class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="headset" class="w-5 text-white"
+                  role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path fill="currentColor"
+                    d="M192 208c0-17.67-14.33-32-32-32h-16c-35.35 0-64 28.65-64 64v48c0 35.35 28.65 64 64 64h16c17.67 0 32-14.33 32-32V208zm176 144c35.35 0 64-28.65 64-64v-48c0-35.35-28.65-64-64-64h-16c-17.67 0-32 14.33-32 32v112c0 17.67 14.33 32 32 32h16zM256 0C113.18 0 4.58 118.83 0 256v16c0 8.84 7.16 16 16 16h16c8.84 0 16-7.16 16-16v-16c0-114.69 93.31-208 208-208s208 93.31 208 208h-.12c.08 2.43.12 165.72.12 165.72 0 23.35-18.93 42.28-42.28 42.28H320c0-26.51-21.49-48-48-48h-32c-26.51 0-48 21.49-48 48s21.49 48 48 48h181.72c49.86 0 90.28-40.42 90.28-90.28V256C507.42 118.83 398.82 0 256 0z">
+                  </path>
+                </svg>
+              </div>
+            </div>
+            <div class="grow ml-6">
+              <p class="font-bold mb-1">Technical support</p>
+              <p class="text-gray-500">support@example.com</p>
+              <p class="text-gray-500">+1 234-567-89</p>
+            </div>
+          </div>
+        </div>
+        <div class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
+          <div class="flex items-start">
+            <div class="shrink-0">
+              <div class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="dollar-sign"
+                  class="w-3 text-white" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 512">
+                  <path fill="currentColor"
+                    d="M209.2 233.4l-108-31.6C88.7 198.2 80 186.5 80 173.5c0-16.3 13.2-29.5 29.5-29.5h66.3c12.2 0 24.2 3.7 34.2 10.5 6.1 4.1 14.3 3.1 19.5-2l34.8-34c7.1-6.9 6.1-18.4-1.8-24.5C238 74.8 207.4 64.1 176 64V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48h-2.5C45.8 64-5.4 118.7.5 183.6c4.2 46.1 39.4 83.6 83.8 96.6l102.5 30c12.5 3.7 21.2 15.3 21.2 28.3 0 16.3-13.2 29.5-29.5 29.5h-66.3C100 368 88 364.3 78 357.5c-6.1-4.1-14.3-3.1-19.5 2l-34.8 34c-7.1 6.9-6.1 18.4 1.8 24.5 24.5 19.2 55.1 29.9 86.5 30v48c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-48.2c46.6-.9 90.3-28.6 105.7-72.7 21.5-61.6-14.6-124.8-72.5-141.7z">
+                  </path>
+                </svg>
+              </div>
+            </div>
+            <div class="grow ml-6">
+              <p class="font-bold mb-1">Sales questions</p>
+              <p class="text-gray-500">sales@example.com</p>
+              <p class="text-gray-500">+1 234-567-89</p>
+            </div>
+          </div>
+        </div>
+        <div class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
+          <div class="flex align-start">
+            <div class="shrink-0">
+              <div class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="newspaper"
+                  class="w-5 text-white" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                  <path fill="currentColor"
+                    d="M552 64H88c-13.255 0-24 10.745-24 24v8H24c-13.255 0-24 10.745-24 24v272c0 30.928 25.072 56 56 56h472c26.51 0 48-21.49 48-48V88c0-13.255-10.745-24-24-24zM56 400a8 8 0 0 1-8-8V144h16v248a8 8 0 0 1-8 8zm236-16H140c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm208 0H348c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm-208-96H140c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm208 0H348c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm0-96H140c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h360c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12z">
+                  </path>
+                </svg>
+              </div>
+            </div>
+            <div class="grow ml-6">
+              <p class="font-bold mb-1">Press</p>
+              <p class="text-gray-500">press@example.com</p>
+              <p class="text-gray-500">+1 234-567-89</p>
+            </div>
+          </div>
+        </div>
+        <div class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
+          <div class="flex align-start">
+            <div class="shrink-0">
+              <div class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bug" class="w-5 text-white"
+                  role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path fill="currentColor"
+                    d="M511.988 288.9c-.478 17.43-15.217 31.1-32.653 31.1H424v16c0 21.864-4.882 42.584-13.6 61.145l60.228 60.228c12.496 12.497 12.496 32.758 0 45.255-12.498 12.497-32.759 12.496-45.256 0l-54.736-54.736C345.886 467.965 314.351 480 280 480V236c0-6.627-5.373-12-12-12h-24c-6.627 0-12 5.373-12 12v244c-34.351 0-65.886-12.035-90.636-32.108l-54.736 54.736c-12.498 12.497-32.759 12.496-45.256 0-12.496-12.497-12.496-32.758 0-45.255l60.228-60.228C92.882 378.584 88 357.864 88 336v-16H32.666C15.23 320 .491 306.33.013 288.9-.484 270.816 14.028 256 32 256h56v-58.745l-46.628-46.628c-12.496-12.497-12.496-32.758 0-45.255 12.498-12.497 32.758-12.497 45.256 0L141.255 160h229.489l54.627-54.627c12.498-12.497 32.758-12.497 45.256 0 12.496 12.497 12.496 32.758 0 45.255L424 197.255V256h56c17.972 0 32.484 14.816 31.988 32.9zM257 0c-61.856 0-112 50.144-112 112h224C369 50.144 318.856 0 257 0z">
+                  </path>
+                </svg>
+              </div>
+            </div>
+            <div class="grow ml-6">
+              <p class="font-bold mb-1">Bug report</p>
+              <p class="text-gray-500">bugs@example.com</p>
+              <p class="text-gray-500">+1 234-567-89</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Section: Design Block -->
+
+</div>
+<!-- Container for demo purpose -->
 <footer
   class="bg-neutral-100 text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
   <div
@@ -399,8 +444,3 @@
     >
   </div>
 </footer>
-
-    @vite('resources/js/app.js')
-</body>
-
-</html>

@@ -23,6 +23,7 @@ use App\Http\Controllers\ReportController;
 Route::get('checkout', [PagesController::class, 'checkout']);
 Route::get('/', [PagesController::class, 'landing']);
 Route::get('shop', [PagesController::class, 'shop']);
+Route::get('contact',[PagesController::class, 'contact']);
 Route::middleware('guest')->group(function () {
     Route::get('login', [PagesController::class, 'login'])->name('login');
     Route::post('login', [PagesController::class, 'loginProcess']);
