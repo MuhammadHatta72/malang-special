@@ -12,6 +12,10 @@ class PagesController extends Controller
     {
         return view('user.checkout');
     }
+    public function contact()
+    {
+        return view('user.contact');
+    }
     public function shop()
     {
         return view('user.shop');
