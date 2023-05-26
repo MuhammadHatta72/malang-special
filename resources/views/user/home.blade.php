@@ -57,7 +57,7 @@
 <section class="h-screen bg-cover bg-center bg-no-repeat bg-gray-700 bg-blend-multiply" style="background-image: url('./images/malang-city.jpg')">
     <div class="px-2 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Toko Oleh-oleh Khas Malang</h1>
-        <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
+        <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Kami menjual berbagai produk oleh-oleh khas Malang yang berkualitas.</p>
         <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
             <a href="#" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                 Get started
@@ -80,13 +80,14 @@
 </section>
 <section class="h-screen dark:bg-grey flex justify-center">
     <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-        <div class="grid grid-cols-2 gap-4 mt-8">
-            <img class="w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 1">
-            <img class="mt-4 w-full lg:mt-10 rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2">
+        <div class="grid grid-rows-2 grid-flow-col gap-y-4 gap-x-4 justify-center items-center">
+            <img class="row-span-1 h-72 w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 1">
+            <img class="row-span-1 h-72 w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2">
+            <img class="row-span-2 h-72 w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 3">
         </div>
         <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
             <h2 class="mb-4 text-7xl tracking-tight font-extrabold text-gray-900 dark:text-white">Malang Special</h2>
-            <p class="mb-4">We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick, but big enough to deliver the scope you want at the pace you need. Small enough to be simple and quick, but big enough to deliver the scope you want at the pace you need.</p>
+            <p class="mb-4">Kami menjual oleh-oleh khas Kota Malang. Ada berbagai produk yang kami sediakan dengan kategori makanan, minuman, pakaian, dan souvenir. Kami juga bekerja sama dengan toko-toko oleh-oleh yang ada di malang. Kami menjamin produk yang dijual berkualitas.</p>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <div>
                     <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg" alt="">
@@ -474,11 +475,11 @@
     <div class="grid lg:grid-cols-3 gap-6 xl:gap-x-12">
       <div class="mb-6 lg:mb-0">
         <div class="relative block bg-white rounded-lg shadow-lg">
-          <div class="flex">
+          <div class="flex justify-center">
             <div
               class="relative overflow-hidden  bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
               data-mdb-ripple="true" data-mdb-ripple-color="light">
-              <img src="./images/bakso.jpg" class="w-full" />
+              <img src="./images/bakso.jpg" class="h-72 w-full" />
               <a href="#!">
                 <div
                   class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -489,9 +490,7 @@
           <div class="p-6">
             <h5 class="font-bold text-lg mb-3">Makanan</h5>
             <p class="mb-4 pb-2">
-              Ut pretium ultricies dignissim. Sed sit amet mi eget urna
-              placerat vulputate. Ut vulputate est non quam dignissim
-              elementum. Donec a ullamcorper diam.
+            Sebuah hidangan lezat yang menggugah selera, dengan kombinasi rasa yang kaya dan tekstur yang menggiurkan.
             </p>
             <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light"
               class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Read
@@ -502,11 +501,11 @@
 
       <div class="mb-6 lg:mb-0">
         <div class="relative block bg-white rounded-lg shadow-lg">
-          <div class="flex">
+          <div class="flex justify-center">
             <div
               class="relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
               data-mdb-ripple="true" data-mdb-ripple-color="light">
-              <img src="./images/Minuman-Khas-Malang.webp" class="w-full" />
+              <img src="./images/Minuman-Khas-Malang.webp" class="h-72 w-full" />
               <a href="#!">
                 <div
                   class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -517,9 +516,7 @@
           <div class="p-6">
             <h5 class="font-bold text-lg mb-3">Minuman</h5>
             <p class="mb-4 pb-2">
-              Suspendisse in volutpat massa. Nulla facilisi. Sed aliquet
-              diam orci, nec ornare metus semper sed. Integer volutpat
-              ornare erat sit amet rutrum.
+            Sejuk dan menyegarkan, minuman ini memanjakan lidah dengan kelezatan rasa dan keharuman aroma yang menggoda.
             </p>
             <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light"
               class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Read
@@ -530,11 +527,11 @@
 
       <div class="mb-0">
         <div class="relative block bg-white rounded-lg shadow-lg">
-          <div class="flex">
+          <div class="flex justify-center">
             <div
               class="relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4"
               data-mdb-ripple="true" data-mdb-ripple-color="light">
-              <img src="./images/baju.jpeg" class="w-full" />
+              <img src="./images/baju.jpeg" class="h-72 w-full" />
               <a href="#!">
                 <div
                   class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
@@ -545,9 +542,7 @@
           <div class="p-6">
             <h5 class="font-bold text-lg mb-3">Pakaian</h5>
             <p class="mb-4 pb-2">
-              Curabitur tristique, mi a mollis sagittis, metus felis mattis
-              arcu, non vehicula nisl dui quis diam. Mauris ut risus eget
-              massa volutpat feugiat. Donec.
+            Pakaian yang modis dan nyaman, menghadirkan gaya yang trendi dan memberikan kenyamanan sepanjang hari.
             </p>
             <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light"
               class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Read
@@ -726,16 +721,14 @@
           Malang Special
         </h6>
         <p>
-          Here you can use rows and columns to organize your footer
-          content. Lorem ipsum dolor sit amet, consectetur adipisicing
-          elit.
+          Toko Online menjual oleh-oleh khas Malang yang bekerjasama dengan toko-toko oleh-oleh yang ada di Malang.
         </p>
       </div>
       <!-- Products section -->
       <div class="">
         <h6
           class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
-          Produk
+          Kategori Produk
         </h6>
         <p class="mb-4">
           <a href="#!" class="text-neutral-600 dark:text-neutral-200"
@@ -853,7 +846,7 @@
     <a
       class="font-semibold text-neutral-600 dark:text-neutral-400"
       href="https://tailwind-elements.com/"
-      >Tailwind Elements</a
+      >Malang~Special Teams</a
     >
   </div>
 </footer>
