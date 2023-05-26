@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -13,10 +16,10 @@ class ProductController extends Controller
 
     public function index()
     {
+        $this->authorize('admin_user');
         $data = [
-            'products' => Product::all(),
+            'products' => Product::paginate(10),
         ];
-
         return view('admin.pages.products.index', $data);
     }
 
@@ -25,6 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $this->authorize('admin_user');
         $data = [];
 
         return view('admin.pages.products.create', $data);
@@ -33,17 +37,38 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
-        //
+        $this->authorize('admin_user');
+
+        $product = new Product();
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->description = $request->description;
+        $product->stock = $request->stock;
+        $product->remainder = $request->remainder;
+
+        if ($request->hasFile('image')) {
+            $image_product = "product_" . time() . "." . $request->image->extension();
+            $request->file('image')->move(public_path('image_products/'), $image_product);
+            $product->image = $image_product;
+        } else {
+            $product->image = "not_found";
+        }
+        $product->save();
+
+        return redirect('products')->with('success', 'Product created successfully');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show(Product $product)
     {
-        $data = [];
+        $this->authorize('admin_user');
+        $data = [
+            'product' => $product,
+        ];
 
         return view('admin.pages.products.show', $data);
     }
@@ -51,9 +76,12 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit()
+    public function edit(Product $product)
     {
-        $data = [];
+        $this->authorize('admin_user');
+        $data = [
+            'product' => $product,
+        ];
 
         return view('admin.pages.products.edit', $data);
     }
@@ -61,9 +89,26 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        $this->authorize('admin_user');
+
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->description = $request->description;
+        $product->stock = $request->stock;
+        $product->remainder = $request->remainder;
+        if ($request->hasFile('image_new')) {
+            if ($product->image != 'not_found') {
+                File::delete(public_path('image_products/' . $product->image));
+            }
+            $image_product = "product" . time() . "." . $request->image_new->extension();
+            $request->file('image_new')->move(public_path('image_products/'), $image_product);
+            $product->image = $image_product;
+        }
+        $product->save();
+
+        return redirect('products')->with('success', 'Product updated successfully');
     }
 
     /**
@@ -71,6 +116,10 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        if ($product->image !== "not_found") {
+            unlink(public_path('image_products/' . $product->image));
+        }
+        $product->delete();
+        return redirect('products')->with('success', 'Product deleted successfully');
     }
 }

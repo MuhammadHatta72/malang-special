@@ -20,6 +20,7 @@
                 </a>
             </li>
             @endcan
+            @can('superadmin')
             <li>
                 <a href="{{url('/markets')}}" class="flex items-center p-2 text-gray-600 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('markets') ? 'text-gray-900 bg-gray-100 dark:bg-gray-700': '' }}">
                     <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-white">
@@ -28,6 +29,8 @@
                     <span class="ml-3">Markets</span>
                 </a>
             </li>
+            @endcan
+            @can('admin_user')
             <li>
                 <a href="{{url('/products')}}" class="flex items-center p-2 text-gray-600 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('products') ? 'text-gray-900 bg-gray-100 dark:bg-gray-700': '' }}">
                     <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-white">
@@ -36,6 +39,8 @@
                     <span class="ml-3">Products</span>
                 </a>
             </li>
+            @endcan
+            @can('user')
             <li>
                 <a href="{{url('/carts')}}" class="flex items-center p-2 text-gray-600 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('carts') ? 'text-gray-900 bg-gray-100 dark:bg-gray-700': '' }}">
                     <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-white">
@@ -52,6 +57,8 @@
                     <span class="ml-3">Payment</span>
                 </a>
             </li>
+            @endcan
+            @can('admin')
             <li>
                 <button type="button" class="flex items-center w-full p-2 text-gray-600 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
                     <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="flex-shrink-0 w-6 h-6 transition duration-75">
@@ -77,6 +84,7 @@
                     </li>
                 </ul>
             </li>
+            @endcan
         </ul>
     </div>
 </aside>

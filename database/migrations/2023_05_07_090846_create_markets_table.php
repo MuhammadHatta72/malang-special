@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('markets', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('email')->unique();
             $table->string('address');
             $table->string('phone');
             $table->string('image');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

@@ -47,7 +47,7 @@
                         </div>
                         <div>
                             <label for="website" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat</label>
-                            <h2 class="block mb-2 text-base text-gray-500 dark:text-white">{{$user->gender}}</h2>
+                            <h2 class="block mb-2 text-base text-gray-500 dark:text-white">{{$user->address}}</h2>
                         </div>
                         <div>
                             <label for="visitors" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor Telepon</label>
