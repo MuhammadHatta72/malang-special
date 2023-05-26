@@ -26,6 +26,7 @@ class StoreMarketRequest extends FormRequest
             'email' => 'required|email|unique:markets',
             'address' => 'required|string',
             'phone' => 'required|string',
+            'user_id' => 'required|exists:users,id|unique:markets,user_id',
             'image' => 'image|mimes:jpeg,png,jpg|max:2048',
         ];
     }
@@ -42,6 +43,9 @@ class StoreMarketRequest extends FormRequest
             'address.string' => 'Address harus menggunakan string!',
             'phone.required' => 'Phone harus diisi!',
             'phone.string' => 'Phone harus menggunakan string!',
+            'user_id.required' => 'User harus diisi!',
+            'user_id.exists' => 'User tidak ditemukan!',
+            'user_id.unique' => 'User sudah terdaftar!',
             'image.image' => 'Image harus menggunakan format gambar!',
             'image.mimes' => 'Image harus menggunakan format jpeg,png,jpg!',
             'image.max' => 'Image maksimal 2048kb!',

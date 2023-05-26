@@ -15,6 +15,10 @@
                             <h2 class="block mb-2 text-base text-gray-500 dark:text-white">{{ $market->name}}</h2>
                         </div>
                         <div>
+                            <label for="admin" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Admin</label>
+                            <h2 class="block mb-2 text-base text-gray-500 dark:text-white">{{ $market->user->name }}</h2>
+                        </div>
+                        <div>
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                             <h2 class="block mb-2 text-base text-gray-500 dark:text-white">{{ $market->email }}</h2>
                         </div>

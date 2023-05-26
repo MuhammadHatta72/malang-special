@@ -7,7 +7,7 @@
         <h2 class="text-2xl text-gray-800 dark:text-gray-100">Markets</h2>
 
         <div class="flex flex-col md:flex-row md:justify-between mb-4">
-            <h3 class="text-sm text-gray-600 dark:text-gray-200 my-3">Daftar semua toko yang menggunakan aplikasi special malang</h3>
+            <h3 class="text-sm text-gray-600 dark:text-gray-200 my-3">Daftar semua toko yang menggunakan aplikasi special Malang</h3>
             <a href="{{ url('markets/create') }}" class=" text-white bg-[#549166] hover:bg-[#549166]/90 focus:ring-4 focus:outline-none focus:ring-[#549166]/50 font-medium rounded-lg text-sm px-5 py-2 text-center inline-flex items-center dark:focus:ring-[#549166]/55 mr-2 mb-2">
                 <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4 mr-2 -ml-1">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
