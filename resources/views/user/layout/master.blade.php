@@ -10,11 +10,37 @@
     <style>
         html {
             scroll-behavior: smooth;
+            width: 100%;
+        }
+
+        nav {
+            z-index: 999;
         }
 
         nav.bg-scroll {
             background-color: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(15px);
+        }
+
+        /* add style bounce */
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            20% {
+                transform: translateY(-10px) 2.0s;
+
+            }
+
+            60% {
+                transform: translateY(-14px);
+            }
         }
     </style>
     <script>

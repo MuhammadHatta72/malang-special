@@ -79,7 +79,10 @@
                     <a href="#about" class="text-neutral-100 dark:text-neutral-200">About</a>
                 </p>
                 <p class="mb-4">
-                    <a href="#favorite-products" class="text-neutral-100 dark:text-neutral-200">Produk Terlaris</a>
+                    <a href="#service" class="text-neutral-100 dark:text-neutral-200">Service</a>
+                </p>
+                <p class="mb-4">
+                    <a href="#product" class="text-neutral-100 dark:text-neutral-200">Produk</a>
                 </p>
             </div>
             <!-- Contact section -->
