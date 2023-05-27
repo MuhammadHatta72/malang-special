@@ -3,6 +3,7 @@
 @section('content')
 <div class="px-4 pt-8 pb-3 sm:ml-64">
     <div class="mt-12 mr-3">
+        @can('admin_has_market')
         <h2 class="text-2xl text-gray-800 dark:text-gray-100">Tambah Produk</h2>
 
 
@@ -14,33 +15,24 @@
                 <div class="grid gap-6 mb-6 md:grid-cols-2">
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Produk</label>
-                        <input type="text" id="name" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Brownies" required>
+                        <input type="text" id="name" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama Produk" required>
                         @error('name')
                         <small class="text-xs text-red-500">{{ $message }}</small>
                         @enderror
                     </div>
-                    <div class="input-group mb-3">
-                        <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga</label>
-                        <span class="input-group-text">$</span>
-                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                        <span class="input-group-text">.00</span>
-                        @error('price')
-                        <small class="text-xs text-red-500">{{ $message }}</small>
-                        @enderror
-                      </div>
-                    {{-- <div class="input-group mb-3">
-                        <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga</label>
-                        <span class="input-group-text">Rp</span>
-                        <input type="price" id="price" name="price" class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" aria-label="Amount (to the nearest dollar)">
-                        <span class="input-group-text">,00</span>
-                        @error('price')
-                        <small class="text-xs text-red-500">{{ $message }}</small>
-                        @enderror
-                    </div> --}}
                     <div>
-                        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Deskripsi</label>
-                        <input type="description" id="description" name="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" style="height: 150px" placeholder="-----" required>
-                        @error('description')
+                        <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori</label>
+                        <select id="category" name="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                            <option>Pilih Kategori</option>
+                            @foreach($categorys as $category)
+                            <option value="{{$category}}" {{ $category == old('category') ? 'selected' : '' }}>{{$category}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div>
+                        <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga</label>
+                        <input type="number" id="price" name="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Harga Produk" required>
+                        @error('price')
                         <small class="text-xs text-red-500">{{ $message }}</small>
                         @enderror
                     </div>
@@ -52,14 +44,14 @@
                         @enderror
                     </div>
                     <div>
-                        <label for="remainder" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sisa</label>
-                        <input type="remainder" id="remainder" name="remainder" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="---" required>
-                        @error('remainder')
+                        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Deskripsi</label>
+                        <textarea id="description" name="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Deskripsi produk..." required></textarea>
+                        @error('description')
                         <small class="text-xs text-red-500">{{ $message }}</small>
                         @enderror
                     </div>
                     <div>
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">Gambar Toko</label>
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">Gambar Produk</label>
                         <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="image" name="image" type="file" accept="image/png, image/jpg, image/jpeg">
                         @error('image')
                         <small class="text-xs text-red-500">{{ $message }}</small>
@@ -71,6 +63,7 @@
             </form>
 
         </div>
+        @endcan
     </div>
 </div>
 

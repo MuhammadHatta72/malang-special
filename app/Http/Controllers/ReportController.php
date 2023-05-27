@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Market;
 use App\Models\Report;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -12,14 +14,18 @@ class ReportController extends Controller
      */
     public function users()
     {
-        $data = [];
+        $data = [
+            'users' => User::paginate(10),
+        ];
 
         return view('admin.pages.reports.users', $data);
     }
 
     public function markets()
     {
-        $data = [];
+        $data = [
+            'markets' => Market::paginate(10)
+        ];
 
         return view('admin.pages.reports.markets', $data);
     }

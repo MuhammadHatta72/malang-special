@@ -23,10 +23,9 @@ class UpdateProductRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
+            'category' => 'required|string',
             'price' => 'required|string',
             'description' => 'required|string',
-            'stock' => 'required|string',
-            'remainder' => 'required|string',
             'image' => 'image|mimes:jpeg,png,jpg|max:2048',
         ];
     }
@@ -40,10 +39,8 @@ class UpdateProductRequest extends FormRequest
             'price.string' => 'Harga harus menggunakan string',
             'description.required' => 'Deskripsi harus diisi!',
             'description.string' => 'Deskripsi harus menggunakan string!',
-            'stock.required' => 'Stok harus diisi!',
-            'stock.string' => 'Stok harus menggunakan string',
-            'remainder.required' => 'Sisa harus diisi!',
-            'remainder.string' => 'Sisa harus menggunakan string',
+            'category.required' => 'Sisa harus diisi!',
+            'category.string' => 'Sisa harus menggunakan string',
             'image.image' => 'Image harus menggunakan format gambar!',
             'image.mimes' => 'Image harus menggunakan format jpeg,png,jpg!',
             'image.max' => 'Image maksimal 2048kb!',

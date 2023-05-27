@@ -24,9 +24,9 @@ class StoreProductRequest extends FormRequest
         return [
             'name' => 'required|string',
             'price' => 'required|string',
+            'category' => 'required|string',
             'description' => 'required|string',
             'stock' => 'required|string',
-            'remainder' => 'required|string',
             'image' => 'image|mimes:jpeg,png,jpg|max:2048',
         ];
     }
@@ -42,8 +42,8 @@ class StoreProductRequest extends FormRequest
             'description.string' => 'Deskripsi harus menggunakan string!',
             'stock.required' => 'Stok harus diisi!',
             'stock.string' => 'Stok harus menggunakan string',
-            'remainder.required' => 'Sisa harus diisi!',
-            'remainder.string' => 'Sisa harus menggunakan string',
+            'category.required' => 'Kategori harus diisi!',
+            'category.string' => 'Kategori harus menggunakan string',
             'image.image' => 'Image harus menggunakan format gambar!',
             'image.mimes' => 'Image harus menggunakan format jpeg,png,jpg!',
             'image.max' => 'Image maksimal 2048kb!',

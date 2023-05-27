@@ -130,10 +130,22 @@ class MarketController extends Controller
      */
     public function destroy(Market $market)
     {
+        $this->authorize('superadmin');
         if ($market->image !== "not_found") {
             unlink(public_path('image_markets/' . $market->image));
         }
         $market->delete();
         return redirect('markets')->with('success', 'Market deleted successfully');
+    }
+
+    public function destroyImage(Market $market)
+    {
+        $this->authorize('superadmin');
+        if ($market->image !== "not_found") {
+            unlink(public_path('image_markets/' . $market->image));
+        }
+        $market->image = "not_found";
+        $market->save();
+        return redirect('markets')->with('success', 'Market image deleted successfully');
     }
 }

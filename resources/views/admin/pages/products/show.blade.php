@@ -3,6 +3,7 @@
 @section('content')
 <div class="px-4 pt-8 pb-3 sm:ml-64">
     <div class="mt-12 mr-3">
+        @can('admin_has_market')
         <h2 class="text-2xl text-gray-800 dark:text-gray-100">Detail Produk</h2>
 
         <div class="w-full mt-4">
@@ -13,6 +14,10 @@
                         <div>
                             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
                             <h2 class="block mb-2 text-base text-gray-500 dark:text-white">{{ $product->name}}</h2>
+                        </div>
+                        <div>
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori</label>
+                            <h2 class="block mb-2 text-base text-gray-500 dark:text-white">{{ $product->category}}</h2>
                         </div>
                         <div>
                             <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga</label>
@@ -49,6 +54,7 @@
                 </div>
             </div>
         </div>
+        @endcan
     </div>
 </div>
 

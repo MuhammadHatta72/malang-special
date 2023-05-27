@@ -26,6 +26,7 @@ class UpdateUserRequest extends FormRequest
             'username' => 'required|string|unique:users,username,' . $this->user->id,
             'phone' => 'required|string',
             'address' => 'required|string',
+            'role' => 'required|string',
         ];
     }
 
@@ -41,6 +42,8 @@ class UpdateUserRequest extends FormRequest
             'phone.string' => 'Nomor telepon harus berupa string!',
             'address.required' => 'Alamat wajib diisi!',
             'address.string' => 'Alamat harus berupa string!',
+            'role.required' => 'Role wajib diisi!',
+            'role.string' => 'Role harus berupa string!'
         ];
     }
 }

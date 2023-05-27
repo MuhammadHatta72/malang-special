@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Login Malang Special ~ Oleh-oleh Khas Malang</title>
-    <link href="{{ url('./images/logo.png') }}" rel="shortcut icon">
+    <link href="{{ url('./assets/images-admin/logo.png') }}" rel="shortcut icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
     <script>
@@ -62,7 +62,7 @@
             <div class="w-full bg-white rounded-lg shadow-xl dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-                        <img class="w-14 h-14 mx-auto" src="{{ url('./images/logo.png') }}" alt="logo">
+                        <img class="w-14 h-14 mx-auto" src="{{ url('./assets/images-admin/logo.png') }}" alt="logo">
                     </a>
                     <h1 class="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                         LOGIN

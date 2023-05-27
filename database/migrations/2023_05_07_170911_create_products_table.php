@@ -15,11 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('price');
+            $table->string('category');
             $table->string('description');
             $table->string('stock');
             $table->string('remainder');
             $table->string('image');
+            $table->unsignedBigInteger('market_id');
             $table->timestamps();
+
+            $table->foreign('market_id')->references('id')->on('markets');
         });
     }
 

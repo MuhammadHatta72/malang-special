@@ -12,9 +12,15 @@ class Product extends Model
     protected $fillable = [
         'name',
         'price',
+        'category',
         'description',
         'stock',
         'remainder',
         'image',
     ];
+
+    public function market()
+    {
+        return $this->belongsTo(Market::class);
+    }
 }

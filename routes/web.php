@@ -20,10 +20,11 @@ use App\Http\Controllers\ReportController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('checkout', [PagesController::class, 'checkout']);
 Route::get('/', [PagesController::class, 'landing']);
 Route::get('shop', [PagesController::class, 'shop']);
-Route::get('contact',[PagesController::class, 'contact']);
+Route::get('contact', [PagesController::class, 'contact']);
 Route::middleware('guest')->group(function () {
     Route::get('login', [PagesController::class, 'login'])->name('login');
     Route::post('login', [PagesController::class, 'loginProcess']);
@@ -36,7 +37,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('profile', ProfileController::class);
     Route::resource('users', UserController::class);
     Route::resource('markets', MarketController::class);
+    Route::delete('markets/delete-image/{market}', [MarketController::class, 'destroyImage']);
     Route::resource('products', ProductController::class);
+    Route::delete('products/delete-image/{product}', [ProductController::class, 'destroyImage']);
     Route::resource('carts', CartController::class);
     Route::resource('payments', PaymentController::class);
     Route::get('report-users', [ReportController::class, 'users']);
