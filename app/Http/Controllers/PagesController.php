@@ -10,19 +10,20 @@ class PagesController extends Controller
 {
     public function checkout()
     {
-        return view('user.checkout');
+        return view('user.pages.checkout');
     }
     public function contact()
     {
-        return view('user.contact');
+        return view('user.pages.contact');
     }
     public function shop()
     {
-        return view('user.shop');
+        return view('user.pages.shop');
     }
-    public function landing()
+    public function home()
     {
-        return view('user.home');
+        $data = [];
+        return view('user.pages.home', $data);
     }
     public function dashboard()
     {
@@ -97,10 +98,4 @@ class PagesController extends Controller
     }
 
     // Page User
-
-    public function home()
-    {
-        $data = [];
-        return view('user.pages.home', $data);
-    }
 }

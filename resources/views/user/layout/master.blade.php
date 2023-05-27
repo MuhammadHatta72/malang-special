@@ -7,9 +7,19 @@
     <link href="{{ url('./assets/images-admin/logo.png') }}" rel="shortcut icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        nav.bg-scroll {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+        }
+    </style>
     <script>
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        if (localStorage.getItem('color-theme') === 'white' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         } else {
             document.documentElement.classList.remove('dark')
@@ -21,7 +31,21 @@
 
     @yield('master.content')
 
+    @vite('resources/js/app.js')
     <script>
+        // Navbar Scroll
+        const navbar = document.querySelector('nav');
+        let lastScrollTop = 0;
+
+        window.addEventListener('scroll', function() {
+            const currentScrollTop = document.documentElement.scrollTop;
+            if (currentScrollTop > 0) {
+                navbar.classList.add('bg-scroll');
+            } else {
+                navbar.classList.remove('bg-scroll');
+            }
+            // lastScrollTop = currentScrollTop;
+        });
         var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
         var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
@@ -64,7 +88,6 @@
         });
     </script>
 
-    @vite('resources/js/app.js')
 </body>
 
 </html>

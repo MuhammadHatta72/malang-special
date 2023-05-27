@@ -22,7 +22,7 @@ use App\Http\Controllers\ReportController;
 */
 
 Route::get('checkout', [PagesController::class, 'checkout']);
-Route::get('/', [PagesController::class, 'landing']);
+Route::get('/', [PagesController::class, 'home']);
 Route::get('shop', [PagesController::class, 'shop']);
 Route::get('contact', [PagesController::class, 'contact']);
 Route::middleware('guest')->group(function () {
