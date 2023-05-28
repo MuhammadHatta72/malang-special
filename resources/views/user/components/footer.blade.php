@@ -40,7 +40,7 @@
     <div class="w-full mx-auto px-6 sm:px-8 lg:px-10 py-10 text-center md:text-left">
         <div class="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-3 justify-center">
             <!-- Tailwind Elements section -->
-            <div class="">
+            <div class="flex flex-col justify-center items-center md:items-start">
                 <img src="{{ url('./assets/images-admin/logo.png') }}" class="w-16 h-auto mr-3" alt="Logo">
                 <h6 class="mt-3 mb-2 font-semibold text-xl uppercase">
                     Malang Special

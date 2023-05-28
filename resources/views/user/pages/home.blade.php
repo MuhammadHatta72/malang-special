@@ -251,7 +251,7 @@
     </div>
 </section>
 
-<section id="contact" class="w-full py-20 dark:bg-gray-800">
+<section id="contact" class="w-full py-10 px-6 sm:px-8 lg:px-10 dark:bg-gray-800">
     <div class="container mx-auto flex flex-wrap">
         <div class="w-full flex flex-col justify-center items-center px-6 mb-5">
             <hr class="w-20 h-2 bg-[#404A7F] rounded-full mb-2 md:mb-4" />
@@ -262,79 +262,19 @@
 
         <div class="flex flex-wrap">
             <div class="grow-0 shrink-0 basis-auto mb-12 lg:mb-0 w-full lg:w-5/12 px-3 lg:px-6">
+                <h3 class="mt-3 md:mt-0 mb-2 md:mb-4 text-2xl tracking-tight font-extrabold text-gray-800 dark:text-white">Formulir</h3>
+                <hr class="w-20 h-1 bg-[#F7C04B] rounded-full mb-2 md:mb-4" />
                 <form>
                     <div class="form-group mb-6">
-                        <input type="text" class="form-control block
-          w-full
-          px-3
-          py-1.5
-          text-base
-          font-normal
-          text-gray-700
-          bg-white bg-clip-padding
-          border border-solid border-gray-300
-          rounded
-          transition
-          ease-in-out
-          m-0
-          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput7" placeholder="Name">
+                        <input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-xl transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#F7C04B] focus:outline-none" id="exampleInput7" placeholder="Name">
                     </div>
                     <div class="form-group mb-6">
-                        <input type="email" class="form-control block
-          w-full
-          px-3
-          py-1.5
-          text-base
-          font-normal
-          text-gray-700
-          bg-white bg-clip-padding
-          border border-solid border-gray-300
-          rounded
-          transition
-          ease-in-out
-          m-0
-          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput8" placeholder="Email address">
+                        <input type="email" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-xl transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#F7C04B] focus:outline-none" id="exampleInput8" placeholder="Email address">
                     </div>
                     <div class="form-group mb-6">
-                        <textarea class="form-control block
-          w-full
-          px-3
-          py-1.5
-          text-base
-          font-normal
-          text-gray-700
-          bg-white bg-clip-padding
-          border border-solid border-gray-300
-          rounded
-          transition
-          ease-in-out
-          m-0
-          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-        " id="exampleFormControlTextarea13" rows="3" placeholder="Message"></textarea>
+                        <textarea class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-xl transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#F7C04B] focus:outline-none" id="exampleFormControlTextarea13" rows="3" placeholder="Message"></textarea>
                     </div>
-                    <div class="form-group form-check text-center mb-6">
-                        <input type="checkbox" class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer" id="exampleCheck87" checked>
-                        <label class="form-check-label inline-block text-gray-800" for="exampleCheck87">Send me a copy of this
-                            message</label>
-                    </div>
-                    <button type="submit" class="
-        w-full
-        px-6
-        py-2.5
-        bg-blue-600
-        text-white
-        font-medium
-        text-xs
-        leading-tight
-        uppercase
-        rounded
-        shadow-md
-        hover:bg-blue-700 hover:shadow-lg
-        focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-        active:bg-blue-800 active:shadow-lg
-        transition
-        duration-150
-        ease-in-out">Send</button>
+                    <button type="submit" class="w-full px-6 py-2.5 bg-[#F7C04B] text-gray-700 font-medium text-base leading-tight uppercase rounded-xl shadow-md hover:bg-gray-100 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#F7C04B] active:shadow-lg transition duration-150 ease-in-out">Send</button>
                 </form>
             </div>
             <div class="grow-0 shrink-0 basis-auto w-full lg:w-7/12">
@@ -342,68 +282,61 @@
                     <div class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
                         <div class="flex items-start">
                             <div class="shrink-0">
-                                <div class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="headset" class="w-5 text-white" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                        <path fill="currentColor" d="M192 208c0-17.67-14.33-32-32-32h-16c-35.35 0-64 28.65-64 64v48c0 35.35 28.65 64 64 64h16c17.67 0 32-14.33 32-32V208zm176 144c35.35 0 64-28.65 64-64v-48c0-35.35-28.65-64-64-64h-16c-17.67 0-32 14.33-32 32v112c0 17.67 14.33 32 32 32h16zM256 0C113.18 0 4.58 118.83 0 256v16c0 8.84 7.16 16 16 16h16c8.84 0 16-7.16 16-16v-16c0-114.69 93.31-208 208-208s208 93.31 208 208h-.12c.08 2.43.12 165.72.12 165.72 0 23.35-18.93 42.28-42.28 42.28H320c0-26.51-21.49-48-48-48h-32c-26.51 0-48 21.49-48 48s21.49 48 48 48h181.72c49.86 0 90.28-40.42 90.28-90.28V256C507.42 118.83 398.82 0 256 0z">
-                                        </path>
+                                <div class="p-4 bg-[#404A7F] rounded-full shadow-md w-14 h-14 flex items-center justify-center">
+                                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-7 text-white">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"></path>
                                     </svg>
                                 </div>
                             </div>
                             <div class="grow ml-6">
-                                <p class="font-bold mb-1">Technical support</p>
-                                <p class="text-gray-500">support@example.com</p>
-                                <p class="text-gray-500">+1 234-567-89</p>
+                                <p class="font-bold mb-1">Alamat</p>
+                                <p class="text-gray-500">Kota Malang</p>
                             </div>
                         </div>
                     </div>
                     <div class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
                         <div class="flex items-start">
                             <div class="shrink-0">
-                                <div class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="dollar-sign" class="w-3 text-white" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 512">
-                                        <path fill="currentColor" d="M209.2 233.4l-108-31.6C88.7 198.2 80 186.5 80 173.5c0-16.3 13.2-29.5 29.5-29.5h66.3c12.2 0 24.2 3.7 34.2 10.5 6.1 4.1 14.3 3.1 19.5-2l34.8-34c7.1-6.9 6.1-18.4-1.8-24.5C238 74.8 207.4 64.1 176 64V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48h-2.5C45.8 64-5.4 118.7.5 183.6c4.2 46.1 39.4 83.6 83.8 96.6l102.5 30c12.5 3.7 21.2 15.3 21.2 28.3 0 16.3-13.2 29.5-29.5 29.5h-66.3C100 368 88 364.3 78 357.5c-6.1-4.1-14.3-3.1-19.5 2l-34.8 34c-7.1 6.9-6.1 18.4 1.8 24.5 24.5 19.2 55.1 29.9 86.5 30v48c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-48.2c46.6-.9 90.3-28.6 105.7-72.7 21.5-61.6-14.6-124.8-72.5-141.7z">
-                                        </path>
+                                <div class="p-4 bg-[#404A7F] rounded-full shadow-md w-14 h-14 flex items-center justify-center">
+                                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-7 text-white">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"></path>
                                     </svg>
                                 </div>
                             </div>
                             <div class="grow ml-6">
-                                <p class="font-bold mb-1">Sales questions</p>
-                                <p class="text-gray-500">sales@example.com</p>
-                                <p class="text-gray-500">+1 234-567-89</p>
+                                <p class="font-bold mb-1">Telepon</p>
+                                <p class="text-gray-500">+628155390932</p>
+                                <p class="text-gray-500">+628155390932</p>
                             </div>
                         </div>
                     </div>
                     <div class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
                         <div class="flex align-start">
                             <div class="shrink-0">
-                                <div class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="newspaper" class="w-5 text-white" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                        <path fill="currentColor" d="M552 64H88c-13.255 0-24 10.745-24 24v8H24c-13.255 0-24 10.745-24 24v272c0 30.928 25.072 56 56 56h472c26.51 0 48-21.49 48-48V88c0-13.255-10.745-24-24-24zM56 400a8 8 0 0 1-8-8V144h16v248a8 8 0 0 1-8 8zm236-16H140c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm208 0H348c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm-208-96H140c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm208 0H348c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm0-96H140c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h360c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12z">
-                                        </path>
+                                <div class="p-4 bg-[#404A7F] rounded-full shadow-md w-14 h-14 flex items-center justify-center">
+                                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-7 text-white">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"></path>
                                     </svg>
                                 </div>
                             </div>
                             <div class="grow ml-6">
-                                <p class="font-bold mb-1">Press</p>
-                                <p class="text-gray-500">press@example.com</p>
-                                <p class="text-gray-500">+1 234-567-89</p>
+                                <p class="font-bold mb-1">Email</p>
+                                <p class="text-gray-500">malangspecial@gmail.com</p>
                             </div>
                         </div>
                     </div>
                     <div class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
                         <div class="flex align-start">
                             <div class="shrink-0">
-                                <div class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bug" class="w-5 text-white" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                        <path fill="currentColor" d="M511.988 288.9c-.478 17.43-15.217 31.1-32.653 31.1H424v16c0 21.864-4.882 42.584-13.6 61.145l60.228 60.228c12.496 12.497 12.496 32.758 0 45.255-12.498 12.497-32.759 12.496-45.256 0l-54.736-54.736C345.886 467.965 314.351 480 280 480V236c0-6.627-5.373-12-12-12h-24c-6.627 0-12 5.373-12 12v244c-34.351 0-65.886-12.035-90.636-32.108l-54.736 54.736c-12.498 12.497-32.759 12.496-45.256 0-12.496-12.497-12.496-32.758 0-45.255l60.228-60.228C92.882 378.584 88 357.864 88 336v-16H32.666C15.23 320 .491 306.33.013 288.9-.484 270.816 14.028 256 32 256h56v-58.745l-46.628-46.628c-12.496-12.497-12.496-32.758 0-45.255 12.498-12.497 32.758-12.497 45.256 0L141.255 160h229.489l54.627-54.627c12.498-12.497 32.758-12.497 45.256 0 12.496 12.497 12.496 32.758 0 45.255L424 197.255V256h56c17.972 0 32.484 14.816 31.988 32.9zM257 0c-61.856 0-112 50.144-112 112h224C369 50.144 318.856 0 257 0z">
-                                        </path>
+                                <div class="p-4 bg-[#404A7F] rounded-full shadow-md w-14 h-14 flex items-center justify-center">
+                                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-7 text-white">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
                                     </svg>
                                 </div>
                             </div>
                             <div class="grow ml-6">
-                                <p class="font-bold mb-1">Bug report</p>
-                                <p class="text-gray-500">bugs@example.com</p>
-                                <p class="text-gray-500">+1 234-567-89</p>
+                                <p class="font-bold mb-1">Fax</p>
+                                <p class="text-gray-500">+134-567-89</p>
                             </div>
                         </div>
                     </div>
