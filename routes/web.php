@@ -24,7 +24,10 @@ use App\Http\Controllers\ReportController;
 Route::get('checkout', [PagesController::class, 'checkout']);
 Route::get('/', [PagesController::class, 'home']);
 Route::get('shop', [PagesController::class, 'shop']);
-Route::get('contact', [PagesController::class, 'contact']);
+Route::get('foods', [PagesController::class, 'food']);
+Route::get('drinks', [PagesController::class, 'drink']);
+Route::get('shirts', [PagesController::class, 'shirt']);
+Route::get('souvenirs', [PagesController::class, 'souvenir']);
 Route::middleware('guest')->group(function () {
     Route::get('login', [PagesController::class, 'login'])->name('login');
     Route::post('login', [PagesController::class, 'loginProcess']);

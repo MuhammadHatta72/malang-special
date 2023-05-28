@@ -3,36 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function checkout()
-    {
-        return view('user.pages.checkout');
-    }
-    public function contact()
-    {
-        return view('user.pages.contact');
-    }
-    public function shop()
-    {
-        return view('user.pages.shop');
-    }
-    public function home()
-    {
-        $data = [];
-        return view('user.pages.home', $data);
-    }
-    public function dashboard()
-    {
-        $data = [
-            'user' => auth()->user(),
-        ];
-        return view('admin.pages.dashboard', $data);
-    }
-
     public function login()
     {
         $data = [];
@@ -97,5 +73,73 @@ class PagesController extends Controller
         return redirect()->route('login')->with('success', 'Anda berhasil logout!');
     }
 
+    public function dashboard()
+    {
+        $data = [
+            'user' => auth()->user(),
+        ];
+        return view('admin.pages.dashboard', $data);
+    }
+
     // Page User
+    public function home()
+    {
+        $data = [
+            'title_page' => 'home',
+            'products' => Product::all()
+        ];
+        return view('user.pages.home', $data);
+    }
+    public function shop()
+    {
+        $data = [
+            'title_page' => 'shop',
+            'product_foods' => Product::where('category', 'Makanan')->limit(8)->get(),
+            'product_drinks' => Product::where('category', 'Minuman')->limit(8)->get(),
+            'product_shirts' => Product::where('category', 'Baju')->limit(8)->get(),
+            'product_souvernirs' => Product::where('category', 'Souvenir')->limit(8)->get(),
+        ];
+        return view('user.pages.shop', $data);
+    }
+
+    public function food()
+    {
+        $data = [
+            'title_page' => 'foods',
+            'product_foods' => Product::where('category', 'Makanan')->paginate(8),
+        ];
+        return view('user.pages.foods', $data);
+    }
+
+    public function drink()
+    {
+        $data = [
+            'title_page' => 'drinks',
+            'product_drinks' => Product::where('category', 'Minuman')->paginate(8),
+        ];
+        return view('user.pages.drinks', $data);
+    }
+
+    public function shirt()
+    {
+        $data = [
+            'title_page' => 'shirts',
+            'product_shirts' => Product::where('category', 'Baju')->paginate(8),
+        ];
+        return view('user.pages.shirts', $data);
+    }
+
+    public function souvenir()
+    {
+        $data = [
+            'title_page' => 'souvenirs',
+            'product_souvenirs' => Product::where('category', 'Souvenir')->paginate(8),
+        ];
+        return view('user.pages.souvenirs', $data);
+    }
+
+    public function checkout()
+    {
+        return view('user.pages.checkout');
+    }
 }

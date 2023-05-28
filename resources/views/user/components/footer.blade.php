@@ -55,16 +55,16 @@
                     Kategori Produk
                 </h6>
                 <p class="mb-4">
-                    <a href="#!" class="text-neutral-100 dark:text-neutral-200">Pakaian</a>
+                    <a href="/shirts" class="text-neutral-100 dark:text-neutral-200">Pakaian</a>
                 </p>
                 <p class="mb-4">
-                    <a href="#!" class="text-neutral-100 dark:text-neutral-200">Makanan</a>
+                    <a href="/foods" class="text-neutral-100 dark:text-neutral-200">Makanan</a>
                 </p>
                 <p class="mb-4">
-                    <a href="#!" class="text-neutral-100 dark:text-neutral-200">Minuman</a>
+                    <a href="/drinks" class="text-neutral-100 dark:text-neutral-200">Minuman</a>
                 </p>
                 <p>
-                    <a href="#!" class="text-neutral-100 dark:text-neutral-200">Souvenir</a>
+                    <a href="/souvenirs" class="text-neutral-100 dark:text-neutral-200">Souvenir</a>
                 </p>
             </div>
             <!-- Useful links section -->
@@ -75,6 +75,7 @@
                 <p class="mb-4">
                     <a href="/" class="text-neutral-100 dark:text-neutral-200">Home</a>
                 </p>
+                @if($title_page == 'home')
                 <p class="mb-4">
                     <a href="#about" class="text-neutral-100 dark:text-neutral-200">About</a>
                 </p>
@@ -84,6 +85,7 @@
                 <p class="mb-4">
                     <a href="#product" class="text-neutral-100 dark:text-neutral-200">Produk</a>
                 </p>
+                @endif
             </div>
             <!-- Contact section -->
             <!-- <div>

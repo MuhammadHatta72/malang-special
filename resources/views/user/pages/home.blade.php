@@ -6,13 +6,13 @@
         <h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-[#549166] md:text-5xl lg:text-6xl">Toko Oleh-oleh Khas Malang</h1>
         <p class="mb-8 text-lg font-normal text-white lg:text-xl sm:px-16 lg:px-48">Kami menjual berbagai produk oleh-oleh khas Malang yang berkualitas.</p>
         <div class="flex justify-center">
-            <a href="#" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-full bg-[#efa911] hover:bg-[#F7C04B] focus:ring-4 focus:ring-[#F7C04B] dark:focus:ring-[#F7C04B] mr-2 md:mr-4">
+            <a href="/shop" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-full bg-[#efa911] hover:bg-[#F7C04B] focus:ring-4 focus:ring-[#F7C04B] dark:focus:ring-[#F7C04B] mr-2 md:mr-4">
                 Beli Sekarang
                 <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="ml-2 -mr-1 w-4 h-4">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
                 </svg>
             </a>
-            <a href="#about" class="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 text-base font-medium text-center text-white rounded-full border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400">
+            <a href="/#about" class="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 text-base font-medium text-center text-white rounded-full border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400">
                 Selengkapnya
             </a>
         </div>
@@ -87,6 +87,7 @@
         </div>
         <div class="w-full px-6 flex flex-col">
             <div class="mt-5 grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-4 lg:mt-8">
+                @foreach($products as $product)
                 <!-- Article -->
                 <article class="relative flex flex-col overflow-hidden rounded-xl shadow-lg hover:shadow-xl hover:shadow-[#F7C04B] border">
                     <div class="aspect-square overflow-hidden">
@@ -96,155 +97,26 @@
                     </div>
                     <div class="flex w-full items-center justify-between p-4">
                         <div class="flex flex-col">
-                            <p class="mb-2 text-lg font-semibold text-gray-800">Rp. 100000</p>
-                            <h3 class="text-base text-gray-500">Fresh Apples</h3>
-                            <p class="text-sm text-gray-400">Kategori</p>
+                            <p class="mb-2 text-lg font-semibold text-gray-800">Rp. {{$product->price}}</p>
+                            <h3 class="text-base text-gray-500">{{$product->name}}</h3>
+                            <p class="text-sm text-gray-400">{{$product->category}}</p>
                         </div>
-                        <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4 fill-current">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
-                            </svg>
-                        </button>
+                        <form action="/" method="post">
+                            @csrf
+                            <button type="submit" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white" onclick="return confirm('apakah anda ingin memasukkan produk ini ke keranjang?')">
+                                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4 fill-current">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
+                                </svg>
+                            </button>
+                        </form>
                     </div>
                 </article>
                 <!-- End Article -->
-                <article class="relative flex flex-col overflow-hidden rounded-xl shadow-lg hover:shadow-xl hover:shadow-[#F7C04B] border">
-                    <div class="aspect-square overflow-hidden">
-                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-full w-full object-cover transition-all duration-300 group-hover:scale-125 text-[#F7C04B]">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path>
-                        </svg>
-                    </div>
-                    <div class="flex w-full items-center justify-between p-4">
-                        <div class="flex flex-col">
-                            <p class="mb-2 text-lg font-semibold text-gray-800">Rp. 100000</p>
-                            <h3 class="text-base text-gray-500">Fresh Apples</h3>
-                            <p class="text-sm text-gray-400">Kategori</p>
-                        </div>
-                        <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4 fill-current">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </article>
-                <article class="relative flex flex-col overflow-hidden rounded-xl shadow-lg hover:shadow-xl hover:shadow-[#F7C04B] border">
-                    <div class="aspect-square overflow-hidden">
-                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-full w-full object-cover transition-all duration-300 group-hover:scale-125 text-[#F7C04B]">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path>
-                        </svg>
-                    </div>
-                    <div class="flex w-full items-center justify-between p-4">
-                        <div class="flex flex-col">
-                            <p class="mb-2 text-lg font-semibold text-gray-800">Rp. 100000</p>
-                            <h3 class="text-base text-gray-500">Fresh Apples</h3>
-                            <p class="text-sm text-gray-400">Kategori</p>
-                        </div>
-                        <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4 fill-current">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </article>
-                <article class="relative flex flex-col overflow-hidden rounded-xl shadow-lg hover:shadow-xl hover:shadow-[#F7C04B] border">
-                    <div class="aspect-square overflow-hidden">
-                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-full w-full object-cover transition-all duration-300 group-hover:scale-125 text-[#F7C04B]">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path>
-                        </svg>
-                    </div>
-                    <div class="flex w-full items-center justify-between p-4">
-                        <div class="flex flex-col">
-                            <p class="mb-2 text-lg font-semibold text-gray-800">Rp. 100000</p>
-                            <h3 class="text-base text-gray-500">Fresh Apples</h3>
-                            <p class="text-sm text-gray-400">Kategori</p>
-                        </div>
-                        <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4 fill-current">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </article>
-                <article class="relative flex flex-col overflow-hidden rounded-xl shadow-lg hover:shadow-xl hover:shadow-[#F7C04B] border">
-                    <div class="aspect-square overflow-hidden">
-                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-full w-full object-cover transition-all duration-300 group-hover:scale-125 text-[#F7C04B]">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path>
-                        </svg>
-                    </div>
-                    <div class="flex w-full items-center justify-between p-4">
-                        <div class="flex flex-col">
-                            <p class="mb-2 text-lg font-semibold text-gray-800">Rp. 100000</p>
-                            <h3 class="text-base text-gray-500">Fresh Apples</h3>
-                            <p class="text-sm text-gray-400">Kategori</p>
-                        </div>
-                        <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4 fill-current">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </article>
-                <article class="relative flex flex-col overflow-hidden rounded-xl shadow-lg hover:shadow-xl hover:shadow-[#F7C04B] border">
-                    <div class="aspect-square overflow-hidden">
-                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-full w-full object-cover transition-all duration-300 group-hover:scale-125 text-[#F7C04B]">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path>
-                        </svg>
-                    </div>
-                    <div class="flex w-full items-center justify-between p-4">
-                        <div class="flex flex-col">
-                            <p class="mb-2 text-lg font-semibold text-gray-800">Rp. 100000</p>
-                            <h3 class="text-base text-gray-500">Fresh Apples</h3>
-                            <p class="text-sm text-gray-400">Kategori</p>
-                        </div>
-                        <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4 fill-current">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </article>
-                <article class="relative flex flex-col overflow-hidden rounded-xl shadow-lg hover:shadow-xl hover:shadow-[#F7C04B] border">
-                    <div class="aspect-square overflow-hidden">
-                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-full w-full object-cover transition-all duration-300 group-hover:scale-125 text-[#F7C04B]">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path>
-                        </svg>
-                    </div>
-                    <div class="flex w-full items-center justify-between p-4">
-                        <div class="flex flex-col">
-                            <p class="mb-2 text-lg font-semibold text-gray-800">Rp. 100000</p>
-                            <h3 class="text-base text-gray-500">Fresh Apples</h3>
-                            <p class="text-sm text-gray-400">Kategori</p>
-                        </div>
-                        <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4 fill-current">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </article>
-                <article class="relative flex flex-col overflow-hidden rounded-xl shadow-lg hover:shadow-xl hover:shadow-[#F7C04B] border">
-                    <div class="aspect-square overflow-hidden">
-                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-full w-full object-cover transition-all duration-300 group-hover:scale-125 text-[#F7C04B]">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path>
-                        </svg>
-                    </div>
-                    <div class="flex w-full items-center justify-between p-4">
-                        <div class="flex flex-col">
-                            <p class="mb-2 text-lg font-semibold text-gray-800">Rp. 100000</p>
-                            <h3 class="text-base text-gray-500">Fresh Apples</h3>
-                            <p class="text-sm text-gray-400">Kategori</p>
-                        </div>
-                        <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4 fill-current">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </article>
+                @endforeach
             </div>
         </div>
         <div class="w-full flex flex-col justify-center items-center mt-5 md:mt-10">
-            <a href="#" class="inline-flex justify-center hover:text-gray-900 items-center py-4 px-5 text-base font-medium text-center text-white rounded-full bg-[#404A7F] hover:bg-gray-100 focus:ring-4 focus:ring-gray-400 shadow-lg">
+            <a href="/shop" class="inline-flex justify-center hover:text-gray-900 items-center py-4 px-5 text-base font-medium text-center text-white rounded-full bg-[#404A7F] hover:bg-gray-100 focus:ring-4 focus:ring-gray-400 shadow-lg">
                 Selengkapnya
             </a>
         </div>
