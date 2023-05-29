@@ -28,6 +28,7 @@ Route::get('foods', [PagesController::class, 'food']);
 Route::get('drinks', [PagesController::class, 'drink']);
 Route::get('shirts', [PagesController::class, 'shirt']);
 Route::get('souvenirs', [PagesController::class, 'souvenir']);
+Route::resource('carts', CartController::class);
 Route::middleware('guest')->group(function () {
     Route::get('login', [PagesController::class, 'login'])->name('login');
     Route::post('login', [PagesController::class, 'loginProcess']);
@@ -43,7 +44,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('markets/delete-image/{market}', [MarketController::class, 'destroyImage']);
     Route::resource('products', ProductController::class);
     Route::delete('products/delete-image/{product}', [ProductController::class, 'destroyImage']);
-    Route::resource('carts', CartController::class);
     Route::resource('payments', PaymentController::class);
     Route::get('report-users', [ReportController::class, 'users']);
     Route::get('report-markets', [ReportController::class, 'markets']);

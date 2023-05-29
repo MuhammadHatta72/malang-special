@@ -6,6 +6,7 @@ use App\Http\Requests\StoreUserRequest;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
@@ -37,7 +38,20 @@ class PagesController extends Controller
         ];
 
         if (auth()->attempt($data)) {
-            return redirect('/dashboard')->with('success', 'Anda berhasil login!');
+            $guards = empty($guards) ? [null] : $guards;
+            foreach ($guards as $guard) {
+                if (Auth::guard($guard)->check()) {
+                    // dd(Auth::guard($guard)->user()->role);
+                    if (Auth::guard($guard)->user()->role == 3) {
+                        // dd('user', auth()->user()->role);
+                        return redirect('/carts')->with('success', 'Anda berhasil login!');
+                    } else {
+                        // dd('admin', auth()->user()->role);
+                        return redirect('/dashboard')->with('success', 'Anda berhasil login!');
+                    }
+                }
+            }
+            // return redirect('/dashboard')->with('success', 'Anda berhasil login!');
         } else {
             return redirect('/login')->with('error', 'Email atau password salah!');
         }
