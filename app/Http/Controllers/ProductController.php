@@ -19,9 +19,9 @@ class ProductController extends Controller
     public function index()
     {
         $this->authorize('admin_has_market');
-        $market = User::find(auth()->user()->id);
+        $user = User::find(auth()->user()->id);
         $data = [
-            'products' => Product::where('market_id', $market->market->id)->paginate(10),
+            'products' => Product::where('market_id', $user->market->id)->paginate(10),
         ];
         return view('admin.pages.products.index', $data);
     }

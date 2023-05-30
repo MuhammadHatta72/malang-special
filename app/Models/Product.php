@@ -19,8 +19,18 @@ class Product extends Model
         'image',
     ];
 
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
+
     public function market()
     {
         return $this->belongsTo(Market::class);
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'carts')->withPivot('quantity');
     }
 }

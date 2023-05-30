@@ -38,8 +38,9 @@
                             <h3 class="text-base text-gray-500">{{$product->name}}</h3>
                             <p class="text-sm text-gray-400">{{$product->category}}</p>
                         </div>
-                        <form action="/" method="post">
+                        <form action="/carts" method="post">
                             @csrf
+                            <input type="hidden" name="product_id" value="{{$product->id}}">
                             <button type="submit" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white" onclick="return confirm('apakah anda ingin memasukkan produk ini ke keranjang?')">
                                 <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4 fill-current">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
@@ -83,8 +84,9 @@
                             <h3 class="text-base text-gray-500">{{$product->name}}</h3>
                             <p class="text-sm text-gray-400">{{$product->category}}</p>
                         </div>
-                        <form action="/" method="post">
+                        <form action="/carts" method="post">
                             @csrf
+                            <input type="hidden" name="product_id" value="{{$product->id}}">
                             <button type="submit" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white" onclick="return confirm('apakah anda ingin memasukkan produk ini ke keranjang?')">
                                 <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4 fill-current">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
@@ -128,8 +130,9 @@
                             <h3 class="text-base text-gray-500">{{$product->name}}</h3>
                             <p class="text-sm text-gray-400">{{$product->category}}</p>
                         </div>
-                        <form action="/" method="post">
+                        <form action="/carts" method="post">
                             @csrf
+                            <input type="hidden" name="product_id" value="{{$product->id}}">
                             <button type="submit" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white" onclick="return confirm('apakah anda ingin memasukkan produk ini ke keranjang?')">
                                 <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4 fill-current">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
@@ -173,8 +176,9 @@
                             <h3 class="text-base text-gray-500">{{$product->name}}</h3>
                             <p class="text-sm text-gray-400">{{$product->category}}</p>
                         </div>
-                        <form action="/" method="post">
+                        <form action="/carts" method="post">
                             @csrf
+                            <input type="hidden" name="product_id" value="{{$product->id}}">
                             <button type="submit" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white" onclick="return confirm('apakah anda ingin memasukkan produk ini ke keranjang?')">
                                 <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4 fill-current">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
