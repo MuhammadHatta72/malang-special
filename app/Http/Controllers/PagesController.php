@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 use App\Http\Requests\StoreUserRequest;
+use Illuminate\Auth\Events\PasswordReset;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -104,6 +107,7 @@ class PagesController extends Controller
         ];
         return view('user.pages.home', $data);
     }
+  
     public function shop()
     {
         $data = [

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" class="dark">
 
@@ -60,14 +61,22 @@
             <!-- End Success Message -->
             @endif
             <div class="w-full bg-white rounded-lg shadow-xl dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+                
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <a href="/" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
                         <img class="w-14 h-14 mx-auto" src="{{ url('./assets/images-admin/logo.png') }}" alt="logo">
                     </a>
+            
+            @if(session()-> has('status'))
+                <div class="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3" role="alert">
+                    <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z"/></svg>
+                    <p>{{ session()-> get('status') }}</p>
+              </div>
+            @endif
                     <h1 class="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                        LOGIN
+                        Forgot Password 
                     </h1>
-                    <form class="space-y-4 md:space-y-6" method="post" action="/login">
+                    <form class="space-y-4 md:space-y-6" method="post" action="{{ route('password.email') }}">
                         @csrf
                         <div>
                             <label for="email-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
@@ -81,24 +90,8 @@
                             </div>
                             <p class="text-xs text-red-500 mt-2"> {{ $errors->first('email') }} </p>
                         </div>
-                        <div>
-                            <label for="password-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                            <div class="relative">
-                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"></path>
-                                    </svg>
-                                </div>
-                                <input type="password" id="password-icon" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="********" name="password">
-                            </div>
-                            <p class="text-xs text-red-500 mt-2"> {{ $errors->first('password') }} </p>
-                        </div>
-                        <a href="{{ url('/forgot-password') }}" class="text-sm font-medium text-gray-900 hover:underline dark:text-white">Forgot password?</a>
-
-                        <button type="submit" class="w-full text-white bg-[#F7C04B] hover:bg-[#c1912a] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-[#F7C04B] dark:hover:bg-[#c1912a] dark:focus:ring-primary-800">Sign In</button>
-                        <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                            Don't have an account yet? <a href="{{ url('/register') }}" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
-                        </p>
+                        <button type="submit" class="w-full text-white bg-[#F7C04B] hover:bg-[#c1912a] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-[#F7C04B] dark:hover:bg-[#c1912a] dark:focus:ring-primary-800">Request Password Reset</button>
+                        
                     </form>
                 </div>
             </div>
