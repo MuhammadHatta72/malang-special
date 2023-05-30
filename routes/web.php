@@ -28,49 +28,54 @@ use App\Http\Controllers\ReportController;
 |
 */
 
-Route::get('forgot-password', function () {
-    return view('admin.pages.auth.forgot-password');
-})->middleware('guest')->name('password.request');
+// Route::get('forgot-password', function () {
+//     return view('admin.pages.auth.forgot-password');
+// })->middleware('guest')->name('password.request');
 
-Route::post('/forgot-password', function (Request $request) {
-    $request->validate(['email' => 'required|email']);
+// Route::post('/forgot-password', function (Request $request) {
+//     $request->validate(['email' => 'required|email']);
  
-    $status = Password::sendResetLink(
-        $request->only('email')
-    );
+//     $status = Password::sendResetLink(
+//         $request->only('email')
+//     );
  
-    return $status === Password::RESET_LINK_SENT
-                ? back()->with(['status' => __($status)])
-                : back()->withErrors(['email' => __($status)]);
-})->middleware('guest')->name('password.email');
+//     return $status === Password::RESET_LINK_SENT
+//                 ? back()->with(['status' => __($status)])
+//                 : back()->withErrors(['email' => __($status)]);
+// })->middleware('guest')->name('password.email');
 
-Route::get('/reset-password/{token}', function (string $token) {
-    return view('admin.pages.auth.reset-password', ['token' => $token]);
-})->middleware('guest')->name('password.reset');
+// Route::get('/reset-password/{token}', function (string $token) {
+//     return view('admin.pages.auth.reset-password', ['token' => $token]);
+// })->middleware('guest')->name('password.reset');
 
-Route::post('/reset-password', function (Request $request) {
-    $request->validate([
-        'token' => 'required',
-        'email' => 'required|email',
-        'password' => 'required|min:8|confirmed',
-    ]);
+// Route::post('/reset-password', function (Request $request) {
+//     $request->validate([
+//         'token' => 'required',
+//         'email' => 'required|email',
+//         'password' => 'required|min:8|confirmed',
+//     ]);
  
-    $status = Password::reset(
-        $request->only('email', 'password', 'password_confirmation', 'token'),
-        function (User $user, string $password) {
-            $user->forceFill([
-                'password' => Hash::make($password)
-            ]);
+//     $status = Password::reset(
+//         $request->only('email', 'password', 'password_confirmation', 'token'),
+//         function (User $user, string $password) {
+//             $user->forceFill([
+//                 'password' => Hash::make($password)
+//             ]);
  
-            $user->save();
+//             $user->save();
  
-            event(new PasswordReset($user));
-        }
-    );
-    return $status === Password::PASSWORD_RESET
-                ? redirect()->route('login')->with('status', __($status))
-                : back()->withErrors(['email' => [__($status)]]);
-})->middleware('guest')->name('password.update');
+//             event(new PasswordReset($user));
+//         }
+//     );
+//     return $status === Password::PASSWORD_RESET
+//                 ? redirect()->route('login')->with('status', __($status))
+//                 : back()->withErrors(['email' => [__($status)]]);
+// })->middleware('guest')->name('password.update');
+
+Route::get('forgot-password', [PagesController::class, 'forgot_password'])->middleware('guest')->name('password.request');
+Route::post('forgot-password', [PagesController::class, 'forgot_proses'])->middleware('guest')->name('password.email');;
+Route::get('reset-password/{token}', [PagesController::class, 'reset_password'])->middleware('guest')->name('password.reset');
+Route::post('reset-password', [PagesController::class, 'reset_proses'])->middleware('guest')->name('password.update');
 
 Route::get('checkout', [PagesController::class, 'checkout']);
 Route::get('/', [PagesController::class, 'home']);
