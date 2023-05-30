@@ -83,8 +83,9 @@ class PagesController extends Controller
 
     public function logout()
     {
+        $routeRedirect = Auth::user()->role == 3 ? '/' : '/login';
         auth()->logout();
-        return redirect()->route('login')->with('success', 'Anda berhasil logout!');
+        return redirect($routeRedirect)->with('success', 'Anda berhasil logout!');
     }
 
     public function dashboard()
