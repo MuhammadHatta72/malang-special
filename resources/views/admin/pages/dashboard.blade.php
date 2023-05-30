@@ -178,7 +178,7 @@
 
         <div class="w-full mt-4 px-6 py-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <h3 class="text-gray-600 dark:text-gray-200 mb-3">Malang Kota</h3>
-            <img src="{{ url('./images/malang-city.jpg') }}" alt="">
+            <img src="{{ url('./assets/images-admin/malang-city.jpg') }}" alt="">
         </div>
     </div>
 </div>

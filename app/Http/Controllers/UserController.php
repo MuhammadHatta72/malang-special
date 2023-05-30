@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateUserRequest;
+use App\Models\Market;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,7 @@ class UserController extends Controller
     {
         $this->authorize('superadmin_admin');
         $data = [
-            'users' => User::all(),
+            'users' => User::whereNot('role', '1')->paginate(10),
         ];
         return view('admin.pages.users.index', $data);
     }
@@ -57,6 +59,10 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $data = [
             'user' => $user,
+            'roles' => [
+                '2' => 'Admin',
+                '3' => 'User'
+            ]
         ];
         return view('admin.pages.users.edit', $data);
     }
@@ -64,32 +70,20 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        $rules = [
-            'name' => 'required|string',
-            'username' => 'required|string',
-            'phone' => 'required|string',
-            'address' => 'required|string',
-        ];
 
-        $messages = [
-            'name.required' => 'Nama wajib diisi!',
-            'name.string' => 'Nama harus berupa string!',
-            'username.required' => 'Username wajib diisi!',
-            'username.string' => 'Username harus berupa string!',
-            'phone.required' => 'Nomor telepon wajib diisi!',
-            'phone.string' => 'Nomor telepon harus berupa string!',
-            'address.required' => 'Alamat wajib diisi!',
-            'address.string' => 'Alamat harus berupa string!',
-        ];
-
-        $request->validate($rules, $messages);
+        if (Market::where('user_id', $user->id)->exists()) {
+            if ($request->input('role') == '3') {
+                return redirect('/users')->with('error', 'User sudah terdaftar di sebagai admin toko!');
+            }
+        }
 
         $user->name = $request->input('name');
         $user->username = $request->input('username');
         $user->phone = $request->input('phone');
         $user->address = $request->input('address');
+        $user->role = $request->input('role');
         $user->save();
 
         return redirect('/users')->with('success', 'User berhasil diupdate!');
@@ -101,7 +95,11 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         $this->authorize('superadmin');
+
         $user = User::findOrFail($id);
+        if (Market::where('user_id', $user->id)->exists()) {
+            return redirect('/users')->with('error', 'User sudah terdaftar di sebagai admin toko!');
+        }
         $user->delete();
         return redirect('/users')->with('error', 'User berhasil dihapus!');
     }

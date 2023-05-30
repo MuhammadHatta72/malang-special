@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Market;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -56,6 +57,16 @@ class DatabaseSeeder extends Seeder
             'role' => '3',
             'image' => 'not_found',
             'password' => bcrypt('12345'),
+        ]);
+
+        // Market
+        Market::create([
+            'user_id' => '2',
+            'name' => 'Toko Barokah',
+            'email' => 'toko@gmail.com',
+            'address' => 'Tuban',
+            'phone' => '085706000000',
+            'image' => 'not_found',
         ]);
     }
 }

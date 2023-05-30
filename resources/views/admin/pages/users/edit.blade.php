@@ -29,17 +29,29 @@
                         @endif
                     </div>
                     <div>
-                        <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat</label>
-                        <textarea id="address" name="address" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="alamat ..." required>{{$user->address}}</textarea>
-                        @if($errors->first('address'))
-                        <small class="text-xs text-red-500">{{$errors->first('address')}}</small>
-                        @endif
-                    </div>
-                    <div>
                         <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor Telepon</label>
                         <input type="number" id="phone" name="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="+628" value="{{$user->phone}}" required>
                         @if($errors->first('phone'))
                         <small class="text-xs text-red-500">{{$errors->first('phone')}}</small>
+                        @endif
+                    </div>
+                    <div>
+                        <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Role</label>
+                        <select id="role" name="role" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option>Pilih Akses</option>
+                            @foreach($roles as $key => $value)
+                            <option value="{{$key}}" {{ $user->role == $key ? 'selected' : '' }}>{{$value}}</option>
+                            @endforeach
+                        </select>
+                        @if($errors->first('role'))
+                        <small class="text-xs text-red-500">{{$errors->first('role')}}</small>
+                        @endif
+                    </div>
+                    <div>
+                        <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat</label>
+                        <textarea id="address" name="address" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="alamat ..." required>{{$user->address}}</textarea>
+                        @if($errors->first('address'))
+                        <small class="text-xs text-red-500">{{$errors->first('address')}}</small>
                         @endif
                     </div>
                 </div>

@@ -1,31 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-<<<<<<< Updated upstream
 
-=======
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use App\Http\Requests\StoreUserRequest;
+use Illuminate\Auth\Events\PasswordReset;
 use App\Models\Product;
->>>>>>> Stashed changes
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
-    public function landing(){
-        return view('user.home');
-    }
-    public function dashboard()
-    {
-        $data = [
-            'user' => auth()->user(),
-        ];
-        return view('admin.pages.dashboard', $data);
-    }
-
     public function login()
     {
         $data = [];
@@ -54,7 +41,20 @@ class PagesController extends Controller
         ];
 
         if (auth()->attempt($data)) {
-            return redirect('/dashboard')->with('success', 'Anda berhasil login!');
+            $guards = empty($guards) ? [null] : $guards;
+            foreach ($guards as $guard) {
+                if (Auth::guard($guard)->check()) {
+                    // dd(Auth::guard($guard)->user()->role);
+                    if (Auth::guard($guard)->user()->role == 3) {
+                        // dd('user', auth()->user()->role);
+                        return redirect('/carts')->with('success', 'Anda berhasil login!');
+                    } else {
+                        // dd('admin', auth()->user()->role);
+                        return redirect('/dashboard')->with('success', 'Anda berhasil login!');
+                    }
+                }
+            }
+            // return redirect('/dashboard')->with('success', 'Anda berhasil login!');
         } else {
             return redirect('/login')->with('error', 'Email atau password salah!');
         }
@@ -66,35 +66,17 @@ class PagesController extends Controller
         return view('admin.pages.auth.register', $data);
     }
 
-    public function registerProcess(Request $request)
+    public function registerProcess(StoreUserRequest $request)
     {
-        $rules = [
-            'username' => 'required|string',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|string',
-        ];
-
-        $message = [
-            'username.required' => 'Nama wajib diisi!',
-            'username.string' => 'Nama harus berupa string!',
-            'email.required' => 'Email wajib diisi!',
-            'email.email' => 'Email tidak valid!',
-            'email.unique' => 'Email sudah terdaftar!',
-            'password.required' => 'Password wajib diisi!',
-            'password.string' => 'Password harus berupa string!',
-        ];
-
-        $request->validate($rules, $message);
-
         $user = new User();
         $user->name = 'User';
         $user->username = $request->username;
         $user->email = $request->email;
-        $user->gender = 'not-found';
-        $user->address = 'not-found';
-        $user->phone = 'not-found';
+        $user->gender = 'not_found';
+        $user->address = 'not_found';
+        $user->phone = 'not_found';
         $user->role = '3';
-        $user->image = 'not-found';
+        $user->image = 'not_found';
         $user->password = bcrypt($request->password);
         $user->save();
 
@@ -108,15 +90,24 @@ class PagesController extends Controller
         return redirect()->route('login')->with('success', 'Anda berhasil logout!');
     }
 
-    // Page User
+    public function dashboard()
+    {
+        $data = [
+            'user' => auth()->user(),
+        ];
+        return view('admin.pages.dashboard', $data);
+    }
 
+    // Page User
     public function home()
     {
-        $data = [];
+        $data = [
+            'title_page' => 'home',
+            'products' => Product::all()
+        ];
         return view('user.pages.home', $data);
     }
-<<<<<<< Updated upstream
-=======
+  
     public function shop()
     {
         $data = [
@@ -169,7 +160,4 @@ class PagesController extends Controller
     {
         return view('user.pages.checkout');
     }
-
-    
->>>>>>> Stashed changes
 }

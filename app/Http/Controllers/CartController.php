@@ -7,14 +7,19 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+    public function __construct()
+    {
+        // $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = [];
-
-        return view('admin.pages.carts.index', $data);
+        $data = [
+            'title_page' => 'Carts'
+        ];
+        return view('user.pages.carts', $data);
     }
 
     /**

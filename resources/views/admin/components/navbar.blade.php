@@ -9,7 +9,7 @@
                     </svg>
                 </button>
                 <a href="/" class="flex ml-2 md:mr-24">
-                    <img src="{{ url('./images/logo.png') }}" class="h-8 mr-3" alt="FlowBite Logo" />
+                    <img src="{{ url('./assets/images-admin/logo.png') }}" class="h-8 mr-3" alt="Logo" />
                     <span class="self-center text-xl bg-gradient-to-r from-sky-500 to-sky-800 text-transparent bg-clip-text font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Malang Special</span>
                 </a>
             </div>
