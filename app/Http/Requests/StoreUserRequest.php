@@ -24,6 +24,7 @@ class StoreUserRequest extends FormRequest
         return [
             'username' => 'required|string|unique:users,username',
             'email' => 'required|email|unique:users,email',
+            'phone' => 'required|numeric|unique:users,phone',
             'password' => 'required|string',
         ];
     }
@@ -37,6 +38,9 @@ class StoreUserRequest extends FormRequest
             'email.required' => 'Email wajib diisi!',
             'email.email' => 'Email tidak valid!',
             'email.unique' => 'Email sudah terdaftar!',
+            'phone.required' => 'Nomor Telepon wajib diisi!',
+            'phone.numeric' => 'Nomor Telepon harus berupa angka!',
+            'phone.unique' => 'Nomor Telepon telah terdaftar!',
             'password.required' => 'Password wajib diisi!',
             'password.string' => 'Password harus berupa string!',
         ];

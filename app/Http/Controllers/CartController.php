@@ -17,11 +17,12 @@ class CartController extends Controller
      */
     public function index()
     {
+        $this->authorize('user');
         $data = [
             'title_page' => 'carts',
             'carts' => Cart::with(['user', 'product.market',])->where('user_id', auth()->user()->id)->get(),
         ];
-        return view('user.pages.carts', $data);
+        return view('user.pages.carts.index', $data);
     }
 
     /**
@@ -44,9 +45,6 @@ class CartController extends Controller
             return redirect('/carts')->with('error-checkout', 'Produk tidak tersedia, silahkan pilih produk lain!');
         }
 
-        $product->remainder = $product->remainder - 1;
-        $product->save();
-
 
         $cart = new Cart();
         $cart->product_id = $request->product_id;
@@ -63,7 +61,14 @@ class CartController extends Controller
      */
     public function show(Cart $cart)
     {
-        //
+        $this->authorize('user');
+        $data = [
+            'title_page' => 'Detail Keranjang',
+            'cart' => Cart::with(['user', 'product.market',])
+                ->where('id', $cart->id)
+                ->first(),
+        ];
+        return view('user.pages.carts.show', $data);
     }
 
     /**
@@ -71,7 +76,14 @@ class CartController extends Controller
      */
     public function edit(Cart $cart)
     {
-        //
+        $this->authorize('user');
+        $data = [
+            'title_page' => 'Edit Keranjang',
+            'cart' => Cart::with(['user', 'product.market',])
+                ->where('id', $cart->id)
+                ->first(),
+        ];
+        return view('user.pages.carts.edit', $data);
     }
 
     /**
@@ -79,7 +91,29 @@ class CartController extends Controller
      */
     public function update(Request $request, Cart $cart)
     {
-        //
+        $rules = [
+            'quantity' => 'required|numeric'
+        ];
+
+        $messages = [
+            'quantity.required' => 'Jumlah Produk yang dibeli tidak boleh kosong!',
+            'quantity.numeric' => 'Jumlah Produk yang dibeli harus angka!',
+        ];
+
+        $request->validate($rules, $messages);
+
+        $cart_product = Cart::with(['user', 'product.market',])
+            ->where('id', $cart->id)
+            ->first();
+
+        if ($cart_product->product->remainder < $request->quantity) {
+            return back()->with('error-checkout', 'Jumlah pembelian melebihi produk yang tersedia!');
+        }
+
+        $cart->quantity = $request->quantity;
+        $cart->save();
+
+        return back()->with('success-checkout', 'Produk berhasil diubah!');
     }
 
     /**
@@ -87,6 +121,7 @@ class CartController extends Controller
      */
     public function destroy(Cart $cart)
     {
-        //
+        $cart->delete();
+        return redirect('/carts')->with('success-checkout', 'Produk berhasil dihapus dari keranjang!');
     }
 }

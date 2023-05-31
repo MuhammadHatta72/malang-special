@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\Cart;
 use App\Models\Market;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -77,6 +78,10 @@ class UserController extends Controller
             if ($request->input('role') == '3') {
                 return redirect('/users')->with('error', 'User sudah terdaftar di sebagai admin toko!');
             }
+        }
+
+        if (Cart::where('user_id', $user->id)->exists()) {
+            return redirect('/users')->with('error', 'User telah membeli produk!');
         }
 
         $user->name = $request->input('name');

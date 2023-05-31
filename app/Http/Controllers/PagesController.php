@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use App\Http\Requests\StoreUserRequest;
+use App\Models\Market;
 use Illuminate\Auth\Events\PasswordReset;
 use App\Models\Product;
 use App\Models\User;
@@ -47,7 +48,7 @@ class PagesController extends Controller
                     // dd(Auth::guard($guard)->user()->role);
                     if (Auth::guard($guard)->user()->role == 3) {
                         // dd('user', auth()->user()->role);
-                        return redirect('/carts')->with('success', 'Anda berhasil login!');
+                        return redirect('/shop')->with('success', 'Anda berhasil login!');
                     } else {
                         // dd('admin', auth()->user()->role);
                         return redirect('/dashboard')->with('success', 'Anda berhasil login!');
@@ -74,7 +75,7 @@ class PagesController extends Controller
         $user->email = $request->email;
         $user->gender = 'not_found';
         $user->address = 'not_found';
-        $user->phone = 'not_found';
+        $user->phone = $request->phone;
         $user->role = '3';
         $user->image = 'not_found';
         $user->password = bcrypt($request->password);

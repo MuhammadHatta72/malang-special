@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\MarketAdminController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -27,50 +29,6 @@ use App\Http\Controllers\ReportController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-// Route::get('forgot-password', function () {
-//     return view('admin.pages.auth.forgot-password');
-// })->middleware('guest')->name('password.request');
-
-// Route::post('/forgot-password', function (Request $request) {
-//     $request->validate(['email' => 'required|email']);
- 
-//     $status = Password::sendResetLink(
-//         $request->only('email')
-//     );
- 
-//     return $status === Password::RESET_LINK_SENT
-//                 ? back()->with(['status' => __($status)])
-//                 : back()->withErrors(['email' => __($status)]);
-// })->middleware('guest')->name('password.email');
-
-// Route::get('/reset-password/{token}', function (string $token) {
-//     return view('admin.pages.auth.reset-password', ['token' => $token]);
-// })->middleware('guest')->name('password.reset');
-
-// Route::post('/reset-password', function (Request $request) {
-//     $request->validate([
-//         'token' => 'required',
-//         'email' => 'required|email',
-//         'password' => 'required|min:8|confirmed',
-//     ]);
- 
-//     $status = Password::reset(
-//         $request->only('email', 'password', 'password_confirmation', 'token'),
-//         function (User $user, string $password) {
-//             $user->forceFill([
-//                 'password' => Hash::make($password)
-//             ]);
- 
-//             $user->save();
- 
-//             event(new PasswordReset($user));
-//         }
-//     );
-//     return $status === Password::PASSWORD_RESET
-//                 ? redirect()->route('login')->with('status', __($status))
-//                 : back()->withErrors(['email' => [__($status)]]);
-// })->middleware('guest')->name('password.update');
 
 Route::get('forgot-password', [PagesController::class, 'forgot_password'])->middleware('guest')->name('password.request');
 Route::post('forgot-password', [PagesController::class, 'forgot_proses'])->middleware('guest')->name('password.email');;
@@ -98,8 +56,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('users', UserController::class);
     Route::resource('markets', MarketController::class);
     Route::delete('markets/delete-image/{market}', [MarketController::class, 'destroyImage']);
+    Route::resource('market-admin', MarketAdminController::class);
     Route::resource('products', ProductController::class);
     Route::delete('products/delete-image/{product}', [ProductController::class, 'destroyImage']);
+    Route::resource('checkhout', CheckoutController::class);
     Route::resource('payments', PaymentController::class);
     Route::get('report-users', [ReportController::class, 'users']);
     Route::get('report-markets', [ReportController::class, 'markets']);
@@ -107,5 +67,3 @@ Route::middleware('auth')->group(function () {
     Route::get('report-transactions', [ReportController::class, 'transactions']);
     Route::get('logout', [PagesController::class, 'logout']);
 });
-
-
