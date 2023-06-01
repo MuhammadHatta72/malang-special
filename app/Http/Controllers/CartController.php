@@ -20,7 +20,10 @@ class CartController extends Controller
         $this->authorize('user');
         $data = [
             'title_page' => 'carts',
-            'carts' => Cart::with(['user', 'product.market',])->where('user_id', auth()->user()->id)->get(),
+            'carts' => Cart::with(['user', 'product.market',])
+                ->where('user_id', auth()->user()->id)
+                ->where('status', 'not-checked')
+                ->get(),
         ];
         return view('user.pages.carts.index', $data);
     }
@@ -38,7 +41,6 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-
         $product = Product::find($request->product_id);
 
         if ($product->remainder < 1) {
@@ -50,6 +52,7 @@ class CartController extends Controller
         $cart->product_id = $request->product_id;
         $cart->user_id = auth()->user()->id;
         $cart->quantity = 1;
+        $cart->status = 'not-checked';
         $cart->save();
 
 

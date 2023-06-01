@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Cart;
 use App\Models\Market;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -67,6 +69,27 @@ class DatabaseSeeder extends Seeder
             'address' => 'Tuban',
             'phone' => '085706000000',
             'image' => 'not_found',
+        ]);
+
+
+        //Product
+        Product::create([
+            'name' => 'Roti Kukus',
+            'price' => '50000',
+            'category' => 'Makanan',
+            'description' => '-',
+            'stock' => '10',
+            'remainder' => '10',
+            'image' => 'not_found',
+            'market_id' => 1
+        ]);
+
+        //Cart
+        Cart::create([
+            'product_id' => 1,
+            'user_id' => 3,
+            'quantity' => 1,
+            'status' => 'not-checked'
         ]);
     }
 }

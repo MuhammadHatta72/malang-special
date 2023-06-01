@@ -8,7 +8,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\MarketAdminController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +17,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,7 +59,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('market-admin', MarketAdminController::class);
     Route::resource('products', ProductController::class);
     Route::delete('products/delete-image/{product}', [ProductController::class, 'destroyImage']);
-    Route::resource('checkhout', CheckoutController::class);
+    Route::resource('transactions', TransactionController::class);
     Route::resource('payments', PaymentController::class);
     Route::get('report-users', [ReportController::class, 'users']);
     Route::get('report-markets', [ReportController::class, 'markets']);

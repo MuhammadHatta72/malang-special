@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('product_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->integer('quantity');
+            $table->string('status');
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products');
