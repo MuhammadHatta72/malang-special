@@ -21,7 +21,7 @@ class TransactionController extends Controller
         $market = Market::where('user_id', auth()->user()->id)->first();
         $data = [
             'transactions' => Transaction::with(['transactionitems', 'market', 'user'])
-                ->where('market_id', $market->id)->paginate(1)
+                ->where('market_id', $market->id)->paginate(8)
         ];
         return view('admin.pages.transactions.index', $data);
     }
@@ -80,10 +80,6 @@ class TransactionController extends Controller
 
             $cart->status = "checked";
             $cart->save();
-
-            $product = Product::find($cart->product->id);
-            $product->remainder -= $cart->quantity;
-            $product->save();
         }
 
         return redirect('transaction-user/' . $transaction->id)
@@ -101,7 +97,7 @@ class TransactionController extends Controller
             'transaction' => $transaction,
             'transactionItems' => TransactionItem::with(['cart.product'])
                 ->where('transaction_id', $transaction->id)
-                ->paginate(1)
+                ->paginate(8)
         ];
         return view('admin.pages.transactions.show', $data);
     }
@@ -147,6 +143,17 @@ class TransactionController extends Controller
         } elseif ($request->input('product_end')) {
             $transaction->status = 'done';
             $transaction->save();
+
+            $transactionItems = TransactionItem::with(['cart.product'])
+                ->where('transaction_id', $transaction->id)
+                ->get();
+            foreach ($transactionItems as $transactionItem) {
+                $cart = Cart::find($transactionItem->cart_id);
+                $product = Product::find($cart->product->id);
+                $product->remainder -= $cart->quantity;
+                $product->save();
+            }
+
             return redirect('transactions')->with('success', 'Transaksi Berhasil');
         } else {
             return back()->with('error', 'Perintah salah!');

@@ -15,7 +15,7 @@ class ReportController extends Controller
      */
     public function users()
     {
-        $this->authorize('super_admin');
+        $this->authorize('superadmin');
         $data = [
             'users' => User::paginate(10),
         ];
@@ -25,7 +25,7 @@ class ReportController extends Controller
 
     public function markets()
     {
-        $this->authorize('super_admin');
+        $this->authorize('superadmin');
         $data = [
             'markets' => Market::paginate(10)
         ];
