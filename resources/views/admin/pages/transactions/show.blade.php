@@ -85,7 +85,7 @@
                             </div>
                             <div class="flex justify-between mb-3">
                                 <p class="block mb-1 text-sm font-medium text-gray-700 dark:text-white">Metode pembayaran :</p>
-                                <p class="block mb-1 text-sm text-gray-500 dark:text-white">TF</p>
+                                <p class="block mb-1 text-sm text-gray-500 dark:text-white">{{$transaction->method_payment}}</p>
                             </div>
                             <hr>
                             <!-- <div class="flex justify-between mb-3">

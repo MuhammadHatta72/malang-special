@@ -32,7 +32,7 @@
             @endcan
             @can('admin_has_market')
             <li>
-                <a href="{{url('/market-admin')}}" class="flex items-center p-2 text-gray-600 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('markets') ? 'text-gray-900 bg-gray-100 dark:bg-gray-700': '' }}">
+                <a href="{{url('/market-admin')}}" class="flex items-center p-2 text-gray-600 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('market-admin') ? 'text-gray-900 bg-gray-100 dark:bg-gray-700': '' }}">
                     <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-white">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z"></path>
                     </svg>
@@ -48,7 +48,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{url('/transactions')}}" class="flex items-center p-2 text-gray-600 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('products') ? 'text-gray-900 bg-gray-100 dark:bg-gray-700': '' }}">
+                <a href="{{url('/transactions')}}" class="flex items-center p-2 text-gray-600 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('transactions') ? 'text-gray-900 bg-gray-100 dark:bg-gray-700': '' }}">
                     <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-white">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605"></path>
                     </svg>
@@ -66,7 +66,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{url('/transaction-user')}}" class="flex items-center p-2 text-gray-600 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('payments') ? 'text-gray-900 bg-gray-100 dark:bg-gray-700': '' }}">
+                <a href="{{url('/transaction-user')}}" class="flex items-center p-2 text-gray-600 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('transaction-user') ? 'text-gray-900 bg-gray-100 dark:bg-gray-700': '' }}">
                     <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-white">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v3"></path>
                     </svg>
