@@ -6,7 +6,7 @@
         <h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-[#549166] md:text-5xl lg:text-6xl">Toko Oleh-oleh Khas Malang</h1>
         <p class="mb-8 text-lg font-normal text-white lg:text-xl sm:px-16 lg:px-48">Kami menjual berbagai produk oleh-oleh khas Malang yang berkualitas.</p>
         <div class="flex justify-center">
-            <a href="/shop" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-full bg-[#efa911] hover:bg-[#F7C04B] focus:ring-4 focus:ring-[#F7C04B] dark:focus:ring-[#F7C04B] mr-2 md:mr-4">
+            <a href="/carts" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-full bg-[#efa911] hover:bg-[#F7C04B] focus:ring-4 focus:ring-[#F7C04B] dark:focus:ring-[#F7C04B] mr-2 md:mr-4">
                 Beli Sekarang
                 <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="ml-2 -mr-1 w-4 h-4">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
@@ -122,6 +122,56 @@
             </a>
         </div>
     </div>
+</section>
+
+<section id="transaction" class="h-xl text-neutral-700 dark:text-neutral-300 justify-center flex align-items-center">
+    <div class="container mx-auto flex flex-wrap ">
+    <div class="w-full flex flex-col justify-center items-center px-6 ">
+        <h2 class="mt-3 md:mt-0 mb-2 md:mb-4 text-4xl tracking-tight font-extrabold text-gray-800 dark:text-white">Testimoni</h2>
+        <hr class="w-20 h-2 bg-[#549166] rounded-full mb-2 md:mb-4" />
+        <p class="text-center mb-2 md:mb-4">Testimoni dari pelanggan kami</p>
+    </div>
+
+  <!--First Testimonial-->
+  
+  <div class="flex flex-col text-center w-full bg-slate-400 items-center justify-center">
+    <div class="grid grid-flow-col gap-6 justify-center ">
+    @foreach($transactions as $transaction) 
+      <div
+        class="block rounded-lg bg-white shadow-lg dark:bg-neutral-700 dark:shadow-black/30 w-52">
+        <div class="h-28 overflow-hidden rounded-t-lg bg-[#9d789b]"></div>
+        <div
+          class="mx-auto -mt-12 w-24 overflow-hidden rounded-full border-2 border-white bg-white dark:border-neutral-800 dark:bg-neutral-800">
+          @if($transaction->user->image == 'not_found')
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-full text-[#F7C04B]">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path>
+                    </svg>
+                    @else
+                    <img class="rounded-t-lg w-full h-auto" src="{{ url('./image_users/'. $transaction->user->image) }}" alt="" />
+                    @endif
+        </div>
+        <div class="p-6">
+          <h4 class="mb-4 text-2xl font-semibold">{{$transaction->user->name}}</h4>
+          <hr />
+          <p class="mt-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="inline-block h-7 w-7 pr-2"
+              viewBox="0 0 24 24">
+              <path
+                d="M13 14.725c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275zm-13 0c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275z" />
+            </svg>
+            {{$transaction->user_message}}
+          </p>
+        </div>
+      </div>
+    @endforeach
+    </div>
+  </div>
+  
+
+</div>
 </section>
 
 <section id="contact" class="w-full py-10 px-6 sm:px-8 lg:px-10 dark:bg-gray-800">
