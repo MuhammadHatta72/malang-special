@@ -9,6 +9,7 @@ use App\Models\Market;
 use Illuminate\Auth\Events\PasswordReset;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -105,7 +106,8 @@ class PagesController extends Controller
     {
         $data = [
             'title_page' => 'home',
-            'products' => Product::all()
+            'products' => Product::all(),
+            'transactions' => Transaction::all()
         ];
         return view('user.pages.home', $data);
     }
