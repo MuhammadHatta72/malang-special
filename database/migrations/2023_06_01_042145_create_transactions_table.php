@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('status_payment');
             $table->string('address');
             $table->string('method_payment');
+            $table->string('proof_payment');
+            $table->string('user_message');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

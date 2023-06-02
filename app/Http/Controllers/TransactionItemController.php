@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\TransactionItem;
 use Illuminate\Http\Request;
 
@@ -34,7 +35,7 @@ class TransactionItemController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(TransactionItem $transactionItem)
+    public function show(TransactionItem $transactionitem)
     {
         //
     }
@@ -42,7 +43,7 @@ class TransactionItemController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(TransactionItem $transactionItem)
+    public function edit(TransactionItem $transactionitem)
     {
         //
     }
@@ -50,7 +51,7 @@ class TransactionItemController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TransactionItem $transactionItem)
+    public function update(Request $request, TransactionItem $transactionitem)
     {
         //
     }
@@ -58,8 +59,10 @@ class TransactionItemController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TransactionItem $transactionItem)
+    public function destroy(TransactionItem $transactionitem)
     {
-        //
+        // $cart = Cart::findOrFail($transactionitem->cart_id);
+        // $cart->status = 'not-checked';
+        // $cart->save();
     }
 }

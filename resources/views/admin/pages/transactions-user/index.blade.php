@@ -3,7 +3,7 @@
 @section('content')
 <div class="px-4 pt-8 pb-3 sm:ml-64">
     <div class="mt-12 mr-3">
-        @can('admin_has_market')
+        @can('user')
         @if (session('success'))
         <!-- Success Message -->
         <div id="alert-1" class="flex p-4 mb-4 text-green-500 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
@@ -56,9 +56,6 @@
                                 Token
                             </th>
                             <th class="px-2 py-3 font-medium text-center text-gray-900 whitespace-nowrap dark:text-white">
-                                Pengguna
-                            </th>
-                            <th class="px-2 py-3 font-medium text-center text-gray-900 whitespace-nowrap dark:text-white">
                                 Tanggal
                             </th>
                             <th class="px-2 py-3 font-medium text-center text-gray-900 whitespace-nowrap dark:text-white">
@@ -78,9 +75,6 @@
                             <th scope="row" class=" py-4 font-medium text-center text-gray-900 whitespace-nowrap dark:text-white">
                                 {{$transaction->token}}
                             </th>
-                            <td class="py-4 text-center">
-                                {{$transaction->user->name}}
-                            </td>
                             <td class="py-4 text-center">
                                 {{$transaction->date}}
 
@@ -109,10 +103,6 @@
                                 <span class="px-2 py-1 font-medium text-sm leading-tight text-yellow-700 bg-yellow-100 rounded-full dark:bg-yellow-700 dark:text-yellow-100">
                                     Proses Kirim
                                 </span>
-                                @elseif($transaction->status == 'product_received')
-                                <span class="px-2 py-1 font-medium text-sm leading-tight text-blue-700 bg-yellow-100 rounded-full dark:bg-yellow-700 dark:text-yellow-100">
-                                    Barang Ditetima
-                                </span>
                                 @else
                                 <span class="px-2 py-1 font-medium text-sm leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-yellow-100">
                                     Selesai
@@ -127,7 +117,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                         </svg>
                                     </a> -->
-                                    <a href="{{ url('transactions/'.$transaction->id)}}" class="text-white bg-red-600 hover:bg-red-400 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-full text-sm p-2 text-center inline-flex items-center mr-1 dark:bg-red-600 dark:hover:bg-red-400 dark:focus:ring-red-600">
+                                    <a href="{{ url('transaction-user/'.$transaction->id)}}" class="text-white bg-red-600 hover:bg-red-400 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-full text-sm p-2 text-center inline-flex items-center mr-1 dark:bg-red-600 dark:hover:bg-red-400 dark:focus:ring-red-600">
                                         <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-4 h-4">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"></path>
                                         </svg>

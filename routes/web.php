@@ -18,6 +18,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\TransactionItemController;
+use App\Http\Controllers\TransactionUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,7 +62,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('products', ProductController::class);
     Route::delete('products/delete-image/{product}', [ProductController::class, 'destroyImage']);
     Route::resource('transactions', TransactionController::class);
-    Route::resource('payments', PaymentController::class);
+    Route::resource('transactionitems', TransactionItemController::class);
+    Route::resource('transaction-user', TransactionUserController::class);
     Route::get('report-users', [ReportController::class, 'users']);
     Route::get('report-markets', [ReportController::class, 'markets']);
     Route::get('report-products', [ReportController::class, 'products']);

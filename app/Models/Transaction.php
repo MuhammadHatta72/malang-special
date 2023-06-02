@@ -18,6 +18,8 @@ class Transaction extends Model
         'status_payment',
         'address',
         'method_payment',
+        'proof_payment',
+        'user_message',
     ];
 
     public function transactionitems()
@@ -28,5 +30,10 @@ class Transaction extends Model
     public function market()
     {
         return $this->belongsTo(Market::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

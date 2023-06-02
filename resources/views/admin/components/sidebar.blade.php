@@ -65,14 +65,12 @@
                     <span class="ml-3">Carts</span>
                 </a>
             </li>
-            @endcan
-            @can('admin_has_market')
             <li>
-                <a href="{{url('/payments')}}" class="flex items-center p-2 text-gray-600 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('payments') ? 'text-gray-900 bg-gray-100 dark:bg-gray-700': '' }}">
+                <a href="{{url('/transaction-user')}}" class="flex items-center p-2 text-gray-600 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('payments') ? 'text-gray-900 bg-gray-100 dark:bg-gray-700': '' }}">
                     <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-white">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v3"></path>
                     </svg>
-                    <span class="ml-3">Payment</span>
+                    <span class="ml-3">Transaction</span>
                 </a>
             </li>
             @endcan

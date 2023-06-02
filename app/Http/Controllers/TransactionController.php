@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Market;
 use App\Models\Product;
 use App\Models\Transaction;
 use App\Models\TransactionItem;
@@ -17,10 +18,11 @@ class TransactionController extends Controller
     public function index()
     {
         $this->authorize('admin_has_market');
+        $market = Market::where('user_id', auth()->user()->id)->first();
         $data = [
-            'transactions' => Transaction::with(['transactionitems', 'market'])->paginate(1)
+            'transactions' => Transaction::with(['transactionitems', 'market', 'user'])
+                ->where('market_id', $market->id)->paginate(1)
         ];
-
         return view('admin.pages.transactions.index', $data);
     }
 
@@ -60,10 +62,13 @@ class TransactionController extends Controller
         $transaction->token = Str::random(20);
         $transaction->date = date('Y-m-d');
         $transaction->total_price = $total_price + 10000;
-        $transaction->status = "procces";
+        $transaction->status = "procces_payment";
         $transaction->status_payment = "not_yet";
-        $transaction->method_payment = "";
-        $transaction->address = "";
+        $transaction->method_payment = "-";
+        $transaction->address = "-";
+        $transaction->proof_payment = "-";
+        $transaction->user_message = "-";
+
         $transaction->save();
 
         foreach ($carts_request as $cart_id) {
@@ -81,7 +86,8 @@ class TransactionController extends Controller
             $product->save();
         }
 
-        return redirect('carts')->with('success-checkout', 'Berhasil pesan barang, lanjutkan pembayaran!');
+        return redirect('transaction-user/' . $transaction->id)
+            ->with('success-checkout', 'Berhasil pesan barang, lanjutkan pembayaran!');
     }
 
     /**
@@ -89,7 +95,15 @@ class TransactionController extends Controller
      */
     public function show(Transaction $transaction)
     {
-        //
+        $this->authorize('admin_has_market');
+        // $market = Market::where('user_id', auth()->user()->id)->first();
+        $data = [
+            'transaction' => $transaction,
+            'transactionItems' => TransactionItem::with(['cart.product'])
+                ->where('transaction_id', $transaction->id)
+                ->paginate(1)
+        ];
+        return view('admin.pages.transactions.show', $data);
     }
 
     /**
@@ -105,7 +119,27 @@ class TransactionController extends Controller
      */
     public function update(Request $request, Transaction $transaction)
     {
-        //
+        if ($request->input('procces_payment')) {
+            if (!$request->hasFile('proof_payment')) {
+                return back()->with('error', 'Bukti Pembayaran wajib disertakan!');
+            } else {
+                $proof_payment = "proof_payment_" . time() . "." . $request->proof_payment->extension();
+                $request->file('proof_payment')->move(public_path('image_proof_payments/'), $proof_payment);
+                $transaction->proof_payment = $proof_payment;
+            }
+            $transaction->status_payment = 'done';
+            $transaction->method_payment = $request->input('metode_payment');
+            $transaction->address = $request->input('address');
+            $transaction->save();
+
+            // $redirectPage = auth()->user()->role == "2" ? "transactions" : "transaction-user";
+
+            return redirect('transaction-user')->with('success', 'Pembayaran Berhasil');
+        } elseif ($request->input('procces_transaction')) {
+        } elseif ($request->input('procces_send')) {
+        } elseif ($request->input('product_received')) {
+        } else {
+        }
     }
 
     /**
