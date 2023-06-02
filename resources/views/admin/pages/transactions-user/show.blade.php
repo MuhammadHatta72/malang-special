@@ -138,6 +138,10 @@
                                 <p class="block mb-1 text-sm font-bold text-green-400 dark:text-white">Lunas</p>
                                 @endif
                             </div>
+                            <div class="flex justify-between mb-3">
+                                <p class="block mb-1 text-sm font-medium text-gray-700 dark:text-white">Tanggal Alamat Pengiriman :</p>
+                                <p class="block mb-1 text-sm text-gray-500 dark:text-white">{{$transaction->address}}</p>
+                            </div>
                             <hr>
                             <!-- <div class="flex justify-between mb-3">
                                 <p class="block mb-1 text-sm font-medium text-gray-700 dark:text-white">Subtotal untuk produk :</p>
@@ -155,10 +159,11 @@
                                 <p class="block mb-1 text-sm font-medium text-gray-700 dark:text-white">Total Pesanan :</p>
                                 <p class="block mb-1 text-base text-amber-400 dark:text-white">Rp. {{$transaction->total_price}}</p>
                             </div>
-                            @if($transaction->status_payment == 'not_yet')
+                            @if($transaction->status_payment == 'not_yet' && $transaction->proof_payment == '-')
                             <form action="/transactions/{{ $transaction->id }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
+                                <input type="hidden" name="procces_payment" value="procces_payment">
                                 <div class="mb-4">
                                     <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat Pengiriman</label>
                                     <input type="text" id="address" name="address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="alamat pengiriman lengkap" required>
@@ -176,13 +181,27 @@
                                     <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white" for="proof_payment">Bukti Pembayaran</label>
                                     <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="proof_payment" name="proof_payment" type="file" required>
                                 </div>
-                                <!-- <div class="mb-3">
-                                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
-                                <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
-                            </div> -->
+                                @if($transaction->status == 'procces_send')
+                                <div class="mb-3">
+                                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
+                                    <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+                                </div>
+                                @endif
                                 @if($transaction->status_payment == 'not_yet')
                                 <button type="submit" class="w-full text-green-400 hover:text-white border border-green-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-300 dark:text-green-300 dark:hover:text-white dark:hover:bg-green-400 dark:focus:ring-green-900">Bayar Sekarang</button>
                                 @endif
+                            </form>
+                            @endif
+                            @if($transaction->status == 'procces_send')
+                            <form action="/transactions/{{ $transaction->id }}" method="post">
+                                @csrf
+                                @method('PUT')
+                                <input type="hidden" name="procces_send" value="procces_send">
+                                <div class="mb-3">
+                                    <label for="user_message" class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Penilaian</label>
+                                    <textarea id="user_message" name="user_message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="berikan penilaian..." required></textarea>
+                                </div>
+                                <button type="submit" class="w-full text-green-400 hover:text-white border border-green-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-300 dark:text-green-300 dark:hover:text-white dark:hover:bg-green-400 dark:focus:ring-green-900">Kirim</button>
                             </form>
                             @endif
                         </div>

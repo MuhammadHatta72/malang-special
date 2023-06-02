@@ -127,18 +127,29 @@ class TransactionController extends Controller
                 $request->file('proof_payment')->move(public_path('image_proof_payments/'), $proof_payment);
                 $transaction->proof_payment = $proof_payment;
             }
-            $transaction->status_payment = 'done';
             $transaction->method_payment = $request->input('metode_payment');
             $transaction->address = $request->input('address');
             $transaction->save();
 
             // $redirectPage = auth()->user()->role == "2" ? "transactions" : "transaction-user";
 
-            return redirect('transaction-user')->with('success', 'Pembayaran Berhasil');
+            return redirect('transaction-user')->with('success', 'Pembayaran akan diproses oleh admin!');
         } elseif ($request->input('procces_transaction')) {
+            $transaction->status_payment = 'done';
+            $transaction->status = 'procces_send';
+            $transaction->save();
+            return redirect('transactions')->with('success', 'Pembayaran telah berhasil, tunggu barang dikirim oleh kurir!');
         } elseif ($request->input('procces_send')) {
-        } elseif ($request->input('product_received')) {
+            $transaction->status = 'product_received';
+            $transaction->user_message = $request->input('user_message');
+            $transaction->save();
+            return redirect('transaction-user')->with('success', 'Penilaian berhasil!');
+        } elseif ($request->input('product_end')) {
+            $transaction->status = 'done';
+            $transaction->save();
+            return redirect('transactions')->with('success', 'Transaksi Berhasil');
         } else {
+            return back()->with('error', 'Perintah salah!');
         }
     }
 

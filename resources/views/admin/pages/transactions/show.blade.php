@@ -104,16 +104,45 @@
                                 <p class="block mb-1 text-base font-medium text-gray-700 dark:text-white">Total Pesanan :</p>
                                 <p class="block mb-1 text-base text-amber-400 dark:text-white">Rp. {{$transaction->total_price}}</p>
                             </div>
-                            <!-- <div class="mb-3">
-                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
-                                <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
+                            @if($transaction->proof_payment != '-')
+                            <p class="block mt-3 mb-1 text-sm font-medium text-gray-700 dark:text-white">Bukti Pembayaran</p>
+                            <img class="w-full h-full my-3" src="{{ url('./image_proof_payments/'.$transaction->proof_payment) }}" alt="proof payment">
+                            <div class="flex justify-between mt-3">
+                                <p class="block mb-1 text-sm font-medium text-gray-700 dark:text-white">Alamat Pengiriman</p>
                             </div>
-                            <div class="mb-3">
-                                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
-                                <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
-                            </div> -->
-                            @if($transaction->status_payment != 'not_yet')
-                            <button type="button" class="w-full text-green-400 hover:text-white border border-green-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-300 dark:text-green-300 dark:hover:text-white dark:hover:bg-green-400 dark:focus:ring-green-900">Konfirmasi Pembayaran</button>
+                            <div class="flex justify-between mb-3">
+                                <p class="block mb-1 text-sm text-gray-500 dark:text-white">{{$transaction->address}}</p>
+                            </div>
+                            @endif
+                            @if($transaction->status_payment == 'not_yet' && $transaction->proof_payment != '-')
+                            <form action="/transactions/{{ $transaction->id }}" method="post" enctype="multipart/form-data">
+                                @csrf
+                                @method('PUT')
+                                <input type="hidden" name="procces_transaction" value="procces_transaction">
+                                <button type="submit" class="w-full text-green-400 hover:text-white border border-green-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-300 dark:text-green-300 dark:hover:text-white dark:hover:bg-green-400 dark:focus:ring-green-900">Konfirmasi Pembayaran</button>
+                            </form>
+                            @endif
+                            @if($transaction->status == 'product_received' && $transaction->user_message != '-')
+                            <div class="flex justify-between mt-3">
+                                <p class="block mb-1 text-sm font-medium text-gray-700 dark:text-white">Pesan Pengguna</p>
+                            </div>
+                            <div class="flex justify-between mb-3">
+                                <p class="block mb-1 text-sm text-gray-500 dark:text-white">{{$transaction->user_message}}</p>
+                            </div>
+                            <form action="/transactions/{{ $transaction->id }}" method="post" enctype="multipart/form-data">
+                                @csrf
+                                @method('PUT')
+                                <input type="hidden" name="product_end" value="product_end">
+                                <button type="submit" class="w-full text-red-400 hover:text-white border border-red-400 hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-300 dark:text-red-300 dark:hover:text-white dark:hover:bg-red-400 dark:focus:ring-red-900">Transaksi Selesai</button>
+                            </form>
+                            @endif
+                            @if($transaction->status == 'done')
+                            <div class="flex justify-between mt-3">
+                                <p class="block mb-1 text-sm font-medium text-gray-700 dark:text-white">Pesan Pengguna</p>
+                            </div>
+                            <div class="flex justify-between mb-3">
+                                <p class="block mb-1 text-sm text-gray-500 dark:text-white">{{$transaction->user_message}}</p>
+                            </div>
                             @endif
                         </div>
                     </div>
