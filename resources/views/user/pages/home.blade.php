@@ -124,7 +124,7 @@
     </div>
 </section>
 
-<section id="transaction" class="h-xl text-neutral-700 dark:text-neutral-300 justify-center flex align-items-center">
+<section id="testimoni" class="h-xl pt-20 pb-10 text-neutral-700 dark:text-neutral-300 justify-center flex align-items-center">
     <div class="container mx-auto flex flex-wrap ">
     <div class="w-full flex flex-col justify-center items-center px-6 ">
         <h2 class="mt-3 md:mt-0 mb-2 md:mb-4 text-4xl tracking-tight font-extrabold text-gray-800 dark:text-white">Testimoni</h2>
@@ -134,7 +134,7 @@
 
   <!--First Testimonial-->
   
-  <div class="flex flex-col text-center w-full bg-slate-400 items-center justify-center">
+  <div class="flex flex-col text-center w-full items-center justify-center">
     <div class="grid grid-flow-col gap-6 justify-center ">
     @foreach($transactions as $transaction) 
       <div
