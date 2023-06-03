@@ -124,10 +124,9 @@
     </div>
 </section>
 
-<section id="testimoni" class="h-xl pt-20 pb-10 text-neutral-700 dark:text-neutral-300 justify-center flex align-items-center">
-    <div class="container mx-auto flex flex-wrap ">
-    <div class="w-full flex flex-col justify-center items-center px-6 ">
-        <h2 class="mt-3 md:mt-0 mb-2 md:mb-4 text-4xl tracking-tight font-extrabold text-gray-800 dark:text-white">Testimoni</h2>
+<section id="ulasan" class="bg-[#FEF3C7] dark:bg-[#64748B] py-16 px-6 sm:px-8 lg:px-10 text-gray-700">
+    <div class="flex flex-col justify-center items-center ">
+        <h2 class="mt-3 md:mt-0 mb-2 md:mb-4 text-4xl tracking-tight font-extrabold text-gray-800 dark:text-white">Ulasan Pelanggan</h2>
         <hr class="w-20 h-2 bg-[#549166] rounded-full mb-2 md:mb-4" />
         <p class="mb-2 md:mb-4 dark:text-gray-200 "> Ulasan dari pelanggan kami </p>
     </div>
