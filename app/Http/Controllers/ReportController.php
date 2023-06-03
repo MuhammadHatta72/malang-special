@@ -38,7 +38,7 @@ class ReportController extends Controller
         $this->authorize('admin_has_market');
         $user = User::find(auth()->user()->id);
         $data = [
-            'products' => Product::where('market_id', $user->market->id)->paginate(1),
+            'products' => Product::where('market_id', $user->market->id)->paginate(10),
         ];
 
         return view('admin.pages.reports.products', $data);

@@ -130,12 +130,12 @@
         <hr class="w-20 h-2 bg-[#549166] rounded-full mb-2 md:mb-4" />
         <p class="mb-2 md:mb-4 dark:text-gray-200 "> Ulasan dari pelanggan kami </p>
     </div>
-    
+
   <!--First Testimonial-->
-  
+
   <div class="flex flex-col text-center w-full  items-center justify-center">
     <div class="grid grid-flow-col gap-6 justify-center ">
-    @foreach($transactions as $transaction) 
+    @foreach($transactions as $transaction)
       <div
         class="block rounded-lg bg-white shadow-lg dark:bg-neutral-700 dark:shadow-black/30 w-52">
         <div class="h-28 overflow-hidden rounded-t-lg bg-[#9d789b]"></div>
@@ -168,7 +168,7 @@
     @endforeach
     </div>
   </div>
-  
+
 
 </div>
 </section>
@@ -181,26 +181,9 @@
             <p class="mb-2 md:mb-4 dark:text-gray-200">kontak kami malang special</p>
         </div>
 
-
         <div class="flex flex-wrap">
-            <div class="grow-0 shrink-0 basis-auto mb-12 lg:mb-0 w-full lg:w-5/12 px-3 lg:px-6">
-                <h3 class="mt-3 md:mt-0 mb-2 md:mb-4 text-2xl tracking-tight font-extrabold text-gray-800 dark:text-white">Formulir</h3>
-                <hr class="w-20 h-1 bg-[#F7C04B] rounded-full mb-2 md:mb-4" />
-                <form>
-                    <div class="form-group mb-6">
-                        <input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-xl transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#F7C04B] focus:outline-none" id="exampleInput7" placeholder="Name">
-                    </div>
-                    <div class="form-group mb-6">
-                        <input type="email" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-xl transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#F7C04B] focus:outline-none" id="exampleInput8" placeholder="Email address">
-                    </div>
-                    <div class="form-group mb-6">
-                        <textarea class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-xl transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#F7C04B] focus:outline-none" id="exampleFormControlTextarea13" rows="3" placeholder="Message"></textarea>
-                    </div>
-                    <button type="submit" class="w-full px-6 py-2.5 bg-[#F7C04B] text-gray-700 font-medium text-base leading-tight uppercase rounded-xl shadow-md hover:bg-gray-100 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#F7C04B] active:shadow-lg transition duration-150 ease-in-out">Send</button>
-                </form>
-            </div>
             <div class="grow-0 shrink-0 basis-auto w-full lg:w-7/12 dark:text-gray-200">
-                <div class="flex flex-wrap">
+                <div class="flex flex-destination">
                     <div class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
                         <div class="flex items-start">
                             <div class="shrink-0">
@@ -212,7 +195,7 @@
                             </div>
                             <div class="grow ml-6">
                                 <p class="font-bold mb-1">Alamat</p>
-                                <p class="text-gray-500">Kota Malang</p>
+                                <p class="text-gray-500">Jl. Soekarno Hatta 09 Malang 65144</p>
                             </div>
                         </div>
                     </div>
@@ -244,21 +227,6 @@
                             <div class="grow ml-6">
                                 <p class="font-bold mb-1">Email</p>
                                 <p class="text-gray-500">malangspecial@gmail.com</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
-                        <div class="flex align-start">
-                            <div class="shrink-0">
-                                <div class="p-4 bg-[#404A7F] rounded-full shadow-md w-14 h-14 flex items-center justify-center">
-                                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-7 text-white">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="grow ml-6">
-                                <p class="font-bold mb-1">Fax</p>
-                                <p class="text-gray-500">+134-567-89</p>
                             </div>
                         </div>
                     </div>
