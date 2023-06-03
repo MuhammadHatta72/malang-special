@@ -7,7 +7,7 @@
         <p class="mb-8 text-lg font-normal text-white lg:text-xl sm:px-16 lg:px-48">Kami menjual berbagai produk oleh-oleh khas Malang yang berkualitas.</p>
         <div class="flex justify-center">
             
-            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="inline-flex justify-center hover:text-gray-900 items-center p-3 text-base font-medium text-center text-white rounded-full border-2 border-white shadow-xl shadow-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400 animate-bounce">
+            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class=" bg-[#efa911] inline-flex justify-center hover:text-gray-900 items-center p-3 text-base font-medium text-center text-white rounded-full border-2 border-white shadow-xl shadow-white hover:bg-yellow-300 focus:ring-4 focus:ring-gray-400 animate-bounce">
                 <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-7">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75"></path>
                 </svg>
@@ -39,7 +39,7 @@
         <div class="w-full flex flex-col justify-start px-6">
             <h2 class="mt-3 md:mt-0 mb-2 md:mb-4 text-4xl tracking-tight font-extrabold text-gray-800 dark:text-white">Produk Makanan</h2>
             <hr class="w-20 h-2 bg-[#549166] rounded-full mb-2 md:mb-4" />
-            <p class="mb-2 md:mb-4">Daftar produk makanan dari malang special</p>
+            <p class="mb-2 md:mb-4 dark:text-gray-200 ">Daftar produk makanan dari malang special</p>
         </div>
         <div class="w-full px-6 flex flex-col">
             <div class="mt-5 grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-4 lg:mt-8">
@@ -53,7 +53,7 @@
                     </div>
                     <div class="flex w-full items-center justify-between p-4">
                         <div class="flex flex-col">
-                            <p class="mb-2 text-lg font-semibold text-gray-800">Rp. {{$product->price}}</p>
+                            <p class="mb-2 text-lg font-semibold text-gray-800 dark:text-white">Rp. {{$product->price}}</p>
                             <h3 class="text-base text-gray-500">{{$product->name}}</h3>
                             <p class="text-sm text-gray-400">{{$product->category}}</p>
                         </div>
@@ -80,12 +80,12 @@
     </div>
 </section>
 
-<section id="product-drink" class="w-full pt-20 pb-10 bg-[#f1f4ff] dark:bg-gray-800">
+<section id="product-drink" class="w-full pt-20 pb-10 bg-[#f1f4ff] dark:bg-[#64748B]">
     <div class="container mx-auto flex flex-wrap">
         <div class="w-full flex flex-col justify-start px-6">
             <h2 class="mt-3 md:mt-0 mb-2 md:mb-4 text-4xl tracking-tight font-extrabold text-gray-800 dark:text-white">Produk Minuman</h2>
             <hr class="w-20 h-2 bg-[#549166] rounded-full mb-2 md:mb-4" />
-            <p class="mb-2 md:mb-4">Daftar produk minuman dari malang special</p>
+            <p class="mb-2 md:mb-4 dark:text-gray-200">Daftar produk minuman dari malang special</p>
         </div>
         <div class="w-full px-6 flex flex-col">
             <div class="mt-5 grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-4 lg:mt-8">
@@ -99,7 +99,7 @@
                     </div>
                     <div class="flex w-full items-center justify-between p-4">
                         <div class="flex flex-col">
-                            <p class="mb-2 text-lg font-semibold text-gray-800">Rp. {{$product->price}}</p>
+                            <p class="mb-2 text-lg font-semibold text-gray-800 dark:text-white">Rp. {{$product->price}}</p>
                             <h3 class="text-base text-gray-500">{{$product->name}}</h3>
                             <p class="text-sm text-gray-400">{{$product->category}}</p>
                         </div>
@@ -131,7 +131,7 @@
         <div class="w-full flex flex-col justify-start px-6">
             <h2 class="mt-3 md:mt-0 mb-2 md:mb-4 text-4xl tracking-tight font-extrabold text-gray-800 dark:text-white">Produk Baju</h2>
             <hr class="w-20 h-2 bg-[#549166] rounded-full mb-2 md:mb-4" />
-            <p class="mb-2 md:mb-4">Daftar produk baju dari malang special</p>
+            <p class="mb-2 md:mb-4 dark:text-gray-200 ">Daftar produk baju dari malang special</p>
         </div>
         <div class="w-full px-6 flex flex-col">
             <div class="mt-5 grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-4 lg:mt-8">
@@ -145,7 +145,7 @@
                     </div>
                     <div class="flex w-full items-center justify-between p-4">
                         <div class="flex flex-col">
-                            <p class="mb-2 text-lg font-semibold text-gray-800">Rp. {{$product->price}}</p>
+                            <p class="mb-2 text-lg font-semibold text-gray-800 dark:text-white">Rp. {{$product->price}}</p>
                             <h3 class="text-base text-gray-500">{{$product->name}}</h3>
                             <p class="text-sm text-gray-400">{{$product->category}}</p>
                         </div>
@@ -172,12 +172,12 @@
     </div>
 </section>
 
-<section id="product-souvenir" class="w-full pt-20 pb-10 bg-[#f1f4ff] dark:bg-gray-800">
+<section id="product-souvenir" class="w-full pt-20 pb-10 bg-[#f1f4ff] dark:bg-[#64748B]">
     <div class="container mx-auto flex flex-wrap">
         <div class="w-full flex flex-col justify-start px-6">
             <h2 class="mt-3 md:mt-0 mb-2 md:mb-4 text-4xl tracking-tight font-extrabold text-gray-800 dark:text-white">Produk Souvenir</h2>
             <hr class="w-20 h-2 bg-[#549166] rounded-full mb-2 md:mb-4" />
-            <p class="mb-2 md:mb-4">Daftar produk souvenir dari malang special</p>
+            <p class="mb-2 md:mb-4 dark:text-gray-200">Daftar produk souvenir dari malang special</p>
         </div>
         <div class="w-full px-6 flex flex-col">
             <div class="mt-5 grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-4 lg:mt-8">
@@ -191,7 +191,7 @@
                     </div>
                     <div class="flex w-full items-center justify-between p-4">
                         <div class="flex flex-col">
-                            <p class="mb-2 text-lg font-semibold text-gray-800">Rp. {{$product->price}}</p>
+                            <p class="mb-2 text-lg font-semibold text-gray-800 dark:text-white ">Rp. {{$product->price}}</p>
                             <h3 class="text-base text-gray-500">{{$product->name}}</h3>
                             <p class="text-sm text-gray-400">{{$product->category}}</p>
                         </div>
