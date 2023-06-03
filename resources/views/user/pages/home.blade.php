@@ -37,7 +37,7 @@
                     <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg" alt="">
                 </div>
             </div> -->
-            <a href="#" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-full bg-[#efa911] hover:bg-[#F7C04B] focus:ring-4 focus:ring-[#F7C04B] dark:focus:ring-[#F7C04B]">
+            <a href="/shop" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-full bg-[#efa911] hover:bg-[#F7C04B] focus:ring-4 focus:ring-[#F7C04B] dark:focus:ring-[#F7C04B]">
                 Beli Sekarang
                 <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="ml-2 -mr-1 w-4 h-4">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
@@ -47,33 +47,33 @@
     </div>
 </section>
 
-<section id="service" class="bg-[#FFEFCE] py-16 px-6 sm:px-8 lg:px-10 text-gray-700">
-    <div class="flex flex-col justify-center items-center ">
-        <hr class="w-20 h-2 bg-[#404A7F] rounded-full mb-2 md:mb-4" />
+<section id="service" class="bg-[#FEF3C7] dark:bg-[#64748B] py-16 px-6 sm:px-8 lg:px-10 text-gray-700">
+    <div class="flex flex-col justify-center items-center  ">
         <h2 class="mt-3 md:mt-0 mb-2 md:mb-4 text-4xl tracking-tight font-extrabold text-gray-800 dark:text-white">Layanan Kami</h2>
-        <p class="mb-2 md:mb-4">Layanan dari malang special</p>
+        <hr class="w-20 h-2 bg-[#549166] rounded-full mb-2 md:mb-4" />
+        <p class="mb-2 md:mb-4 dark:text-gray-200">Layanan dari malang special</p>
     </div>
     <div class="w-10/12 grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto justify-center">
-        <div class="border border-[#404A7F] rounded-lg px-3 py-6 flex flex-col justify-center items-center hover:bg-[#404A7F] group">
+        <div class="border border-[#404A7F] dark:border-white rounded-lg px-3 py-6 flex flex-col justify-center items-center hover:bg-[#404A7F] group">
             <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-24 h-24 text-[#404A7F] mb-2 group-hover:text-gray-100">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"></path>
             </svg>
             <h4 class="font-medium capitalize text-lg text-gray-800 group-hover:text-gray-100">Free Shipping</h4>
-            <p class="text-gray-500 group-hover:text-gray-100 text-sm">Minimum Order Rp.50,000</p>
+            <p class="dark:text-black text-gray-500 group-hover:text-gray-100 text-sm">Minimum Order Rp.50,000</p>
         </div>
-        <div class="border border-[#404A7F] rounded-lg px-3 py-6 flex flex-col justify-center items-center hover:bg-[#404A7F] group">
+        <div class="border border-[#404A7F] dark:border-white rounded-lg px-3 py-6 flex flex-col justify-center items-center hover:bg-[#404A7F] group">
             <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-24 h-24 text-[#404A7F] mb-2 group-hover:text-gray-100">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"></path>
             </svg>
             <h4 class="font-medium capitalize text-lg text-gray-800 group-hover:text-gray-100">Preorder Product</h4>
-            <p class="text-gray-500 group-hover:text-gray-100 text-sm">Beli langsung atau pesan dulu</p>
+            <p class="dark:text-black text-gray-500 group-hover:text-gray-100 text-sm">Beli langsung atau pesan dulu</p>
         </div>
-        <div class="border border-[#404A7F] rounded-lg px-3 py-6 flex flex-col justify-center items-center hover:bg-[#404A7F] group">
+        <div class="border border-[#404A7F] dark:border-white rounded-lg px-3 py-6 flex flex-col justify-center items-center hover:bg-[#404A7F] group">
             <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-24 h-24 text-[#404A7F] mb-2 group-hover:text-gray-100">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"></path>
             </svg>
             <h4 class="font-medium capitalize text-lg text-gray-800 group-hover:text-gray-100">24/7 Support</h4>
-            <p class="text-gray-500 group-hover:text-gray-100 text-sm">Customer support</p>
+            <p class="dark:text-black text-gray-500 group-hover:text-gray-100 text-sm">Customer support</p>
         </div>
     </div>
 </section>
@@ -83,7 +83,7 @@
         <div class="w-full flex flex-col justify-center items-center px-6">
             <h2 class="mt-3 md:mt-0 mb-2 md:mb-4 text-4xl tracking-tight font-extrabold text-gray-800 dark:text-white">Produk Kami</h2>
             <hr class="w-20 h-2 bg-[#549166] rounded-full mb-2 md:mb-4" />
-            <p class="mb-2 md:mb-4">Daftar Produk dari malang special</p>
+            <p class=" dark:text-gray-200  mb-2 md:mb-4">Daftar Produk dari malang special</p>
         </div>
         <div class="w-full px-6 flex flex-col">
             <div class="mt-5 grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-4 lg:mt-8">
@@ -97,7 +97,7 @@
                     </div>
                     <div class="flex w-full items-center justify-between p-4">
                         <div class="flex flex-col">
-                            <p class="mb-2 text-lg font-semibold text-gray-800">Rp. {{$product->price}}</p>
+                            <p class="mb-2 text-lg font-semibold text-gray-800 dark:text-white ">Rp. {{$product->price}}</p>
                             <h3 class="text-base text-gray-500">{{$product->name}}</h3>
                             <p class="text-sm text-gray-400">{{$product->category}}</p>
                         </div>
@@ -129,14 +129,14 @@
     <div class="w-full flex flex-col justify-center items-center px-6 ">
         <h2 class="mt-3 md:mt-0 mb-2 md:mb-4 text-4xl tracking-tight font-extrabold text-gray-800 dark:text-white">Testimoni</h2>
         <hr class="w-20 h-2 bg-[#549166] rounded-full mb-2 md:mb-4" />
-        <p class="text-center mb-2 md:mb-4">Testimoni dari pelanggan kami</p>
+        <p class="mb-2 md:mb-4 dark:text-gray-200 "> Ulasan dari pelanggan kami </p>
     </div>
 
   <!--First Testimonial-->
   
   <div class="flex flex-col text-center w-full items-center justify-center">
     <div class="grid grid-flow-col gap-6 justify-center ">
-    @foreach($transactions as $transaction) 
+    @foreach($transactions as $transaction)
       <div
         class="block rounded-lg bg-white shadow-lg dark:bg-neutral-700 dark:shadow-black/30 w-52">
         <div class="h-28 overflow-hidden rounded-t-lg bg-[#9d789b]"></div>
@@ -150,14 +150,14 @@
                     <img class="rounded-t-lg w-full h-auto" src="{{ url('./image_users/'. $transaction->user->image) }}" alt="" />
                     @endif
         </div>
-        <div class="p-6">
-          <h4 class="mb-4 text-2xl font-semibold">{{$transaction->user->name}}</h4>
+        <div class="p-6 dark:text-white">
+          <h4 class="mb-4 text-2xl font-semibold dark:text-white ">{{$transaction->user->name}}</h4>
           <hr />
           <p class="mt-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
-              class="inline-block h-7 w-7 pr-2"
+              class="inline-block h-7 w-7 pr-2 dark:text-gray-200"
               viewBox="0 0 24 24">
               <path
                 d="M13 14.725c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275zm-13 0c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275z" />
@@ -169,7 +169,7 @@
     @endforeach
     </div>
   </div>
-  
+
 
 </div>
 </section>
@@ -177,31 +177,14 @@
 <section id="contact" class="w-full py-10 px-6 sm:px-8 lg:px-10 dark:bg-gray-800">
     <div class="container mx-auto flex flex-wrap">
         <div class="w-full flex flex-col justify-center items-center px-6 mb-5">
-            <hr class="w-20 h-2 bg-[#404A7F] rounded-full mb-2 md:mb-4" />
             <h2 class="mt-3 md:mt-0 mb-2 md:mb-4 text-4xl tracking-tight font-extrabold text-gray-800 dark:text-white">Hubungi Kami</h2>
-            <p class="mb-2 md:mb-4">kontak kami malang special</p>
+            <hr class="w-20 h-2 bg-[#549166] rounded-full mb-2 md:mb-4" />
+            <p class="mb-2 md:mb-4 dark:text-gray-200">kontak kami malang special</p>
         </div>
 
-
         <div class="flex flex-wrap">
-            <div class="grow-0 shrink-0 basis-auto mb-12 lg:mb-0 w-full lg:w-5/12 px-3 lg:px-6">
-                <h3 class="mt-3 md:mt-0 mb-2 md:mb-4 text-2xl tracking-tight font-extrabold text-gray-800 dark:text-white">Formulir</h3>
-                <hr class="w-20 h-1 bg-[#F7C04B] rounded-full mb-2 md:mb-4" />
-                <form>
-                    <div class="form-group mb-6">
-                        <input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-xl transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#F7C04B] focus:outline-none" id="exampleInput7" placeholder="Name">
-                    </div>
-                    <div class="form-group mb-6">
-                        <input type="email" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-xl transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#F7C04B] focus:outline-none" id="exampleInput8" placeholder="Email address">
-                    </div>
-                    <div class="form-group mb-6">
-                        <textarea class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-xl transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#F7C04B] focus:outline-none" id="exampleFormControlTextarea13" rows="3" placeholder="Message"></textarea>
-                    </div>
-                    <button type="submit" class="w-full px-6 py-2.5 bg-[#F7C04B] text-gray-700 font-medium text-base leading-tight uppercase rounded-xl shadow-md hover:bg-gray-100 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#F7C04B] active:shadow-lg transition duration-150 ease-in-out">Send</button>
-                </form>
-            </div>
-            <div class="grow-0 shrink-0 basis-auto w-full lg:w-7/12">
-                <div class="flex flex-wrap">
+            <div class="grow-0 shrink-0 basis-auto w-full lg:w-7/12 dark:text-gray-200">
+                <div class="flex flex-destination">
                     <div class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
                         <div class="flex items-start">
                             <div class="shrink-0">
@@ -213,7 +196,7 @@
                             </div>
                             <div class="grow ml-6">
                                 <p class="font-bold mb-1">Alamat</p>
-                                <p class="text-gray-500">Kota Malang</p>
+                                <p class="text-gray-500">Jl. Soekarno Hatta 09 Malang 65144</p>
                             </div>
                         </div>
                     </div>
@@ -245,21 +228,6 @@
                             <div class="grow ml-6">
                                 <p class="font-bold mb-1">Email</p>
                                 <p class="text-gray-500">malangspecial@gmail.com</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
-                        <div class="flex align-start">
-                            <div class="shrink-0">
-                                <div class="p-4 bg-[#404A7F] rounded-full shadow-md w-14 h-14 flex items-center justify-center">
-                                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-7 text-white">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="grow ml-6">
-                                <p class="font-bold mb-1">Fax</p>
-                                <p class="text-gray-500">+134-567-89</p>
                             </div>
                         </div>
                     </div>

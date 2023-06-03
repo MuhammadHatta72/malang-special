@@ -48,7 +48,7 @@
         <div class="w-full flex flex-col justify-start px-6">
             <h2 class="mt-3 md:mt-0 my-2 md:my-4 text-4xl tracking-tight font-extrabold text-gray-800 dark:text-white">Keranjang Produk</h2>
             <hr class="w-20 h-2 bg-[#F7C04B] rounded-full mb-2 md:mb-4" />
-            <p class="mb-2 md:mb-4">Daftar produk yang telah di masukkan keranjang dari malang special</p>
+            <p class="mb-2 md:mb-4 dark:text-gray-200">Daftar produk yang telah di masukkan keranjang dari malang special</p>
         </div>
         <div class="w-full mx-6 flex flex-col border p-4 shadow-md sm:rounded-lg">
 

@@ -1,4 +1,4 @@
-<footer class="bg-[#454545] text-center text-white dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
+<footer class="bg-[#1E293B] dark:bg-zinc-800 text-center text-white dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
     <!-- <div class="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between">
         <div class="mr-12 hidden lg:block">
             <span>Get connected with us on social networks:</span>
@@ -122,7 +122,7 @@
         </div>
     </div>
 
-    <div class="bg-[#2D2727] p-4 text-gray-100 dark:text-white text-center dark:bg-neutral-700">
+    <div class="bg-[#0F172A] dark:bg-zinc-900 p-4 text-gray-100 dark:text-white text-center dark:bg-neutral-700">
         <p class="text-sm">Copyrights© 2022 Malang Special. All rights powered by Kelompok Dua</p class="text-base">
     </div>
 </footer>
