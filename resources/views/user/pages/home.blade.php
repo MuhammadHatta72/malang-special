@@ -132,8 +132,8 @@
     </div>
 
   <!--First Testimonial-->
-
-  <div class="flex flex-col text-center w-full  items-center justify-center">
+  
+  <div class="flex flex-col text-center w-full items-center justify-center">
     <div class="grid grid-flow-col gap-6 justify-center ">
     @foreach($transactions as $transaction)
       <div
@@ -174,14 +174,14 @@
 </section>
 
 <section id="contact" class="w-full py-10 px-6 sm:px-8 lg:px-10 dark:bg-gray-800">
-    <div class="container mx-auto flex flex-wrap">
+    <div class="container mx-auto flex flex-wrap justify-center">
         <div class="w-full flex flex-col justify-center items-center px-6 mb-5">
             <h2 class="mt-3 md:mt-0 mb-2 md:mb-4 text-4xl tracking-tight font-extrabold text-gray-800 dark:text-white">Hubungi Kami</h2>
             <hr class="w-20 h-2 bg-[#549166] rounded-full mb-2 md:mb-4" />
             <p class="mb-2 md:mb-4 dark:text-gray-200">kontak kami malang special</p>
         </div>
 
-        <div class="flex flex-wrap">
+        <div class="flex flex-nowrap">
             <div class="grow-0 shrink-0 basis-auto w-full lg:w-7/12 dark:text-gray-200">
                 <div class="flex flex-destination">
                     <div class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
@@ -211,7 +211,7 @@
                             <div class="grow ml-6">
                                 <p class="font-bold mb-1">Telepon</p>
                                 <p class="text-gray-500">+628155390932</p>
-                                <p class="text-gray-500">+628155390932</p>
+                                
                             </div>
                         </div>
                     </div>

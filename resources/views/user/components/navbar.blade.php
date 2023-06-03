@@ -1,4 +1,4 @@
-<nav class="bg-transparent fixed top-0 left-0 right-0 border-b border-white">
+<nav class="bg-transparent fixed top-0 left-0 right-0 ">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" class="flex items-center">
             <img src="{{ url('./assets/images-admin/logo.png') }}" class="h-8 mr-3" alt=" Logo" />
