@@ -6,11 +6,30 @@
         <h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-[#F7C04B] md:text-5xl lg:text-6xl">Toko Oleh-oleh Khas Malang</h1>
         <p class="mb-8 text-lg font-normal text-white lg:text-xl sm:px-16 lg:px-48">Kami menjual berbagai produk oleh-oleh khas Malang yang berkualitas.</p>
         <div class="flex justify-center">
-            <a href="/#product-food" class="inline-flex justify-center hover:text-gray-900 items-center p-3 text-base font-medium text-center text-white rounded-full border-2 border-white shadow-xl shadow-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400 animate-bounce">
+            
+            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="inline-flex justify-center hover:text-gray-900 items-center p-3 text-base font-medium text-center text-white rounded-full border-2 border-white shadow-xl shadow-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400 animate-bounce">
                 <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-7">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75"></path>
                 </svg>
-            </a>
+            <!-- Dropdown menu -->
+            <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                <li>
+                    <a href="#product-food" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Makanan</a>
+                </li>
+                <li>
+                    <a href="#product-drink" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Minuman</a>
+                </li>
+                <li>
+                    <a href="#product-shirt" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Baju</a>
+                </li>
+                <li>
+                    <a href="#product-souvenir" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Souvenir</a>
+                </li>
+                </ul>
+            </div>
+
+            
         </div>
     </div>
 </section>
