@@ -214,4 +214,14 @@ class PagesController extends Controller
             ? redirect()->route('login')->with('status', __($status))
             : back()->withErrors(['email' => [__($status)]]);
     }
+    public function detail($id)
+    {
+        $data = [
+            'title_page' => 'detail',
+            
+            'products' => Product::where('id', $id)->first()
+        ];
+        return view('user.pages.detail', $data);
+    }
+
 }
