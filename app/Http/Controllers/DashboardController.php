@@ -25,7 +25,7 @@ class DashboardController extends Controller
             'adminTrsc' => Transaction::all()->count(),
             'adminSales' => Transaction::all()->sum('total_price'),
             'products' => Product::where('market_id', $user->id)->get(),
-            'productToko' => Product::where('market_id', $markets->id)->sum('stock'),
+            'productToko' => $markets == null ? 'Belum ada' : Product::where('market_id', $markets->id)->sum('stock'),
         ];
         return view('admin.pages.dashboard', $data);
     }
