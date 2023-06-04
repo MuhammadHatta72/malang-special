@@ -35,8 +35,9 @@
                     <div class="flex w-full items-center justify-between p-4">
                         <div class="flex flex-col">
                             <p class="mb-2 text-lg font-semibold text-gray-800 dark:text-white">Rp. {{$product->price}}</p>
-                            <h3 class="text-base text-gray-500">{{$product->name}}</h3>
+                            <h3 class="text-base text-gray-500 dark:text-gray-200">{{$product->name}}</h3>
                             <p class="text-sm text-gray-400">{{$product->category}}</p>
+                            <h5 class="text-base text-gray-500 dark:text-gray-200">{{$product->market->name}}</h5>
                         </div>
                         <form action="/carts" method="post">
                             @csrf
