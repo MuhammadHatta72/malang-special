@@ -93,13 +93,15 @@ class PagesController extends Controller
         return redirect($routeRedirect)->with('success', 'Anda berhasil logout!');
     }
 
-    public function dashboard()
-    {
-        $data = [
-            'user' => auth()->user(),
-        ];
-        return view('admin.pages.dashboard', $data);
-    }
+    // public function dashboard()
+    // {
+    //     $data = [
+    //         'user' => auth()->user(),
+    //         'transactions' => Transaction::all(),
+    //         'products' => Product::all(),
+    //     ];
+    //     return view('admin.pages.dashboard', $data);
+    // }
 
     // Page User
     public function home()

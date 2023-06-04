@@ -1,6 +1,7 @@
 @extends('admin.layout.index')
 
 @section('content')
+
 <div class="px-4 pt-8 pb-3 sm:ml-64">
     <div class="mt-12 mr-3">
         @if (session('success'))
@@ -26,17 +27,18 @@
 
         <div class="w-full mt-4">
             <div class="md:flex">
+                @can('user')
                 <div class="md:w-2/3 px-6 py-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <h3 class="text-gray-600 dark:text-gray-200 mb-3">Order Barang</h3>
                     <div class="grid grid-rows-2 grid-flow-col gap-3 md:gap-0 md:flex">
                         <div class="md:w-1/4 h-24 rounded-lg border md:mr-2 p-4">
                             <div class="flex justify-between items-center">
-                                <p class="text-gray-600 dark:text-yellow-300 underline">200 Buah</p>
+                                <p class="text-gray-600 dark:text-yellow-300 underline"> {{$countTrsc}} </p>
                                 <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-yellow-300 dark:text-yellow-300">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"></path>
                                 </svg>
                             </div>
-                            <p class="text-xs text-gray-600 dark:text-gray-100 mt-4">Total Barang</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-100 mt-4">Total Transaksi</p>
                         </div>
                         <div class="md:w-1/4 h-24 rounded-lg border p-4 md:mr-2">
                             <div class="flex justify-between items-center">
@@ -45,16 +47,49 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.125l2.25 2.25m0 0l2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"></path>
                                 </svg>
                             </div>
-                            <p class="text-xs text-gray-600 dark:text-gray-100 mt-4">Barang Keluar</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-100 mt-4">Barang Dibeli</p>
+                        </div>                        
+                    </div>
+                    <h3 class="text-gray-600 dark:text-gray-200 my-3">Statistik</h3>
+                    <div class="border border-gray-200 rounded-lg mt-4 h-64">
+                        <div id="chartContainer" style="height: 300px; width: 100%;">
+                            <div class="flex justify-center items-center h-full">
+                                <p class="text-gray-600 dark:text-gray-200">Tidak ada data</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endcan
+                @can('admin_has_market')
+                <div class="md:w-2/3 px-6 py-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <h3 class="text-gray-600 dark:text-gray-200 mb-3">Order Barang</h3>
+                    <div class="grid grid-rows-2 grid-flow-col gap-3 md:gap-0 md:flex">
+                        <div class="md:w-1/4 h-24 rounded-lg border md:mr-2 p-4">
+                            <div class="flex justify-between items-center">
+                                <p class="text-gray-600 dark:text-yellow-300 underline"> {{$adminTrsc}} </p>
+                                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-yellow-300 dark:text-yellow-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"></path>
+                                </svg>
+                            </div>
+                            <p class="text-xs text-gray-600 dark:text-gray-100 mt-4">Total Transaksi</p>
                         </div>
                         <div class="md:w-1/4 h-24 rounded-lg border p-4 md:mr-2">
                             <div class="flex justify-between items-center">
-                                <p class="text-gray-600 dark:text-cyan-600 underline">300 Buah</p>
+                                <p class="text-gray-600 dark:text-green-500 underline">300 Buah</p>
+                                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-green-500 dark:text-green-500">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.125l2.25 2.25m0 0l2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"></path>
+                                </svg>
+                            </div>
+                            <p class="text-xs text-gray-600 dark:text-gray-100 mt-4">Barang Terjual</p>
+                        </div>
+                        <div class="md:w-1/4 h-24 rounded-lg border p-4 md:mr-2">
+                            <div class="flex justify-between items-center">
+                                <p class="text-gray-600 dark:text-cyan-600 underline">{{$productToko}}</p>
                                 <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-cyan-800 dark:text-cyan-600">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0l-3-3m3 3l3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"></path>
                                 </svg>
                             </div>
-                            <p class="text-xs text-gray-600 dark:text-gray-100 mt-4">Barang Masuk</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-100 mt-4">Stok Barang</p>
                         </div>
                         <div class="md:w-1/4 h-24 rounded-lg border p-4">
                             <div class="flex justify-between items-center">
@@ -68,110 +103,33 @@
                     </div>
                     <h3 class="text-gray-600 dark:text-gray-200 my-3">Statistik</h3>
                     <div class="border border-gray-200 rounded-lg mt-4 h-64">
-                        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                        <div id="chartContainer" style="height: 300px; width: 100%;">
+                            <div class="flex justify-center items-center h-full">
+                                <p class="text-gray-600 dark:text-gray-200">Tidak ada data</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
+                @endcan
                 <div class="md:w-1/3 md:ml-3 mt-3 md:mt-0">
-                    <div class="p-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                        <h3 class="text-gray-600 dark:text-gray-200 mb-3">List Laporan</h3>
-                        <div class=" rounded-lg mt-4 h-40 overflow-auto">
-                            <!-- Reports -->
-                            <div class="flex justify-between items-center border border-gray-100 shadow-md rounded-lg h-8 py-2 px-4 mb-2">
-                                <p class="text-gray-600 dark:text-gray-200 text-sm">Januari 2021</p>
-                                <button>
-                                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-sky-500 dark:text-gray-100">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="flex justify-between items-center border border-gray-100 shadow-md rounded-lg h-8 py-2 px-4 mb-2">
-                                <p class="text-gray-600 dark:text-gray-200 text-sm">Januari 2021</p>
-                                <button>
-                                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-sky-500 dark:text-gray-100">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="flex justify-between items-center border border-gray-100 shadow-md rounded-lg h-8 py-2 px-4 mb-2">
-                                <p class="text-gray-600 dark:text-gray-200 text-sm">Januari 2021</p>
-                                <button>
-                                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-sky-500 dark:text-gray-100">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="flex justify-between items-center border border-gray-100 shadow-md rounded-lg h-8 py-2 px-4 mb-2">
-                                <p class="text-gray-600 dark:text-gray-200 text-sm">Januari 2021</p>
-                                <button>
-                                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-sky-500 dark:text-gray-100">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="flex justify-between items-center border border-gray-100 shadow-md rounded-lg h-8 py-2 px-4 mb-2">
-                                <p class="text-gray-600 dark:text-gray-200 text-sm">Januari 2021</p>
-                                <button>
-                                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-sky-500 dark:text-gray-100">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="flex justify-between items-center border border-gray-100 shadow-md rounded-lg h-8 py-2 px-4 mb-2">
-                                <p class="text-gray-600 dark:text-gray-200 text-sm">Januari 2021</p>
-                                <button>
-                                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-sky-500 dark:text-gray-100">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="flex justify-between items-center border border-gray-100 shadow-md rounded-lg h-8 py-2 px-4 mb-2">
-                                <p class="text-gray-600 dark:text-gray-200 text-sm">Januari 2021</p>
-                                <button>
-                                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-sky-500 dark:text-gray-100">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="flex justify-between items-center border border-gray-100 shadow-md rounded-lg h-8 py-2 px-4 mb-2">
-                                <p class="text-gray-600 dark:text-gray-200 text-sm">Januari 2021</p>
-                                <button>
-                                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-sky-500 dark:text-gray-100">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="flex justify-between items-center border border-gray-100 shadow-md rounded-lg h-8 py-2 px-4 mb-2">
-                                <p class="text-gray-600 dark:text-gray-200 text-sm">Januari 2021</p>
-                                <button>
-                                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-sky-500 dark:text-gray-100">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="flex justify-between items-center border border-gray-100 shadow-md rounded-lg h-8 py-2 px-4 mb-2">
-                                <p class="text-gray-600 dark:text-gray-200 text-sm">Januari 2021</p>
-                                <button>
-                                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 text-sky-500 dark:text-gray-100">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                            <!-- End Reports -->
-                        </div>
-                    </div>
-                    <div class="flex mt-3">
-                        <div class="w-1/2 p-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <h3 class="text-gray-600 dark:text-gray-200 mb-1.5">Pemasukkan</h3>
-                            <p class="text-gray-600 dark:text-gray-200 mb-3 text-sm">Rp. 1.200.000</p>
-                            <div class="border border-gray-200 rounded-lg mt-4 h-40"></div>
-                        </div>
+                    @can('user')
+                    <div class="flex">
                         <div class="w-1/2 p-3 ml-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <h3 class="text-gray-600 dark:text-gray-200 mb-1.5">pengeluaran</h3>
-                            <p class="text-gray-600 dark:text-gray-200 mb-3 text-sm">Rp. 1.200.000</p>
+                            <h3 class="text-gray-600 dark:text-gray-200 mb-1.5">Pengeluaran</h3>
+                            <p class="text-gray-600 dark:text-gray-200 mb-3 text-sm">Rp. {{$transactions}} </p>
                             <div class="border border-gray-200 rounded-lg mt-4 h-40"></div>
                         </div>
                     </div>
+                    @endcan
+                    @can('admin_has_market')
+                    <div class="flex">
+                        <div class="w-1/2 p-3 ml-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                            <h3 class="text-gray-600 dark:text-gray-200 mb-1.5">Pemasukan</h3>
+                            <p class="text-gray-600 dark:text-gray-200 mb-3 text-sm">Rp. {{$adminSales}}</p>
+                            <div class="border border-gray-200 rounded-lg mt-4 h-40"></div>
+                        </div>
+                    </div>
+                    @endcan
                 </div>
             </div>
         </div>
