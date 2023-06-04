@@ -20,6 +20,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\TransactionItemController;
 use App\Http\Controllers\TransactionUserController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,7 +54,7 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
+    Route::get('dashboard', [DashboardController::class, 'index']);
     Route::resource('profile', ProfileController::class);
     Route::resource('users', UserController::class);
     Route::resource('markets', MarketController::class);

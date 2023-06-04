@@ -15,6 +15,7 @@
             document.documentElement.classList.remove('dark')
         }
     </script>
+    <script src="{{ asset('js/Chart.min.js') }}"></script>
 </head>
 
 <body class="dark:bg-gray-900">
