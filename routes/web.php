@@ -37,6 +37,7 @@ Route::post('forgot-password', [PagesController::class, 'forgot_proses'])->middl
 Route::get('reset-password/{token}', [PagesController::class, 'reset_password'])->middleware('guest')->name('password.reset');
 Route::post('reset-password', [PagesController::class, 'reset_proses'])->middleware('guest')->name('password.update');
 
+Route::get('detail/{id}', [PagesController::class, 'detail']);
 Route::get('checkout', [PagesController::class, 'checkout']);
 Route::get('/', [PagesController::class, 'home']);
 Route::get('shop', [PagesController::class, 'shop']);
