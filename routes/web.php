@@ -55,7 +55,9 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('dashboard', [DashboardController::class, 'index']);
+    Route::get('dashboard-user', [DashboardController::class, 'user']);
+    Route::get('dashboard-admin', [DashboardController::class, 'admin']);
+    Route::get('dashboard-superadmin', [DashboardController::class, 'suadmin']);
     Route::resource('profile', ProfileController::class);
     Route::resource('users', UserController::class);
     Route::resource('markets', MarketController::class);
