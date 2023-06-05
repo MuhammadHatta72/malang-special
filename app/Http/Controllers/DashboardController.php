@@ -30,6 +30,7 @@ class DashboardController extends Controller
 
     public function admin()
     {
+        $this->authorize('admin_has_market');
         $user = User::find(auth()->user()->id);
         $markets = Market::where('user_id', auth()->user()->id)->first();
         $data = [
@@ -48,7 +49,7 @@ class DashboardController extends Controller
             'jmlToko' => Market::all()->count('id'),
             'sumTrsc' => Transaction::all()->sum('total_price'),
             'sumSales' => Transaction::all()->count(),
-            'countUser' => User::where('role', 'user')->count('id'),
+            'countUser' => User::where('role','<>','1')->count('id'),
         ];
         return view('admin.pages.dashboard.superadmin', $data);
     }
