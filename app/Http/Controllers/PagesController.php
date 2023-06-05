@@ -50,9 +50,12 @@ class PagesController extends Controller
                     if (Auth::guard($guard)->user()->role == 3) {
                         // dd('user', auth()->user()->role);
                         return redirect('/shop')->with('success', 'Anda berhasil login!');
+                    } if (Auth::guard($guard)->user()->role == 2){
+                        // dd('market', auth()->user()->role);
+                        return redirect('/dashboard-admin')->with('success', 'Anda berhasil login!');
                     } else {
                         // dd('admin', auth()->user()->role);
-                        return redirect('/dashboard')->with('success', 'Anda berhasil login!');
+                        return redirect('/dashboard-superadmin')->with('success', 'Anda berhasil login!');
                     }
                 }
             }
