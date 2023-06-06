@@ -26,7 +26,7 @@
             @endcan
             @can('user')
             <li>
-                <a href="{{url('/dashboard-superadmin')}}" class="flex items-center p-2 text-gray-600 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('dashboard') ? 'text-gray-900 bg-gray-100 dark:bg-gray-700': '' }}">
+                <a href="{{url('/dashboard-user')}}" class="flex items-center p-2 text-gray-600 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('dashboard') ? 'text-gray-900 bg-gray-100 dark:bg-gray-700': '' }}">
                     <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-6 h-6 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z"></path>
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z"></path>
