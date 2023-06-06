@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\MarketExport;
+use App\Exports\UserExport;
 use App\Models\Market;
 use App\Models\Product;
 use App\Models\Report;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use PDF;
 
 class ReportController extends Controller
 {
@@ -50,5 +54,34 @@ class ReportController extends Controller
         $data = [];
 
         return view('admin.pages.reports.transactions', $data);
+    }
+
+    //Export
+    public function exportUsersExcel()
+    {
+        return Excel::download(new UserExport, 'Laporan Daftar User.xlsx');
+    }
+    public function exportUsersPDF()
+    {
+        $data = [
+            'users' => User::all()
+        ];
+        $pdf = PDF::loadview('admin.pages.exports.pdf.users', $data)->setPaper('a4', 'landscape');
+
+        return $pdf->download('Laporan Daftar User.pdf');
+    }
+
+    public function exportMarketsExcel()
+    {
+        return Excel::download(new MarketExport, 'Laporan Daftar Toko.xlsx');
+    }
+    public function exportMarketsPDF()
+    {
+        $data = [
+            'markets' => Market::with('user')->get()
+        ];
+        $pdf = PDF::loadview('admin.pages.exports.pdf.markets', $data)->setPaper('a4', 'landscape');
+
+        return $pdf->download('Laporan Daftar Toko.pdf');
     }
 }

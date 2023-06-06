@@ -72,5 +72,13 @@ Route::middleware('auth')->group(function () {
     Route::get('report-markets', [ReportController::class, 'markets']);
     Route::get('report-products', [ReportController::class, 'products']);
     Route::get('report-transactions', [ReportController::class, 'transactions']);
+    Route::post('export-users-excel', [ReportController::class, 'exportUsersExcel']);
+    Route::post('export-users-pdf', [ReportController::class, 'exportUsersPDF']);
+    Route::post('export-markets-excel', [ReportController::class, 'exportMarketsExcel']);
+    Route::post('export-markets-pdf', [ReportController::class, 'exportMarketsPDF']);
+    Route::post('export-products-excel', [ReportController::class, 'exportProductsExcel']);
+    Route::post('export-products-pdf', [ReportController::class, 'exportProductsPDF']);
+    Route::post('export-transactions-excel', [ReportController::class, 'exportTransactionsExcel']);
+    Route::post('export-transactions-pdf', [ReportController::class, 'exportTransactionsPDF']);
     Route::get('logout', [PagesController::class, 'logout']);
 });
