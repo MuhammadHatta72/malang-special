@@ -16,7 +16,7 @@ class TransactionUserController extends Controller
         $this->authorize('user');
         $data = [
             'transactions' => Transaction::with(['transactionitems', 'market', 'user'])
-                ->where('user_id', auth()->user()->id)->paginate(1)
+                ->where('user_id', auth()->user()->id)->paginate(10)
         ];
         return view('admin.pages.transactions-user.index', $data);
     }

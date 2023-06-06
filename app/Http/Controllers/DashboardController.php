@@ -7,11 +7,14 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Transaction;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Cart;
 
 class DashboardController extends Controller
 {
     public function user()
     {
+        $this->authorize('user');
         $user = User::find(auth()->user()->id);
         $markets = Market::where('user_id', auth()->user()->id)->first();
         $data = [
@@ -21,6 +24,7 @@ class DashboardController extends Controller
             'sales' => Transaction::where('user_id', $user->id)->get(),
             'transactions' => Transaction::where('user_id', $user->id)->sum('total_price'),
             'penjualan' => Transaction::where('user_id', $user->id),
+            'sumProduct' => Cart::where('user_id', $user->id)->sum('quantity'),
             'countTrsc' => Transaction::where('user_id', $user->id)->count(),
             'markets' => Market::where('user_id', $user->id)->get(),
             'products' => Product::where('market_id', $user->id)->get(),            
@@ -30,19 +34,23 @@ class DashboardController extends Controller
 
     public function admin()
     {
+        
         $this->authorize('admin_has_market');
         $user = User::find(auth()->user()->id);
         $markets = Market::where('user_id', auth()->user()->id)->first();
         $data = [
             'adminTrsc' => Transaction::where('market_id', $markets->id)->count(),
             'adminSales' => Transaction::where('market_id', $markets->id)->sum('total_price'),
-            'productToko' => Product::where('market_id', $markets->id)->sum('stock'),
+            'adminProduct' => Product::where('market_id', $markets->id)->sum('stock'),
+            'productToko' => Product::where('market_id', $markets->id)->sum('remainder'),
+            // 'productSell' => Product::where('market_id', $markets->id ,'stock')->decrease('reminder'),
         ];
         return view('admin.pages.dashboard.admin', $data);
     }
 
     public function suadmin()
     {
+        $this->authorize('superadmin');
         $user = User::find(auth()->user()->id);
         $data = [
             'productAll' => Product::all()->count('id'),
