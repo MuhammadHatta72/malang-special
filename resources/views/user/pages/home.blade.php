@@ -177,64 +177,40 @@
 </div>
 </section>
 
-<section id="contact" class="w-full py-10 px-6 sm:px-8 lg:px-10 dark:bg-gray-800">
-    <div class="container mx-auto flex flex-wrap justify-center">
+<section id="contact" class="w-full py-10 px-6 sm:px-8 lg:px-10 dark:bg-gray-800 ">
+    <div class="container mx-auto flex flex-wrap ">
         <div class="w-full flex flex-col justify-center items-center px-6 mb-5">
             <h2 class="mt-3 md:mt-0 mb-2 md:mb-4 text-4xl tracking-tight font-extrabold text-gray-800 dark:text-white">Hubungi Kami</h2>
             <hr class="w-20 h-2 bg-[#549166] rounded-full mb-2 md:mb-4" />
             <p class="mb-2 md:mb-4 dark:text-gray-200">kontak kami malang special</p>
         </div>
-
-        <div class="flex flex-nowrap">
-            <div class="grow-0 shrink-0 basis-auto w-full lg:w-7/12 dark:text-gray-200">
-                <div class="flex flex-destination">
-                    <div class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
-                        <div class="flex items-start">
-                            <div class="shrink-0">
-                                <div class="p-4 bg-[#404A7F] rounded-full shadow-md w-14 h-14 flex items-center justify-center">
-                                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-7 text-white">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="grow ml-6">
-                                <p class="font-bold mb-1">Alamat</p>
-                                <p class="text-gray-500">Jl. Soekarno Hatta 09 Malang 65144</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
-                        <div class="flex items-start">
-                            <div class="shrink-0">
-                                <div class="p-4 bg-[#404A7F] rounded-full shadow-md w-14 h-14 flex items-center justify-center">
-                                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-7 text-white">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="grow ml-6">
-                                <p class="font-bold mb-1">Telepon</p>
-                                <p class="text-gray-500">+628155390932</p>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
-                        <div class="flex align-start">
-                            <div class="shrink-0">
-                                <div class="p-4 bg-[#404A7F] rounded-full shadow-md w-14 h-14 flex items-center justify-center">
-                                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-7 text-white">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="grow ml-6">
-                                <p class="font-bold mb-1">Email</p>
-                                <p class="text-gray-500">malangspecial@gmail.com</p>
-                            </div>
-                        </div>
-                    </div>
+        <div class="w-8/12 grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto justify-center">
+            <div class=" px-3 py-6 flex flex-col justify-center items-center  group">
+                <div class="p-4 bg-[#404A7F] rounded-full shadow-md w-14 h-14 flex items-center justify-center">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-7 text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"></path>
+                    </svg>
                 </div>
+                <h4 class="font-medium capitalize text-lg text-gray-800 dark:text-gray-100 ">Alamat</h4>
+                <p class="dark:text-black text-gray-500 dark:text-gray-200 text-sm">Jl. Soekarno Hatta 09 Malang 65144</p>
+            </div>
+            <div class=" px-3 py-6 flex flex-col justify-center items-center  group">
+                <div class="p-4 bg-[#404A7F] rounded-full shadow-md w-14 h-14 flex items-center justify-center">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-7 text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"></path>
+                    </svg>
+                </div>
+                <h4 class="font-medium capitalize text-lg text-gray-800 dark:text-gray-100 ">Telepon</h4>
+                <p class="dark:text-black text-gray-500 dark:text-gray-200 text-sm">+628155390932</p>
+            </div>
+            <div class=" px-3 py-6 flex flex-col justify-center items-center  group">
+                <div class="p-4 bg-[#404A7F] rounded-full shadow-md w-14 h-14 flex items-center justify-center">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-7 text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"></path>
+                    </svg>
+                </div>
+                <h4 class="font-medium capitalize text-lg text-gray-800 dark:text-gray-100">Email</h4>
+                <p class="dark:text-black text-gray-500 dark:text-gray-200 text-sm">malangspecial@gmail.com</p>
             </div>
         </div>
     </div>
