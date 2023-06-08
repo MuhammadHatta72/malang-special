@@ -27,25 +27,37 @@ class DashboardController extends Controller
             'sumProduct' => Cart::where('user_id', $user->id)->sum('quantity'),
             'countTrsc' => Transaction::where('user_id', $user->id)->count(),
             'markets' => Market::where('user_id', $user->id)->get(),
-            'products' => Product::where('market_id', $user->id)->get(),            
+            'products' => Product::where('market_id', $user->id)->get(),
         ];
         return view('admin.pages.dashboard.users', $data);
     }
 
     public function admin()
     {
-        
+        $this->authorize('admin');
+        $user = User::find(auth()->user()->id);
+        // $data = [
+        //     'adminTrsc' => Transaction::where('market_id', $markets->id)->count(),
+        //     'adminSales' => Transaction::where('market_id', $markets->id)->where('status', 'done')->sum('total_price'),
+        //     'adminProduct' => Product::where('market_id', $markets->id)->sum('stock'),
+        //     'productToko' => Product::where('market_id', $markets->id)->sum('remainder'),
+        //     // 'productSell' => Product::where('market_id', $markets->id ,'stock')->decrease('reminder'),
+        // ];
+        return view('admin.pages.dashboard.admin');
+    }
+    public function admin_market()
+    {
         $this->authorize('admin_has_market');
         $user = User::find(auth()->user()->id);
         $markets = Market::where('user_id', auth()->user()->id)->first();
         $data = [
             'adminTrsc' => Transaction::where('market_id', $markets->id)->count(),
-            'adminSales' => Transaction::where('market_id', $markets->id)->where('status','done')->sum('total_price'),
+            'adminSales' => Transaction::where('market_id', $markets->id)->where('status', 'done')->sum('total_price'),
             'adminProduct' => Product::where('market_id', $markets->id)->sum('stock'),
             'productToko' => Product::where('market_id', $markets->id)->sum('remainder'),
             // 'productSell' => Product::where('market_id', $markets->id ,'stock')->decrease('reminder'),
         ];
-        return view('admin.pages.dashboard.admin', $data);
+        return view('admin.pages.dashboard.admin_market', $data);
     }
 
     public function suadmin()
@@ -55,10 +67,10 @@ class DashboardController extends Controller
         $data = [
             'productAll' => Product::all()->count('id'),
             'jmlToko' => Market::all()->count('id'),
-            'sumTrsc' => Transaction::where('status','done')->sum('total_price'),
-            'sumSales' => Transaction::where('status','done')->count(),
-            'countUser' => User::where('role','<>','1')->count('id'),
+            'sumTrsc' => Transaction::where('status', 'done')->sum('total_price'),
+            'sumSales' => Transaction::where('status', 'done')->count(),
+            'countUser' => User::where('role', '<>', '1')->count('id'),
         ];
-        return view('admin.pages.dashboard.superadmin', $data); 
+        return view('admin.pages.dashboard.superadmin', $data);
     }
 }

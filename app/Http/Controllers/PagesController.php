@@ -50,9 +50,15 @@ class PagesController extends Controller
                     if (Auth::guard($guard)->user()->role == 3) {
                         // dd('user', auth()->user()->role);
                         return redirect('/shop')->with('success', 'Anda berhasil login!');
-                    } if (Auth::guard($guard)->user()->role == 2){
+                    }
+                    if (Auth::guard($guard)->user()->role == 2) {
                         // dd('market', auth()->user()->role);
-                        return redirect('/dashboard-admin')->with('success', 'Anda berhasil login!');
+                        $market = Market::where('user_id', auth()->user()->id)->first();
+                        if ($market == null) {
+                            return redirect('/dashboard-admin')->with('success', 'Anda berhasil login!');
+                        } else {
+                            return redirect('/dashboard-admin-market')->with('success', 'Anda berhasil login!');
+                        }
                     } else {
                         // dd('admin', auth()->user()->role);
                         return redirect('/dashboard-superadmin')->with('success', 'Anda berhasil login!');
@@ -221,10 +227,9 @@ class PagesController extends Controller
     {
         $data = [
             'title_page' => 'detail',
-            
+
             'products' => Product::where('id', $id)->first()
         ];
         return view('user.pages.detail', $data);
     }
-
 }

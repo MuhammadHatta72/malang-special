@@ -56,6 +56,7 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('dashboard-user', [DashboardController::class, 'user']);
+    Route::get('dashboard-admin-market', [DashboardController::class, 'admin_market']);
     Route::get('dashboard-admin', [DashboardController::class, 'admin']);
     Route::get('dashboard-superadmin', [DashboardController::class, 'suadmin']);
     Route::resource('profile', ProfileController::class);
