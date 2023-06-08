@@ -23,7 +23,7 @@
         </div>
         <!-- End Success Message -->
         @endif
-        <h2 class="text-2xl text-gray-800 dark:text-gray-100">Dashboard User</h2>
+        <h2 class="text-2xl text-gray-800 dark:text-gray-100">Dashboard Admin Website (SuperAdmin)</h2>
         <div class="w-screen mt-4">
             <div class="md:flex">
             @can('superadmin')

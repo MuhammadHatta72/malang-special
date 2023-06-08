@@ -67,7 +67,7 @@ class ReportController extends Controller
     public function exportUsersExcel()
     {
         $count_users = User::all();
-        if ($count_users < 1) {
+        if (count($count_users) < 1) {
             return redirect()->back()->with('error', 'Belum ada pengguna!');
         }
         return Excel::download(new UserExport, 'Laporan Daftar User.xlsx');
@@ -75,7 +75,8 @@ class ReportController extends Controller
     public function exportUsersPDF()
     {
         $count_users = User::all();
-        if ($count_users < 1) {
+        
+        if (count($count_users) < 1) {
             return redirect()->back()->with('error', 'Belum ada pengguna!');
         }
         $data = [
@@ -89,7 +90,7 @@ class ReportController extends Controller
     public function exportMarketsExcel()
     {
         $count_markets = Market::with('user')->get();
-        if ($count_markets < 1) {
+        if (count($count_markets) < 1) {
             return redirect()->back()->with('error', 'Belum ada toko!');
         }
         return Excel::download(new MarketExport, 'Laporan Daftar Toko.xlsx');
@@ -97,7 +98,7 @@ class ReportController extends Controller
     public function exportMarketsPDF()
     {
         $count_markets = Market::with('user')->get();
-        if ($count_markets < 1) {
+        if (count($count_markets) < 1) {
             return redirect()->back()->with('error', 'Belum ada toko!');
         }
         $data = [
