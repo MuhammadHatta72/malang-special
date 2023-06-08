@@ -40,7 +40,7 @@ class DashboardController extends Controller
         $markets = Market::where('user_id', auth()->user()->id)->first();
         $data = [
             'adminTrsc' => Transaction::where('market_id', $markets->id)->count(),
-            'adminSales' => Transaction::where('market_id', $markets->id)->sum('total_price'),
+            'adminSales' => Transaction::where('market_id', $markets->id)->where('status','done')->sum('total_price'),
             'adminProduct' => Product::where('market_id', $markets->id)->sum('stock'),
             'productToko' => Product::where('market_id', $markets->id)->sum('remainder'),
             // 'productSell' => Product::where('market_id', $markets->id ,'stock')->decrease('reminder'),
@@ -55,10 +55,10 @@ class DashboardController extends Controller
         $data = [
             'productAll' => Product::all()->count('id'),
             'jmlToko' => Market::all()->count('id'),
-            'sumTrsc' => Transaction::all()->sum('total_price'),
-            'sumSales' => Transaction::all()->count(),
+            'sumTrsc' => Transaction::where('status','done')->sum('total_price'),
+            'sumSales' => Transaction::where('status','done')->count(),
             'countUser' => User::where('role','<>','1')->count('id'),
         ];
-        return view('admin.pages.dashboard.superadmin', $data);
+        return view('admin.pages.dashboard.superadmin', $data); 
     }
 }
