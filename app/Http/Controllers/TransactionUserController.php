@@ -49,7 +49,7 @@ class TransactionUserController extends Controller
             'transaction' => $transaction,
             'transactionItems' => TransactionItem::with(['cart.product'])
                 ->where('transaction_id', $transaction->id)
-                ->paginate(1),
+                ->paginate(8),
             'metode_payments' => [
                 // 'Bayar Langsung' => 'Bayar Langsung',
                 'Transfer' => 'Transfer',

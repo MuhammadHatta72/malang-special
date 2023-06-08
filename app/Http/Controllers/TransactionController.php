@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Transaction;
 use App\Models\TransactionItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class TransactionController extends Controller
@@ -45,6 +46,20 @@ class TransactionController extends Controller
 
         if (empty($carts_request)) {
             return redirect()->back()->with('error-checkout', 'Keranjang belanja kosong!');
+        }
+
+        $productMarketIds = Cart::with(['product'])
+            ->whereIn('id', $carts_request)
+            ->get()
+            ->pluck('product.market_id')
+            ->toArray();
+
+        for ($x = 0; $x < count($productMarketIds); $x++) {
+            for ($y = count($productMarketIds) - 1; $y >= 0; $y--) {
+                if ($productMarketIds[$x] !== $productMarketIds[$y]) {
+                    return redirect()->back()->with('error-checkout', 'Ada produk yang berasal dari toko yang berbeda, pastikan produk berasal dari toko yang sama!');
+                }
+            }
         }
 
         foreach ($carts_request as $cart_id) {

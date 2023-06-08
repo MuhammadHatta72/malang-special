@@ -58,8 +58,8 @@
                         <tr>
                             <th scope="col" class="p-4">
                                 <div class="flex items-center">
-                                    <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                                    <input id="checkbox-all" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    <label for="checkbox-all" class="sr-only">checkbox</label>
                                 </div>
                             </th>
                             <th scope="col" class="px-6 py-3">
@@ -87,8 +87,8 @@
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                             <td class="w-4 p-4">
                                 <div class="flex items-center">
-                                    <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                    <input id="checkbox-cart" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    <label for="checkbox-cart" class="sr-only">checkbox</label>
                                 </div>
                             </td>
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -145,7 +145,7 @@
             @csrf
             <div class="carts">
                 @foreach($carts as $cart_hidden)
-                <input type="hidden" name="cart_id[]" value="{{$cart_hidden->id}}">
+                <input type="hidden" id="cart_id" name="cart_id[]" value="{{$cart_hidden->id}}" disabled>
                 @endforeach
             </div>
             <button type="submit" class=" text-white bg-[#404A7F] hover:bg-[#404A7F]/90 focus:ring-4 focus:outline-none focus:ring-[#404A7F]/50 font-medium rounded-lg text-sm mx-6 mt-4 px-5 py-2 text-center inline-flex items-center dark:focus:ring-[#404A7F]/55 mr-2 mb-2">
@@ -158,4 +158,37 @@
 
     </div>
 </section>
+<script>
+    const carts = document.querySelectorAll('#cart_id');
+    const checkbox_carts = document.querySelectorAll('#checkbox-cart');
+
+    checkbox_carts.forEach((checkbox_cart, index) => {
+        checkbox_cart.addEventListener('click', () => {
+            if (checkbox_cart.checked) {
+                carts[index].removeAttribute('disabled');
+            } else {
+                carts[index].setAttribute('disabled', '');
+            }
+        });
+    });
+
+    const checkbox_all = document.querySelector('#checkbox-all');
+    checkbox_all.addEventListener('click', () => {
+        if (checkbox_all.checked) {
+            carts.forEach((cart) => {
+                cart.removeAttribute('disabled');
+            });
+            checkbox_carts.forEach((checkbox) => {
+                checkbox.checked = true;
+            });
+        } else {
+            carts.forEach((cart) => {
+                cart.setAttribute('disabled', '');
+            });
+            checkbox_carts.forEach((checkbox) => {
+                checkbox.checked = false;
+            });
+        }
+    });
+</script>
 @endsection
