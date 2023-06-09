@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Cart;
 use App\Models\Market;
 use App\Models\Product;
 use App\Models\User;
@@ -132,6 +133,11 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $this->authorize('admin_has_market');
+
+        if (Cart::where('product_id', $product->id)->exists()) {
+            return redirect('/products')->with('error', 'Produk telah masuk di keranjang pengguna!');
+        }
+
         if ($product->image !== "not_found") {
             unlink(public_path('image_products/' . $product->image));
         }
@@ -142,6 +148,7 @@ class ProductController extends Controller
     public function destroyImage(Product $product)
     {
         $this->authorize('admin_has_market');
+
         if ($product->image !== "not_found") {
             unlink(public_path('image_products/' . $product->image));
         }

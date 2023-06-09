@@ -123,6 +123,27 @@
                 </div>
 
                 <div class="md:w-1/3 md:ml-3 mt-3 md:mt-0">
+                    <div class="p-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4">
+                        <h3 class="text-gray-600 dark:text-gray-200 mb-3">Nomor Rekening Toko</h3>
+                        <div>
+                            <div class="flex justify-between mb-3">
+                                <p class="block mb-1 text-sm font-medium text-gray-700 dark:text-white">Bank BCA :</p>
+                                <p class="block mb-1 text-sm text-gray-500 dark:text-white">{{$transaction->market->no_bca}}</p>
+                            </div>
+                            <div class="flex justify-between mb-3">
+                                <p class="block mb-1 text-sm font-medium text-gray-700 dark:text-white">Bank BRI :</p>
+                                <p class="block mb-1 text-sm text-gray-500 dark:text-white">{{$transaction->market->no_bri}}</p>
+                            </div>
+                            <div class="flex justify-between mb-3">
+                                <p class="block mb-1 text-sm font-medium text-gray-700 dark:text-white">Bank BNI :</p>
+                                <p class="block mb-1 text-sm text-gray-500 dark:text-white">{{$transaction->market->no_bni}}</p>
+                            </div>
+                            <div class="flex justify-between mb-3">
+                                <p class="block mb-1 text-sm font-medium text-gray-700 dark:text-white">Bank Mandiri :</p>
+                                <p class="block mb-1 text-sm text-gray-500 dark:text-white">{{$transaction->market->no_mandiri}}</p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="p-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <h3 class="text-gray-600 dark:text-gray-200 mb-3">Bayar Sekarang</h3>
                         <div>

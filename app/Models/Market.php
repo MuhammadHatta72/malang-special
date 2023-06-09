@@ -15,6 +15,10 @@ class Market extends Model
         'address',
         'phone',
         'image',
+        'no_bca',
+        'no_bni',
+        'no_bri',
+        'no_mandiri',
     ];
 
     public function user()

@@ -109,7 +109,9 @@ class TransactionController extends Controller
         $this->authorize('admin_has_market');
         // $market = Market::where('user_id', auth()->user()->id)->first();
         $data = [
-            'transaction' => $transaction,
+            'transaction' => Transaction::with('market')
+                ->where('id', $transaction->id)
+                ->first(),
             'transactionItems' => TransactionItem::with(['cart.product'])
                 ->where('transaction_id', $transaction->id)
                 ->paginate(8)

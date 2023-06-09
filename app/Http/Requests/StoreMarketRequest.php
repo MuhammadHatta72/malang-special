@@ -28,6 +28,10 @@ class StoreMarketRequest extends FormRequest
             'phone' => 'required|string',
             'user_id' => 'required|exists:users,id|unique:markets,user_id',
             'image' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'no_bca' => 'required|string',
+            'no_bni' => 'required|string',
+            'no_bri' => 'required|string',
+            'no_mandiri' => 'required|string',
         ];
     }
 
@@ -49,6 +53,14 @@ class StoreMarketRequest extends FormRequest
             'image.image' => 'Image harus menggunakan format gambar!',
             'image.mimes' => 'Image harus menggunakan format jpeg,png,jpg!',
             'image.max' => 'Image maksimal 2048kb!',
+            'no_bca.required' => 'No Rekening BCA harus diisi!',
+            'no_bca.string' => 'No Rekening BCA harus menggunakan string!',
+            'no_bni.required' => 'No Rekening BNI harus diisi!',
+            'no_bni.string' => 'No Rekening BNI harus menggunakan string!',
+            'no_bri.required' => 'No Rekening BRI harus diisi!',
+            'no_bri.string' => 'No Rekening BRI harus menggunakan string!',
+            'no_mandiri.required' => 'No Rekening Mandiri harus diisi!',
+            'no_mandiri.string' => 'No Rekening Mandiri harus menggunakan string!',
         ];
     }
 }

@@ -59,6 +59,10 @@ class MarketController extends Controller
         $market->address = $request->address;
         $market->phone = $request->phone;
         $market->user_id = $request->user_id;
+        $market->no_bca = $request->no_bca;
+        $market->no_bni = $request->no_bni;
+        $market->no_bri = $request->no_bri;
+        $market->no_mandiri = $request->no_mandiri;
 
         if ($request->hasFile('image')) {
             $image_market = "market_" . time() . "." . $request->image->extension();
@@ -112,6 +116,10 @@ class MarketController extends Controller
         $market->address = $request->address;
         $market->phone = $request->phone;
         $market->user_id = $request->user_id;
+        $market->no_bca = $request->no_bca;
+        $market->no_bni = $request->no_bni;
+        $market->no_bri = $request->no_bri;
+        $market->no_mandiri = $request->no_mandiri;
         if ($request->hasFile('image_new')) {
             if ($market->image != 'not_found') {
                 File::delete(public_path('image_markets/' . $market->image));

@@ -26,7 +26,13 @@ class AppServiceProvider extends ServiceProvider
             return $user->role === '1';
         });
         Gate::define('admin', function (User $user) {
-            return $user->role === '2';
+            // return $user->role === '2';
+            $market = Market::where('user_id', $user->id)->first();
+            if (!$market) {
+                return $user->role === '2';
+            } else {
+                return false;
+            }
         });
         Gate::define('user', function (User $user) {
             return $user->role === '3';

@@ -61,35 +61,35 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('12345'),
         ]);
 
-        // Market
-        Market::create([
-            'user_id' => '2',
-            'name' => 'Toko Barokah',
-            'email' => 'toko@gmail.com',
-            'address' => 'Tuban',
-            'phone' => '085706000000',
-            'image' => 'not_found',
-        ]);
+        // // Market
+        // Market::create([
+        //     'user_id' => '2',
+        //     'name' => 'Toko Barokah',
+        //     'email' => 'toko@gmail.com',
+        //     'address' => 'Tuban',
+        //     'phone' => '085706000000',
+        //     'image' => 'not_found',
+        // ]);
 
 
-        //Product
-        Product::create([
-            'name' => 'Roti Kukus',
-            'price' => '50000',
-            'category' => 'Makanan',
-            'description' => '-',
-            'stock' => '10',
-            'remainder' => '10',
-            'image' => 'not_found',
-            'market_id' => 1
-        ]);
+        // //Product
+        // Product::create([
+        //     'name' => 'Roti Kukus',
+        //     'price' => '50000',
+        //     'category' => 'Makanan',
+        //     'description' => '-',
+        //     'stock' => '10',
+        //     'remainder' => '10',
+        //     'image' => 'not_found',
+        //     'market_id' => 1
+        // ]);
 
-        //Cart
-        Cart::create([
-            'product_id' => 1,
-            'user_id' => 3,
-            'quantity' => 1,
-            'status' => 'not-checked'
-        ]);
+        // //Cart
+        // Cart::create([
+        //     'product_id' => 1,
+        //     'user_id' => 3,
+        //     'quantity' => 1,
+        //     'status' => 'not-checked'
+        // ]);
     }
 }

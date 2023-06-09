@@ -19,6 +19,10 @@ return new class extends Migration
             $table->string('address');
             $table->string('phone');
             $table->string('image');
+            $table->string('no_bca');
+            $table->string('no_bni');
+            $table->string('no_bri');
+            $table->string('no_mandiri');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });

@@ -24,7 +24,7 @@
         <!-- End Success Message -->
         @endif
         @can('admin')
-        <h2 class="text-2xl text-gray-800 dark:text-gray-100">Dashboard Admin Toko</h2>
+        <h2 class="text-2xl text-gray-800 dark:text-gray-100">Dashboard</h2>
 
         <div class="w-full mt-4 px-6 py-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <h3 class="text-gray-600 dark:text-gray-200 mb-3">Malang Kota</h3>

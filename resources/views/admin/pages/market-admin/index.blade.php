@@ -51,6 +51,22 @@
                             <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat</label>
                             <h2 class="block mb-2 text-base text-gray-500 dark:text-white">{{ $market->address }}</h2>
                         </div>
+                        <div>
+                            <label for="no_bca" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor Rekening BCA</label>
+                            <h2 class="block mb-2 text-base text-gray-500 dark:text-white">{{ $market->no_bca }}</h2>
+                        </div>
+                        <div>
+                            <label for="no_bri" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor Rekening BRI</label>
+                            <h2 class="block mb-2 text-base text-gray-500 dark:text-white">{{ $market->no_bri }}</h2>
+                        </div>
+                        <div>
+                            <label for="no_bni" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor Rekening BNI</label>
+                            <h2 class="block mb-2 text-base text-gray-500 dark:text-white">{{ $market->no_bni }}</h2>
+                        </div>
+                        <div>
+                            <label for="no_mandiri" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor Rekening MANDIRI</label>
+                            <h2 class="block mb-2 text-base text-gray-500 dark:text-white">{{ $market->no_mandiri }}</h2>
+                        </div>
                     </div>
 
                     <a href="{{ url('/market-admin/'.$market->id.'/edit') }}" class="text-gray-100 bg-[#404A7F] border border-gray-300 focus:outline-none hover:bg-[#404A7F] focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-[#404A7F] dark:text-gray-100 dark:border-gray-600 dark:hover:bg-[#404A7F] dark:hover:border-gray-600 dark:focus:ring-gray-700">Edit Toko</a>
